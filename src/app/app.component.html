@@ -1,21 +1,96 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="theme-red">
+  <!-- Page Loader -->
 
-<router-outlet></router-outlet>
+  <!-- #END# Page Loader -->
+  <!-- Overlay For Sidebars -->
+  <div class="overlay"></div>
+  <!-- #END# Overlay For Sidebars -->
+  <!-- Search Bar -->
+
+  <!-- #END# Search Bar -->
+  <!-- Top Bar -->
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a
+          href="javascript:void(0);"
+          class="navbar-toggle collapsed"
+          data-toggle="collapse"
+          data-target="#navbar-collapse"
+          aria-expanded="false"
+        ></a>
+        <a href="javascript:void(0);" class="bars"></a>
+        <a class="navbar-brand" href="dashboard">CITY VIEWS</a>
+      </div>
+    </div>
+  </nav>
+  <!-- #Top Bar -->
+  <section>
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+      <!-- User Info -->
+      <div class="user-info">
+        <div class="image"></div>
+        <div class="info-container">
+          <div
+            class="name"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+          Hello!!!
+          </div>
+          <div class="btn-group user-helper-dropdown">
+            <i
+              class="material-icons"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="true"
+              >keyboard_arrow_down</i
+            >
+            <ul class="dropdown-menu pull-right">
+              <li>
+                <a href="javascript:void(0);"
+                  ><button (click)="signOut()">
+                    <i class="material-icons">input</i>Sign Out
+                  </button></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- #User Info -->
+      <!-- Menu -->
+      <div class="menu">
+        <ul class="list">
+          <li class="header">MAIN NAVIGATION</li>
+          <li>
+            <a href="/dashboard">
+              <i class="material-icons">home</i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="/dashboard/profile">
+              <i class="material-icons">account_circle</i>
+              <span>Profile</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- #Menu -->
+      <!-- Footer -->
+      <div class="legal">
+        <div class="copyright">
+          <a href="javascript:void(0);">Atlantix Solutions</a>.
+        </div>
+        <div class="version"><b>Version: </b> 1.0.0</div>
+      </div>
+      <!-- #Footer -->
+    </aside>
+  </section>
+</div>
+
+

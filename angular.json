@@ -115,6 +115,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "CityViewsAdmin"
+    }
+  },
+  "defaultProject": "CityViewsAdmin",
+  "cli": {
+    "analytics": false
+  }
 }
