@@ -3,12 +3,13 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { MeetingService } from '../../services/meeting.service';
 
+
 @Component({
-  selector: 'app-pastmeeting',
-  templateUrl: './pastmeeting.component.html',
-  styleUrls: ['./pastmeeting.component.css']
+  selector: 'app-upcomingmeeting',
+  templateUrl: './upcomingmeeting.component.html',
+  styleUrls: ['./upcomingmeeting.component.css']
 })
-export class PastmeetingComponent implements OnInit {
+export class UpcomingmeetingComponent implements OnInit {
   items : any[] = [];
   arr : any[] = [];
   i : number;
@@ -23,7 +24,7 @@ export class PastmeetingComponent implements OnInit {
   constructor(public _meetingserv:MeetingService) { }
 
   ngOnInit() {
-    this._meetingserv.getPastMeeting()
+    this._meetingserv.getUpcomingMeeting()
     .subscribe((res:any) => {
       this.arr = res;
       if(this.arr.length > 0){
@@ -42,6 +43,4 @@ export class PastmeetingComponent implements OnInit {
   }
 
   
-
 }
-

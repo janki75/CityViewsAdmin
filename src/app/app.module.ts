@@ -7,18 +7,25 @@ import { MeetingComponent } from './views/meeting/meeting.component';
 import { HttpClientModule } from "@angular/common/http";
 import { HeaderComponent } from './components/header/header.component';
 import { PastmeetingComponent } from './views/pastmeeting/pastmeeting.component';
-
+import {MatTableModule} from '@angular/material/table';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material';
+import { UpcomingmeetingComponent } from './views/upcomingmeeting/upcomingmeeting.component';
 @NgModule({
   declarations: [
     AppComponent,
     MeetingComponent,
     HeaderComponent,
-    PastmeetingComponent
+    PastmeetingComponent,
+    UpcomingmeetingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
