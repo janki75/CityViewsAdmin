@@ -1,9 +1,12 @@
+<app-header></app-header>
+<section class="content">
+    <div class="container-fluid">
 <div class="row clearfix">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
                 <h2>
-                    Arrange a Meeting
+                 <b>   Arrange a Meeting</b>
                 </h2>
                 <ul class="header-dropdown m-r--5">
                     <li class="dropdown">
@@ -19,43 +22,73 @@
                 </ul>
             </div>
             <div class="body">
-                <form>
+                <form method="POST" #addEmpForm="ngForm" >
                     <label for="startTime">Choose Starting Time</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input name="startTime" [(ngModel)]="startTime" type="datetime-local" id="startTime" class="form-control" placeholder="Choose Start Time">
+                            <input #st="ngModel" required id="startTime" name="startTime" [(ngModel)]="startTime" type="datetime-local" id="startTime" class="form-control" placeholder="Choose Start Time">
                         </div>
+                        <div [hidden]="st.valid || st.untouched">
+                            <div [hidden]="!st.errors?.required"  class="text-danger">
+                                  <font size=2>*please choose start time</font>
+                                </div>
+                               </div>
                     </div>
+            
                     <label for="endTime">Choose Ending Time</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input name="endTime" [(ngModel)]="endTime" type="datetime-local" id="endTime" class="form-control" placeholder="Choose End Time">
+                            <input #et="ngModel" required name="endTime" [(ngModel)]="endTime" type="datetime-local" id="endTime" class="form-control" placeholder="Choose End Time">
                         </div>
+                        <div [hidden]="et.valid || et.untouched">
+                            <div [hidden]="!et.errors?.required"  class="text-danger">
+                                  <font size=2>*please choose end time</font>
+                                </div>
+                               </div>
                     </div>
                     <label for="topic">Enter Meeting Topic</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input name="topic" [(ngModel)]="topic" type="text" id="topic" class="form-control" placeholder="Enter Meeting Topic">
+                            <input #t="ngModel" required name="topic" [(ngModel)]="topic" type="text" id="topic" class="form-control" placeholder="Enter Meeting Topic">
                         </div>
+                        <div [hidden]="t.valid || t.untouched">
+                            <div [hidden]="!t.errors?.required"  class="text-danger">
+                                  <font size=2>*please enter meeting topic</font>
+                                </div>
+                               </div>
                     </div>
+                   
                     <label for="agenda">Enter Meeting Agenda</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input name="agenda" [(ngModel)]="agenda" type="text" id="agenda" class="form-control" placeholder="Enter Meeting Agenda">
+                            <input required #agen="ngModel" name="agenda" [(ngModel)]="agenda" type="text" id="agenda" class="form-control" placeholder="Enter Meeting Agenda">
                         </div>
+                        <div [hidden]="agen.valid || agen.untouched">
+                            <div [hidden]="!agen.errors?.required"  class="text-danger">
+                                  <font size=2>*please enter meeting agenda</font>
+                                </div>
+                               </div>
                     </div>
+                    
                     <label for="minutesOfMeeting">Add Minutes of Meeting</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input name="minutesOfMeeting" [(ngModel)]="minutesOfMeeting" type="text" id="minutesOfMeeting" class="form-control" placeholder="Add Minutes of Meeting">
+                            <input #mom="ngModel" required name="minutesOfMeeting" [(ngModel)]="minutesOfMeeting" type="text" id="minutesOfMeeting" class="form-control" placeholder="Add Minutes of Meeting">
                         </div>
+                        <div [hidden]="mom.valid || mom.untouched">
+                            <div [hidden]="!mom.errors?.required"  class="text-danger">
+                                  <font size=2>*please enter minutes of meeting</font>
+                                </div>
+                               </div>
                     </div>
 
                    
                     <br>
-                    <button (click)="addItem()" type="button" class="btn btn-primary m-t-15 waves-effect">Add Meeting</button>
+                    <button [disabled] = "addEmpForm.invalid" (click)="addItem()" type="button" class="btn btn-primary m-t-15 waves-effect">Add Meeting</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+</div>
+</section>
