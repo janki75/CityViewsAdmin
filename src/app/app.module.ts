@@ -13,6 +13,7 @@ import {MatTableModule} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material';
 import { UpcomingmeetingComponent } from './views/upcomingmeeting/upcomingmeeting.component';
+import { EditmeetingComponent } from './views/editmeeting/editmeeting.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { UpcomingmeetingComponent } from './views/upcomingmeeting/upcomingmeetin
     AddmeetingComponent,
     HeaderComponent,
     PastmeetingComponent,
-    UpcomingmeetingComponent
+    UpcomingmeetingComponent,
+    EditmeetingComponent
   ],
   imports: [
     BrowserModule,
