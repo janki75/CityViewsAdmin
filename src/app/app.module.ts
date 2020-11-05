@@ -5,15 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MeetingComponent } from './views/meeting/meeting.component';
 import { HttpClientModule } from "@angular/common/http";
+import { AddmeetingComponent } from './views/addmeeting/addmeeting.component';
+import { FormsModule } from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
-    MeetingComponent
+    MeetingComponent,
+    AddmeetingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
