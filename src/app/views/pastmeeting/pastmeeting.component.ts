@@ -37,7 +37,7 @@ export class PastmeetingComponent implements OnInit {
           let enddate = new Date(this.arr[this.i].endTime);
           let d = startdate.getDate() + "-" + (startdate.getMonth() + 1) + "-" + startdate.getFullYear() + " " + startdate.getHours() + ":" + startdate.getMinutes() + ":" + startdate.getSeconds();
           let d1 = enddate.getDate() + "-" + (enddate.getMonth() + 1 )+ "-" + enddate.getFullYear()  + " " + enddate.getHours() + ":" + enddate.getMinutes() + ":" + enddate.getSeconds();
-          const data1 = {agenda:res[this.i].agenda,topic:res[this.i].topic,minutesOfMeeting:res[this.i].minutesOfMeeting,startTime:d,endTime:d1}
+          const data1 = {meetingId:res[this.i].meetingId,agenda:res[this.i].agenda,topic:res[this.i].topic,minutesOfMeeting:res[this.i].minutesOfMeeting,startTime:d,endTime:d1}
           this.items.push(data1);
           this.dataSource.data = this.items;
         }

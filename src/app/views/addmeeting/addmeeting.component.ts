@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MeetingService } from 'src/app/services/meeting.service';
 import { meeting } from 'src/app/services/classes/meeting';
 
+  import * as moment from 'moment';
 @Component({
   selector: 'app-addmeeting',
   templateUrl: './addmeeting.component.html',
@@ -11,31 +12,35 @@ export class AddmeetingComponent implements OnInit {
 
   constructor(private _meetserv:MeetingService) { }
    meetingId:number;
-  startTime:Date;
-  endTime:Date;
+  startTime:any;
+  endTime:any;
   topic:string;
   agenda:string;
   minutesOfMeeting:string;
-
+  startdate:any;
+d:string;
+d1:string;
+msg:string;
 
   ngOnInit() {
   }
   addItem()
   {
-   
-  
-  // let startdate = new Date(this.startTime);
-  //         let enddate = new Date(this.endTime);
-  //         let d = startdate.getDate() + "-" + (startdate.getMonth() + 1) + "-" + startdate.getFullYear() + " " + startdate.getHours() + ":" + startdate.getMinutes() + ":" + startdate.getSeconds();
-  //         let d1 = enddate.getDate() + "-" + (enddate.getMonth() + 1 )+ "-" + enddate.getFullYear()  + " " + enddate.getHours() + ":" + enddate.getMinutes() + ":" + enddate.getSeconds();
- 
-  
-    // this._meetserv.addMeeting(new meeting(this.meetingId,d,d1,this.topic,this.agenda,this.minutesOfMeeting)).subscribe(
-    //   (data:meeting)=>{
-       
-    //     // console.log(data);
-    //   }
-    // );
+           const data = {
+            startTime : this.startTime,
+            endTime : this.endTime,
+            topic : this.topic,
+            agenda : this.agenda,
+            minutesOfMeeting : this.minutesOfMeeting
+           }
+
+     this._meetserv.addMeeting(data).subscribe(
+       (data:meeting)=>{
+
+          console.log(data);
+       }
+     );
+     this.msg = "Meeting is arranged successfully!!"
   }
 
 }

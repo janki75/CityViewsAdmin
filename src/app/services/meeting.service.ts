@@ -11,11 +11,11 @@ pastmeeting_url:string="http://localhost:8081/adminportal/meeting/completed/";
 upcomingmeeting_url:string="http://localhost:8081/adminportal/meeting/upcoming/";
 
   constructor(private _http:HttpClient) { }
-  getMeetingById(id:number)
+  getMeetingById(id)
   {
    return this._http.get(this.meeting_url+id);
   }
-  addMeeting(item:meeting)
+  addMeeting(item:any)
   {
     let body=JSON.stringify(item);
     let head1=new HttpHeaders().set('Content-Type','application/json');

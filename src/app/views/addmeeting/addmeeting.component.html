@@ -8,41 +8,31 @@
                 <h2>
                  <b>   Arrange a Meeting</b>
                 </h2>
-                <ul class="header-dropdown m-r--5">
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <i class="material-icons">more_vert</i>
-                        </a>
-                        <ul class="dropdown-menu pull-right">
-                            <li><a href="javascript:void(0);">Action</a></li>
-                            <li><a href="javascript:void(0);">Another action</a></li>
-                            <li><a href="javascript:void(0);">Something else here</a></li>
-                        </ul>
-                    </li>
-                </ul>
+               
             </div>
             <div class="body">
                 <form method="POST" #addEmpForm="ngForm" >
-                    <label for="startTime">Choose Starting Time</label>
+                    <label for="startTime">Enter Starting Time</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input #st="ngModel" required id="startTime" name="startTime" [(ngModel)]="startTime" type="datetime-local" id="startTime" class="form-control" placeholder="Choose Start Time">
+                            <input #st="ngModel" required name="startTime" [(ngModel)]="startTime" type="text" id="startTime" class="form-control" placeholder="Enter date and time in specific format For eg. DD/MM/YYYY HH:MM:SS">
                         </div>
                         <div [hidden]="st.valid || st.untouched">
                             <div [hidden]="!st.errors?.required"  class="text-danger">
-                                  <font size=2>*please choose start time</font>
+                                  <font size=2>*please enter starting time</font>
                                 </div>
                                </div>
                     </div>
             
-                    <label for="endTime">Choose Ending Time</label>
+                    <label for="endTime">Enter Ending Time</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input #et="ngModel" required name="endTime" [(ngModel)]="endTime" type="datetime-local" id="endTime" class="form-control" placeholder="Choose End Time">
+                            <input #et="ngModel" required name="endTime" [(ngModel)]="endTime" type="text" id="endTime" class="form-control" placeholder="Enter date and time in specific format For eg. DD/MM/YYYY HH:MM:SS">
                         </div>
+                        
                         <div [hidden]="et.valid || et.untouched">
                             <div [hidden]="!et.errors?.required"  class="text-danger">
-                                  <font size=2>*please choose end time</font>
+                                  <font size=2>*please enter ending time</font>
                                 </div>
                                </div>
                     </div>
@@ -85,6 +75,8 @@
                    
                     <br>
                     <button [disabled] = "addEmpForm.invalid" (click)="addItem()" type="button" class="btn btn-primary m-t-15 waves-effect">Add Meeting</button>
+
+                    <p style="color: red; font-size: large; text-align: center;">{{ msg }}</p>
                 </form>
             </div>
         </div>
