@@ -12,8 +12,13 @@ export class AddmeetingComponent implements OnInit {
 
   constructor(private _meetserv:MeetingService) { }
    meetingId:number;
+<<<<<<< HEAD
   startTime:any;
   endTime:any;
+=======
+  startTime:string;
+  endTime:string;
+>>>>>>> 479fa3f491ac5af1ef79961d9d19a254de324455
   topic:string;
   agenda:string;
   minutesOfMeeting:string;
@@ -25,6 +30,7 @@ d1:string;
   }
   addItem()
   {
+<<<<<<< HEAD
    
   
           this.startdate = new Date(this.startTime);
@@ -54,6 +60,19 @@ d1:string;
           console.log(data);
        }
      );
+=======
+    let startdate = new Date(this.startTime);
+    let enddate = new Date(this.endTime);
+          let d = startdate.getDate() + "/" + (startdate.getMonth() + 1) + "/" + startdate.getFullYear() + " " + "05" + ":" + "30"+ ":" + "05";
+          let d1 = enddate.getDate() + "/" + (enddate.getMonth() + 1 )+ "/" + enddate.getFullYear()  + " " + enddate.getHours() + ":" + enddate.getMinutes() + ":" + enddate.getSeconds();
+
+  this._meetserv.addMeeting(new meeting(this.meetingId,d,d,this.topic,this.agenda,this.minutesOfMeeting)).subscribe(
+      (data:meeting)=>{
+       
+         console.log(data);
+      }
+    );
+>>>>>>> 479fa3f491ac5af1ef79961d9d19a254de324455
   }
 
 }

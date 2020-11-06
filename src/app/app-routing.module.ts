@@ -4,8 +4,14 @@ import { MeetingComponent } from './views/meeting/meeting.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PastmeetingComponent } from './views/pastmeeting/pastmeeting.component';
 import { UpcomingmeetingComponent } from './views/upcomingmeeting/upcomingmeeting.component';
+import { AddmeetingComponent } from './views/addmeeting/addmeeting.component';
+import { EditmeetingComponent } from './views/editmeeting/editmeeting.component';
 
 const routes: Routes = [
+    {
+      path:'',
+      component:HeaderComponent
+    },
     {
       path: "dashboard",
       component: HeaderComponent
@@ -21,6 +27,14 @@ const routes: Routes = [
     {
       path: "dashboard/meeting/upcomingmeeting",
       component: UpcomingmeetingComponent
+    },
+    {
+      path: "dashboard/meeting/addmeeting",
+      component: AddmeetingComponent
+    },
+    {
+      path: "dashboard/meeting/editmeet/:id",
+      component: EditmeetingComponent
     }
 ];
 

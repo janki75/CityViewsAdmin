@@ -15,11 +15,7 @@
                     <label for="startTime">Choose Starting Time</label>
                     <div class="form-group">
                         <div class="form-line">
-<<<<<<< HEAD
-                            <input name="startTime" [(ngModel)]="startTime" type="text" id="startTime" class="form-control" placeholder="Enter Meeting Topic">
-=======
                             <input #st="ngModel" required id="startTime" name="startTime" [(ngModel)]="startTime" type="datetime-local" id="startTime" class="form-control" placeholder="Choose Start Time">
->>>>>>> 479fa3f491ac5af1ef79961d9d19a254de324455
                         </div>
                         <div [hidden]="st.valid || st.untouched">
                             <div [hidden]="!st.errors?.required"  class="text-danger">
@@ -31,7 +27,7 @@
                     <label for="endTime">Choose Ending Time</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input #et="ngModel" required name="endTime" [(ngModel)]="endTime" type="datetime-local" id="endTime" class="form-control" placeholder="Choose End Time">
+                            <input #et="ngModel" required name="endTime" [(ngModel)]="endTime" type="date" id="endTime" class="form-control" placeholder="Choose End Time">
                         </div>
                         <div [hidden]="et.valid || et.untouched">
                             <div [hidden]="!et.errors?.required"  class="text-danger">

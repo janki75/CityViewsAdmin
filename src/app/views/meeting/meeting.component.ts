@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MeetingService } from 'src/app/services/meeting.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { MeetingService } from 'src/app/services/meeting.service';
 })
 export class MeetingComponent implements OnInit {
 
-  constructor(public _meetingserv:MeetingService) { }
+  constructor(public _route:Router,public _meetingserv:MeetingService) { }
 
   ngOnInit() {
     this._meetingserv.getMeetingById(2).subscribe(
@@ -17,6 +18,10 @@ export class MeetingComponent implements OnInit {
         console.log(data);
       }
     );
+  }
+  addmeeting()
+  {
+    this._route.navigate(['/dashboard/meeting/addmeeting']);
   }
 
 }
