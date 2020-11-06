@@ -21,7 +21,7 @@ export class MeetingComponent implements OnInit {
   }
   addmeeting()
   {
-    this._route.navigate(['/dashboard/meeting/addmeeting']);
+    this._route.navigate(['dashboard/meeting/addmeeting']);
   }
 
 }
