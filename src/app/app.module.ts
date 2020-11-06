@@ -16,6 +16,7 @@ import { UpcomingmeetingComponent } from './views/upcomingmeeting/upcomingmeetin
 
 import { EditmeetingComponent } from './views/editmeeting/editmeeting.component';
 import { ComplaintComponent } from './views/complaint/complaint.component';
+import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/editupcomingmeetings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { ComplaintComponent } from './views/complaint/complaint.component';
     PastmeetingComponent,
     UpcomingmeetingComponent,
     EditmeetingComponent,
-    ComplaintComponent
+    ComplaintComponent,
+    EditupcomingmeetingsComponent
   ],
   imports: [
     BrowserModule,

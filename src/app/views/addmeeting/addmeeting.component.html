@@ -8,7 +8,7 @@
                 <h2>
                  <b>   Arrange a Meeting</b>
                 </h2>
-               
+
             </div>
             <div class="body">
                 <form method="POST" #addEmpForm="ngForm" >
@@ -23,13 +23,13 @@
                                 </div>
                                </div>
                     </div>
-            
+
                     <label for="endTime">Enter Ending Time</label>
                     <div class="form-group">
                         <div class="form-line">
                             <input #et="ngModel" required name="endTime" [(ngModel)]="endTime" type="text" id="endTime" class="form-control" placeholder="Enter date and time in specific format For eg. DD/MM/YYYY HH:MM:SS">
                         </div>
-                        
+
                         <div [hidden]="et.valid || et.untouched">
                             <div [hidden]="!et.errors?.required"  class="text-danger">
                                   <font size=2>*please enter ending time</font>
@@ -47,7 +47,7 @@
                                 </div>
                                </div>
                     </div>
-                   
+
                     <label for="agenda">Enter Meeting Agenda</label>
                     <div class="form-group">
                         <div class="form-line">
@@ -59,7 +59,7 @@
                                 </div>
                                </div>
                     </div>
-                    
+
                     <label for="minutesOfMeeting">Add Minutes of Meeting</label>
                     <div class="form-group">
                         <div class="form-line">
@@ -72,7 +72,7 @@
                                </div>
                     </div>
 
-                   
+
                     <br>
                     <button [disabled] = "addEmpForm.invalid" (click)="addItem()" type="button" class="btn btn-primary m-t-15 waves-effect">Add Meeting</button>
 

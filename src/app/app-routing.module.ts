@@ -7,6 +7,7 @@ import { UpcomingmeetingComponent } from './views/upcomingmeeting/upcomingmeetin
 import { AddmeetingComponent } from './views/addmeeting/addmeeting.component';
 import { EditmeetingComponent } from './views/editmeeting/editmeeting.component';
 import { ComplaintComponent } from './views/complaint/complaint.component';
+import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/editupcomingmeetings.component';
 
 const routes: Routes = [
     {
@@ -36,6 +37,10 @@ const routes: Routes = [
     {
       path: "dashboard/meeting/editmeet/:id",
       component: EditmeetingComponent
+    },
+    {
+      path: "dashboard/meeting/editupcomingmeeting/:id",
+      component: EditupcomingmeetingsComponent
     },
     {
       path: "dashboard/complaint",

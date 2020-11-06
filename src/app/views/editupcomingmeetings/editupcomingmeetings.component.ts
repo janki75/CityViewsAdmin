@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { MeetingService } from 'src/app/services/meeting.service';
-import { meeting } from 'src/app/services/classes/meeting';
-
+import { MeetingService } from '../../services/meeting.service';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+import { meeting } from '../../services/classes/meeting';
 
 @Component({
-  selector: 'app-editmeeting',
-  templateUrl: './editmeeting.component.html',
-  styleUrls: ['./editmeeting.component.css']
+  selector: 'app-editupcomingmeetings',
+  templateUrl: './editupcomingmeetings.component.html',
+  styleUrls: ['./editupcomingmeetings.component.css']
 })
-export class EditmeetingComponent implements OnInit {
+export class EditupcomingmeetingsComponent implements OnInit {
   meetingId:number;
   startTime:any;
   endTime:any;
@@ -38,7 +37,6 @@ export class EditmeetingComponent implements OnInit {
       }
     );
 
-
   }
   updateItem(){
     this._meetserv.editMeeting(new meeting(this.meetingId,this.startTime,this.endTime,this.topic,this.agenda,this.minutesOfMeeting)).subscribe(
@@ -48,7 +46,7 @@ export class EditmeetingComponent implements OnInit {
       }
     );
     alert("Meeting updated successfully!");
-    this._route.navigate(['/dashboard/meeting/pastmeeting']);
+    this._route.navigate(['/dashboard/meeting/upcomingmeeting']);
   }
 
 
