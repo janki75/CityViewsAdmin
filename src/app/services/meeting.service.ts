@@ -15,7 +15,7 @@ upcomingmeeting_url:string="http://localhost:8081/adminportal/meeting/upcoming/"
   {
    return this._http.get(this.meeting_url+id);
   }
-  addMeeting(item:meeting)
+  addMeeting(item:any)
   {
     let body=JSON.stringify(item);
     let head1=new HttpHeaders().set('Content-Type','application/json');
