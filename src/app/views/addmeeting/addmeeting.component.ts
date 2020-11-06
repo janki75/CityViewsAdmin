@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MeetingService } from 'src/app/services/meeting.service';
 import { meeting } from 'src/app/services/classes/meeting';
 
-  import * as moment from 'moment';
+  
 @Component({
   selector: 'app-addmeeting',
   templateUrl: './addmeeting.component.html',
@@ -37,7 +37,7 @@ msg:string;
      this._meetserv.addMeeting(data).subscribe(
        (data:meeting)=>{
 
-          console.log(data);
+         
        }
      );
      this.msg = "Meeting is arranged successfully!!"

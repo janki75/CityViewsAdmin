@@ -11,11 +11,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { PastmeetingComponent } from './views/pastmeeting/pastmeeting.component';
 import {MatTableModule} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatPaginatorModule } from '@angular/material';
+import { MatPaginatorModule, MatFormFieldModule,MatInputModule,MatSortModule,
+  MatIconModule } from '@angular/material';
 import { UpcomingmeetingComponent } from './views/upcomingmeeting/upcomingmeeting.component';
 
 import { EditmeetingComponent } from './views/editmeeting/editmeeting.component';
 import { ComplaintComponent } from './views/complaint/complaint.component';
+import { ManageemployeepositionComponent } from './views/manageemployeeposition/manageemployeeposition.component';
+import { EditemployeepositionComponent } from './views/editemployeeposition/editemployeeposition.component';
+import { AddemployeepositionComponent } from './views/addemployeeposition/addemployeeposition.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +29,10 @@ import { ComplaintComponent } from './views/complaint/complaint.component';
     PastmeetingComponent,
     UpcomingmeetingComponent,
     EditmeetingComponent,
-    ComplaintComponent
+    ComplaintComponent,
+    ManageemployeepositionComponent,
+    EditemployeepositionComponent,
+    AddemployeepositionComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +41,11 @@ import { ComplaintComponent } from './views/complaint/complaint.component';
     FormsModule,
     BrowserAnimationsModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSortModule,
+  MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

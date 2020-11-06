@@ -1,3 +1,4 @@
+import { ManageemployeepositionComponent } from './views/manageemployeeposition/manageemployeeposition.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MeetingComponent } from './views/meeting/meeting.component';
@@ -7,6 +8,8 @@ import { UpcomingmeetingComponent } from './views/upcomingmeeting/upcomingmeetin
 import { AddmeetingComponent } from './views/addmeeting/addmeeting.component';
 import { EditmeetingComponent } from './views/editmeeting/editmeeting.component';
 import { ComplaintComponent } from './views/complaint/complaint.component';
+import { EditemployeepositionComponent } from './views/editemployeeposition/editemployeeposition.component';
+import { AddemployeepositionComponent } from './views/addemployeeposition/addemployeeposition.component';
 
 const routes: Routes = [
     {
@@ -40,6 +43,18 @@ const routes: Routes = [
     {
       path: "dashboard/complaint",
       component:ComplaintComponent
+    },
+    {
+      path: "dashboard/employeeposition",
+      component:ManageemployeepositionComponent
+    },
+    {
+      path:'dashboard/employeeposition/editemployeeposition/:id',
+      component:EditemployeepositionComponent
+    },
+    {
+      path:'dashboard/employeeposition/addemployeepositionComponent',
+      component:AddemployeepositionComponent
     }
 ];
 
