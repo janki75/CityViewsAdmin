@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<section class="content">
+    <div class="container-fluid">
+        <!-- No Header Card -->
+
+        <div class="container-fluid">
+          <div class="block-header">
+              <h2>Complaints</h2>
+          </div>
+          <!-- Example Tab -->
+          <div class="row">
+              <div *ngFor="let item of complaint_arr" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="card">
+                      <div class="header">
+                          <h2>
+
+                              Date: {{item.date| date: "dd-MM-yyyy" }}
+
+                          </h2>
+
+                      </div>
+                      <div class="body">
+                          <!-- Nav tabs -->
+                          <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                              <li role="presentation"><a>UPVOTE:{{item.upVote}}</a></li>
+                              <li role="presentation"><a>DOWNVOTE:{{item.downVote}}</a></li>
+                              <li role="presentation"><a>
+
+                                <button type="button" class="btn btn-warning waves-effect">IN-PROGRESS</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button type="button" class="btn btn-success waves-effect">RESOLVED</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button type="button" class="btn btn-danger waves-effect">REJECTED</button>
+                              </a></li>
+                          </ul>
+
+                          <!-- Tab panes -->
+                          <div class="tab-content">
+                              <div role="tabpanel" class="tab-pane fade in active" id="home">
+                                  <b>Complaint Description</b>
+                                  <p>
+                                   {{item.description}}
+                                  </p>
+                                  <b>Complainant: {{item.submitter}}</b>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- #END# Example Tab -->
+
+      </div>
+
+        </div>
+        <!-- #END# No Header Card -->
+
+</section>
