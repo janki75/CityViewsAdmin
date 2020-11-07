@@ -12,8 +12,8 @@ export class AddmeetingComponent implements OnInit {
 
   constructor(private _meetserv:MeetingService) { }
    meetingId:number;
-  startTime:any;
-  endTime:any;
+  startTime:string;
+  endTime:string;
   topic:string;
   agenda:string;
   minutesOfMeeting:string;
@@ -23,6 +23,7 @@ d1:string;
 msg:string;
 
   ngOnInit() {
+
   }
   addItem()
   {
@@ -33,14 +34,25 @@ msg:string;
             agenda : this.agenda,
             minutesOfMeeting : this.minutesOfMeeting
            }
+var startsub=this.startTime.substring(0,10);
+var endsub=this.endTime.substring(0,10);
+console.log(startsub);
+  if(this.endTime>this.startTime && startsub==endsub)
+  {
+    this._meetserv.addMeeting(data).subscribe(
+      (data:meeting)=>{
 
-     this._meetserv.addMeeting(data).subscribe(
-       (data:meeting)=>{
+         console.log(data);
+      }
+    );
+    this.msg = "Meeting is arranged successfully!!"
+  }
+  else{
+    this.msg="Meeting should be completed on same day and Endtime should be greater than Starttime !!";
 
-          console.log(data);
-       }
-     );
-     this.msg = "Meeting is arranged successfully!!"
+  }
+
+
     }
 
 
