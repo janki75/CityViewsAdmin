@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { MeetingService } from 'src/app/services/meeting.service';
-import { meeting } from 'src/app/services/classes/meeting';
-
+import { MeetingService } from '../../services/meeting.service';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+import { meeting } from '../../services/classes/meeting';
 
 @Component({
-  selector: 'app-editmeeting',
-  templateUrl: './editmeeting.component.html',
-  styleUrls: ['./editmeeting.component.css']
+  selector: 'app-editupcomingmeetings',
+  templateUrl: './editupcomingmeetings.component.html',
+  styleUrls: ['./editupcomingmeetings.component.css']
 })
-export class EditmeetingComponent implements OnInit {
+export class EditupcomingmeetingsComponent implements OnInit {
   meetingId:number;
-  startTime:string;
-  endTime:string;
+  startTime:any;
+  endTime:any;
   topic:string;
   agenda:string;
   minutesOfMeeting:string;
@@ -38,7 +37,6 @@ export class EditmeetingComponent implements OnInit {
       }
     );
 
-
   }
   updateItem(){
     var startsub=this.startTime.substring(0,10);
@@ -52,14 +50,12 @@ export class EditmeetingComponent implements OnInit {
 
       }
     );
-
-    alert("Meeting updated successfully!")
-    this._route.navigate(['/dashboard/meeting/pastmeeting']);
+    alert("Meeting updated successfully!");
+    this._route.navigate(['/dashboard/meeting/upcomingmeeting']);
   }
   else{
     this.msg="Meeting should be completed on same day and Endtime should be greater than Starttime !!";
   }
-
   }
 
 

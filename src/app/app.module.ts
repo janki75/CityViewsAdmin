@@ -26,6 +26,7 @@ import { EmployeeComponent } from './views/employee/employee.component';
 import { UpdateemployeeComponent } from './views/updateemployee/updateemployee.component';
 import {MatSelectModule} from '@angular/material/select';
 import { AddemployeeComponent } from './views/addemployee/addemployee.component';
+import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/editupcomingmeetings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { AddemployeeComponent } from './views/addemployee/addemployee.component'
     ComplaintComponent,
     EmployeeComponent,
     UpdateemployeeComponent,
-    AddemployeeComponent
+    AddemployeeComponent,
+    EditupcomingmeetingsComponent
   ],
   imports: [
     BrowserModule,

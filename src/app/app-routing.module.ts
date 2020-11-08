@@ -10,6 +10,7 @@ import { ComplaintComponent } from './views/complaint/complaint.component';
 import { EmployeeComponent } from './views/employee/employee.component';
 import { UpdateemployeeComponent } from './views/updateemployee/updateemployee.component';
 import { AddemployeeComponent } from './views/addemployee/addemployee.component';
+import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/editupcomingmeetings.component';
 
 const routes: Routes = [
     {
@@ -39,6 +40,10 @@ const routes: Routes = [
     {
       path: "dashboard/meeting/editmeet/:id",
       component: EditmeetingComponent
+    },
+    {
+      path: "dashboard/meeting/editupcomingmeeting/:id",
+      component: EditupcomingmeetingsComponent
     },
     {
       path: "dashboard/complaint",
