@@ -1,0 +1,151 @@
+<app-header></app-header>
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      EMPLOYEE DETAILS&nbsp;&nbsp;
+      <button
+        type="button"
+        class="btn bg-indigo waves-effect"
+        (click)="addEmp()"
+      >
+        Add New Employee</button
+      >&nbsp;&nbsp;
+    </div>
+    <!-- Basic Table -->
+    <div class="row-clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        
+        <mat-form-field>
+          <mat-label>Filter</mat-label>
+          <input
+            matInput
+            (keyup)="applyFilter($event)"
+            placeholder="Search...."
+            #input
+          />
+        </mat-form-field>
+
+        <div class="mat-elevation-z8" style="background-color:white;">
+          <table mat-table [dataSource]="dataSource" matSort>
+            
+            <!-- ID Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>NAME</th>
+              <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+            </ng-container>
+
+            <!-- Progress Column -->
+            <ng-container matColumnDef="contact">
+              <th mat-header-cell *matHeaderCellDef>MOBILE NO.</th>
+              <td mat-cell *matCellDef="let row">{{ row.contact }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="address">
+                <th mat-header-cell *matHeaderCellDef>Address</th>
+                <td mat-cell *matCellDef="let row">{{ row.address }}</td>
+              </ng-container>
+            
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef>Employee Position</th>
+                <td mat-cell *matCellDef="let row">{{ row.position }}</td>
+              </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="active" style="margin-left: -10%;">
+              <th mat-header-cell *matHeaderCellDef>Status</th>
+              <td mat-cell *matCellDef="let row">
+                <span
+                  class="label label-success"
+                  *ngIf="row.active == true"
+                  >Active</span
+                ><span
+                  class="label label-warning"
+                  *ngIf="row.active == false"
+                  >Inactive</span
+                >
+              </td>
+            </ng-container>
+
+
+             <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+                ACTION
+              </th>
+              <td mat-cell *matCellDef="let row"><br>
+                <div>
+                    <button
+                   type="button"
+                    class="btn bg-green waves-effect"
+                    (click)="updateEmpDetails(row)"
+                    
+                  >
+                    Edit-Details</button
+                  ><br>
+                  <button
+                  *ngIf="row.active == false"
+                    type="button"
+                    class="btn bg-cyan waves-effect"
+                    (click)="updateStatus(row)"
+                    
+                  >
+                    Active</button
+                  >
+                  
+                  <button
+                  *ngIf="row.active == true"
+                    type="button"
+                    class="btn bg-cyan waves-effect"
+                    disabled="true"
+                    
+                  >
+                    Active</button
+                  ><br>
+                  <button
+                  *ngIf="row.active == false"
+                    type="button"
+                    class="btn bg-red waves-effect"
+                    data-toggle="modal"
+                
+                disabled="true"
+                  >
+                    Inactive
+                  </button>
+                  <button
+                  *ngIf="row.active == true"
+                    type="button"
+                    class="btn bg-red waves-effect"
+                    (click)="updateStatus(row)"
+                    data-toggle="modal"
+                
+                  >
+                    Inactive
+                  </button>
+                </div><br>
+              </td>
+            </ng-container> 
+            <!-- Color Column -->
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">
+                No data matching the filter "{{ input.value }}"
+              </td>
+            </tr>
+          </table>
+
+          <br>        
+          <h1><p style="color : red; text-align: center; font-size:30px; background-color: white;">{{ err }}</p></h1>
+          <br>
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    <!-- #END# Basic Table -->
+  </div>
+</section>

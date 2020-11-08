@@ -7,6 +7,9 @@ import { UpcomingmeetingComponent } from './views/upcomingmeeting/upcomingmeetin
 import { AddmeetingComponent } from './views/addmeeting/addmeeting.component';
 import { EditmeetingComponent } from './views/editmeeting/editmeeting.component';
 import { ComplaintComponent } from './views/complaint/complaint.component';
+import { EmployeeComponent } from './views/employee/employee.component';
+import { UpdateemployeeComponent } from './views/updateemployee/updateemployee.component';
+import { AddemployeeComponent } from './views/addemployee/addemployee.component';
 
 const routes: Routes = [
     {
@@ -40,7 +43,20 @@ const routes: Routes = [
     {
       path: "dashboard/complaint",
       component:ComplaintComponent
+    },
+    {
+      path: "dashboard/employee",
+      component:EmployeeComponent
+    },
+    {
+      path: "dashboard/employee/updateemployee",
+      component:UpdateemployeeComponent
+    },
+    {
+      path: "dashboard/employee/addemployee",
+      component:AddemployeeComponent
     }
+
 ];
 
 @NgModule({

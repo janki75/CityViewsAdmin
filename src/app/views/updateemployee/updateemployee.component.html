@@ -1,0 +1,119 @@
+<app-header></app-header>
+<section class="content">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="header">
+          <h3>Update Employee Details</h3>
+        </div>
+        <div class="body">
+          <form #updateEmpForm="ngForm" (ngSubmit)="editDetails(updateEmpForm.value)">
+            <div class="row clearfix">
+              <div class="col-sm-12">
+                
+                <div class="form-group">
+                  <div class="form-line">
+                    <label for="empname">Employee Name</label>
+                    <input
+                      pattern="[a-zA-Z ]*"
+                      title="Only Characters are allowed"
+                      required
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Employee Name"
+                      [(ngModel)] = "empName"
+                      name="empname"
+                      ngmodel
+                      #empname="ngModel"
+                    />
+                  </div>
+                                <span *ngIf="empname.invalid && empname.touched && empname.value" style="color:red; font-size:2; text-align:center;"> Entered Name Is Invalid</span>
+                                <span *ngIf="!empname.value && empname.touched" style="color:red; font-size:2; text-align:center;">Name Field Must be Filled</span>
+                </div>
+                <div class="form-group">
+                    <div class="form-line">
+                        <label for="contact">Contact Number</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter Contact Number"
+                        maxlength="10"
+                        minlength="10"
+                        pattern="[0-9]*"
+                        title="Only Numbers are allowed"
+                        required
+                        [(ngModel)] = "empContactNo"
+                        name="empcontactno"
+                      ngmodel
+                      #empcontactno="ngModel"
+                      />
+                    </div>
+                  </div>
+                  <span *ngIf="empcontactno.invalid && empcontactno.touched && empcontactno.value" style="color:red; font-size:2; text-align:center;"> Entered Mobile Number Is Invalid</span>
+                  <span *ngIf="!empcontactno.value && empcontactno.touched" style="color:red; font-size:2; text-align:center;">Mobile Number Field Must be Filled</span>
+
+
+                  
+                <div class="form-group">
+                  <div class="form-line">
+                    Address :
+                    <input
+                      type="text"
+                      title="Only Characters are allowed"
+                      required
+                      class="form-control"
+                      placeholder="Address"
+                      [(ngModel)] = "empAddress"
+                      name="empaddress"
+                      ngModel
+                      #empaddress="ngModel"
+                    />
+                  </div>
+                                <span *ngIf="!empaddress.value && empaddress.touched" style="color:red; font-size:2; text-align:center;">Address Field Must be Filled</span>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-line">
+                      <label for="emppos">Employee Position</label>
+                      <input
+                        pattern="[a-zA-Z ]*"
+                        title="Only Characters are allowed"
+                        required
+                        type="text"
+                        class="form-control"
+                        placeholder=""
+                        [(ngModel)] = "empPos"
+                        name="emppos"
+                        ngmodel
+                        #emppos="ngModel"
+                        disabled
+                      />
+                      
+                      
+                    </div>
+                    
+                                  <span *ngIf="emppos.invalid && emppos.touched && emppos.value" style="color:red; font-size:2; text-align:center;"> Entered Name Is Invalid</span>
+                                  <span *ngIf="!emppos.value && emppos.touched" style="color:red; font-size:2; text-align:center;">Name Field Must be Filled</span>
+                  </div>
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Employee Position</mat-label>
+                    <mat-select [(ngModel)]="Pos" name="pos">
+                      <mat-option *ngFor="let p of pos" [value]="p.employeePositionId">
+                        {{p.positionName}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>&nbsp;&nbsp;
+                  
+                  
+<p style="color : red; text-align: center; font-size:medium">{{ err }}</p>  
+                <!-- <div v-if="error !== ''" class="alert alert-danger">{{ error }}</div> -->
+                <br />
+                <button type="submit" class="btn btn-success waves-effect m-r-20" [disabled] = "updateEmpForm.invalid">Edit</button>
+                <button type="button" class="btn bg-red waves-effect" (click)="goBack()">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
