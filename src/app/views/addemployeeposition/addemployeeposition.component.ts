@@ -14,6 +14,7 @@ export class AddemployeepositionComponent implements OnInit {
          salary:number;
          responsibilities:string;
          msg:string;
+         pattern = "/^[A-Za-z]+$/";
   constructor(private _route:Router,private _empposserv:ManagemployeepositionService) { }
 
   ngOnInit() {

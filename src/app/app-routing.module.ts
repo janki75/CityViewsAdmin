@@ -10,6 +10,7 @@ import { EditmeetingComponent } from './views/editmeeting/editmeeting.component'
 import { ComplaintComponent } from './views/complaint/complaint.component';
 import { EditemployeepositionComponent } from './views/editemployeeposition/editemployeeposition.component';
 import { AddemployeepositionComponent } from './views/addemployeeposition/addemployeeposition.component';
+import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/editupcomingmeetings.component';
 
 const routes: Routes = [
     {
@@ -39,6 +40,10 @@ const routes: Routes = [
     {
       path: "dashboard/meeting/editmeet/:id",
       component: EditmeetingComponent
+    },
+    {
+      path: "dashboard/meeting/editupcomingmeeting/:id",
+      component: EditupcomingmeetingsComponent
     },
     {
       path: "dashboard/complaint",

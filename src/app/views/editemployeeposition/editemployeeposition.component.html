@@ -1,1 +1,64 @@
-<p>editemployeeposition works!</p>
+<app-header></app-header>
+<section class="content">
+    <div class="container-fluid">
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                 <b>  Edit Employee Position</b>
+                </h2>
+               
+            </div>
+            <div class="body">
+                <form method="POST" #addEmpForm="ngForm" >
+                    <label for="positionName">Position Name</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input #pn="ngModel" required name="positionName" [(ngModel)]="positionName" type="text" id="positionName" class="form-control" placeholder="Enter Employee Position Name">
+                        </div>
+                        <div [hidden]="pn.valid || pn.untouched">
+                            <div [hidden]="!pn.errors?.required"  class="text-danger">
+                                  <font size=2>*please enter Employee Position Name</font>
+                                </div>
+                               </div>
+                    </div>
+            
+                    <label for="salary">Salary</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input #sal="ngModel" required name="salary" [(ngModel)]="salary" type="number" id="salary" class="form-control" placeholder="Enter Salary">
+                        </div>
+                        
+                        <div [hidden]="sal.valid || sal.untouched">
+                            <div [hidden]="!sal.errors?.required"  class="text-danger">
+                                  <font size=2>*please enter salary</font>
+                                </div>
+                               </div>
+                    </div>
+                    <label for="responsibilities">Responsibilities</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input #respo="ngModel" required name="responsibilities" [(ngModel)]="responsibilities" type="text" id="responsibilities" class="form-control" placeholder="Enter responsibilities">
+                        </div>
+                        <div [hidden]="respo.valid || respo.untouched">
+                            <div [hidden]="!respo.errors?.required"  class="text-danger">
+                                  <font size=2>*please enter Responsibilities</font>
+                                </div>
+                               </div>
+                    </div>
+                   
+                
+                   
+                    <br>
+                    <button [disabled] = "addEmpForm.invalid" (click)="onupdate()" type="button" class="btn bg-red waves-effect">Update</button>
+                    <button style="margin-left: 2%" (click)="cancel()" type="button" class="btn bg-red waves-effect">Cancel</button>
+
+                    <p style="color: red; font-size: large; text-align: center;">{{ msg }}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</section>

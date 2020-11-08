@@ -15,19 +15,24 @@
                     <label for="positionName">Position Name</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input #pn="ngModel" required name="positionName" [(ngModel)]="positionName" type="text" id="positionName" class="form-control" placeholder="Enter Employee Position Name">
+                            <input #pn="ngModel"[pattern]="pattern" required name="positionName" [(ngModel)]="positionName" type="text" id="positionName" class="form-control" placeholder="Enter Employee Position Name">
                         </div>
                         <div [hidden]="pn.valid || pn.untouched">
                             <div [hidden]="!pn.errors?.required"  class="text-danger">
                                   <font size=2>*please enter Employee Position Name</font>
                                 </div>
                                </div>
+                               <!-- <div [hidden]="pn.valid || pn.untouched">
+                                <div [hidden]="pn.errors?.pattern"  class="text-danger">
+                                      <font size=2>*please enter valid Employee Position Name</font>
+                                    </div>
+                                   </div> -->
                     </div>
             
                     <label for="salary">Salary</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input #sal="ngModel" required name="salary" [(ngModel)]="salary" type="text" id="salary" class="form-control" placeholder="Enter Salary">
+                            <input #sal="ngModel" required name="salary" [(ngModel)]="salary" type="number" id="salary" class="form-control" placeholder="Enter Salary">
                         </div>
                         
                         <div [hidden]="sal.valid || sal.untouched">

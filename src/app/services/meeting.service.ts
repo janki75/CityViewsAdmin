@@ -19,17 +19,25 @@ upcomingmeeting_url:string="http://localhost:8081/adminportal/meeting/upcoming/"
   {
     let body=JSON.stringify(item);
     let head1=new HttpHeaders().set('Content-Type','application/json');
-   
+
     return this._http.post(this.add_meeting_url,body,{headers:head1});
+  }
+  editMeeting(item:meeting)
+  {
+    let body=JSON.stringify(item);
+    let head1=new HttpHeaders().set('Content-Type','application/json');
+
+    return this._http.put(this.add_meeting_url+item.meetingId,body,{headers:head1});
   }
   getPastMeeting()
   {
    return this._http.get(this.pastmeeting_url);
   }
 
-  
+
   getUpcomingMeeting()
   {
    return this._http.get(this.upcomingmeeting_url);
   }
+
 }

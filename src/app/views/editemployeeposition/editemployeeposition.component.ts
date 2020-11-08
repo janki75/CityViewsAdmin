@@ -1,5 +1,7 @@
-import { ActivatedRoute, Params } from '@angular/router';
+import { ManagemployeepositionService } from 'src/app/services/managemployeeposition.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { employeePosition } from 'src/app/services/classes/employeePosition';
 
 @Component({
   selector: 'app-editemployeeposition',
@@ -11,17 +13,38 @@ export class EditemployeepositionComponent implements OnInit {
   positionName:string;
  salary:number;
  responsibilities:string;
-  constructor(private _acroute:ActivatedRoute) { }
+ msg:string;
+  constructor(private _route:Router,private _acroute:ActivatedRoute,private _empposserv:ManagemployeepositionService) { }
 
   ngOnInit() {
     this._acroute.params.subscribe(
       (x:Params)=>{
         this.employeePositionId=x['id'];
+        this._empposserv.getPositionById(this.employeePositionId).subscribe(
+          (data:employeePosition)=>{
+            this.positionName=data.positionName;
+            this.salary=data.salary;
+            this.responsibilities=data.responsibilities;
+          }
+        );
        
       }
     );
   
 
   }
+  onupdate()
+  {
+    this._empposserv.updateEmployeePosition(new employeePosition(this.employeePositionId,this.positionName,this.salary,this.responsibilities)).subscribe(
+      (data:employeePosition)=>{
 
+      }
+    );
+    this.msg = "EMployee Position Details are successfully changed!!"
+  }
+
+  cancel()
+  {
+    this._route.navigate(['/dashboard/employeeposition']);
+  }
 }

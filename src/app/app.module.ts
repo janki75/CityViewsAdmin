@@ -20,6 +20,7 @@ import { ComplaintComponent } from './views/complaint/complaint.component';
 import { ManageemployeepositionComponent } from './views/manageemployeeposition/manageemployeeposition.component';
 import { EditemployeepositionComponent } from './views/editemployeeposition/editemployeeposition.component';
 import { AddemployeepositionComponent } from './views/addemployeeposition/addemployeeposition.component';
+import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/editupcomingmeetings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { AddemployeepositionComponent } from './views/addemployeeposition/addemp
     ComplaintComponent,
     ManageemployeepositionComponent,
     EditemployeepositionComponent,
-    AddemployeepositionComponent
+    AddemployeepositionComponent,
+    EditupcomingmeetingsComponent
   ],
   imports: [
     BrowserModule,
