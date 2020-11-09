@@ -15,7 +15,7 @@
                     <label for="positionName">Position Name</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input #pn="ngModel"[pattern]="pattern" required name="positionName" [(ngModel)]="positionName" type="text" id="positionName" class="form-control" placeholder="Enter Employee Position Name">
+                            <input #pn="ngModel" required name="positionName" [(ngModel)]="positionName" type="text" id="positionName" class="form-control" placeholder="Enter Employee Position Name">
                         </div>
                         <div [hidden]="pn.valid || pn.untouched">
                             <div [hidden]="!pn.errors?.required"  class="text-danger">
@@ -56,7 +56,7 @@
                 
                    
                     <br>
-                    <button [disabled] = "addEmpForm.invalid" (click)="addItem()" type="button" class="btn bg-red waves-effect">Add Meeting</button>
+                    <button [disabled] = "addEmpForm.invalid" (click)="addItem()" type="button" class="btn bg-green waves-effect">Save</button>
                     <button style="margin-left: 2%" (click)="cancel()" type="button" class="btn bg-red waves-effect">Cancel</button>
 
                     <p style="color: red; font-size: large; text-align: center;">{{ msg }}</p>

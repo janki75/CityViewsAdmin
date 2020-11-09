@@ -3,7 +3,7 @@
 export class complaint_Class
 {
     constructor(
-        public complaintId:number,
+        public id:number,
         public date:Date,
         public description:string,
         public upVote:number,
