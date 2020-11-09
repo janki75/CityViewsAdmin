@@ -39,6 +39,11 @@ export class EditupcomingmeetingsComponent implements OnInit {
 
   }
   updateItem(){
+    var startsub=this.startTime.substring(0,10);
+    var endsub=this.endTime.substring(0,10);
+    console.log(startsub);
+      if(this.endTime>this.startTime && startsub==endsub)
+      {
     this._meetserv.editMeeting(new meeting(this.meetingId,this.startTime,this.endTime,this.topic,this.agenda,this.minutesOfMeeting)).subscribe(
       (data:any)=>{
 
@@ -47,6 +52,10 @@ export class EditupcomingmeetingsComponent implements OnInit {
     );
     alert("Meeting updated successfully!");
     this._route.navigate(['/dashboard/meeting/upcomingmeeting']);
+  }
+  else{
+    this.msg="Meeting should be completed on same day and Endtime should be greater than Starttime !!";
+  }
   }
 
 

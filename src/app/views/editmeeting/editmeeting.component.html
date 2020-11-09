@@ -74,7 +74,8 @@
 
                     <br>
                     <button [disabled] = "addEmpForm.invalid" (click)="updateItem()" type="button" class="btn btn-primary m-t-15 waves-effect">Update Meeting</button>
-
+                    <button style="margin-left: 2%;margin-top: 2%" (click)="cancel()" type="button" class="btn bg-red waves-effect">Cancel</button>
+                    <p style="color: red; font-size: large; text-align: center;">{{ msg }}</p>
                   </form>
             </div>
         </div>

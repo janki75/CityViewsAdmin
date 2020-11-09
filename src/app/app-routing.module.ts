@@ -10,6 +10,9 @@ import { EditmeetingComponent } from './views/editmeeting/editmeeting.component'
 import { ComplaintComponent } from './views/complaint/complaint.component';
 import { EditemployeepositionComponent } from './views/editemployeeposition/editemployeeposition.component';
 import { AddemployeepositionComponent } from './views/addemployeeposition/addemployeeposition.component';
+import { EmployeeComponent } from './views/employee/employee.component';
+import { UpdateemployeeComponent } from './views/updateemployee/updateemployee.component';
+import { AddemployeeComponent } from './views/addemployee/addemployee.component';
 import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/editupcomingmeetings.component';
 
 const routes: Routes = [
@@ -60,7 +63,21 @@ const routes: Routes = [
     {
       path:'dashboard/employeeposition/addemployeepositionComponent',
       component:AddemployeepositionComponent
+     
+    },
+    {
+      path: "dashboard/employee/updateemployee",
+      component:UpdateemployeeComponent
+    },
+  {
+    path: "dashboard/employee",
+    component:EmployeeComponent
+  },
+    {
+      path: "dashboard/employee/addemployee",
+      component:AddemployeeComponent
     }
+
 ];
 
 @NgModule({

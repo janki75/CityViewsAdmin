@@ -11,8 +11,8 @@ import { meeting } from 'src/app/services/classes/meeting';
 })
 export class EditmeetingComponent implements OnInit {
   meetingId:number;
-  startTime:any;
-  endTime:any;
+  startTime:string;
+  endTime:string;
   topic:string;
   agenda:string;
   minutesOfMeeting:string;
@@ -41,15 +41,29 @@ export class EditmeetingComponent implements OnInit {
 
   }
   updateItem(){
+    var startsub=this.startTime.substring(0,10);
+    var endsub=this.endTime.substring(0,10);
+    console.log(startsub);
+      if(this.endTime>this.startTime && startsub==endsub)
+      {
     this._meetserv.editMeeting(new meeting(this.meetingId,this.startTime,this.endTime,this.topic,this.agenda,this.minutesOfMeeting)).subscribe(
       (data:any)=>{
 
 
       }
     );
-    alert("Meeting updated successfully!");
+
+    alert("Meeting updated successfully!")
     this._route.navigate(['/dashboard/meeting/pastmeeting']);
   }
+  else{
+    this.msg="Meeting should be completed on same day and Endtime should be greater than Starttime !!";
+  }
 
+  }
+  cancel()
+  {
+    this._route.navigate(['/dashboard/meeting']);
+  }
 
 }
