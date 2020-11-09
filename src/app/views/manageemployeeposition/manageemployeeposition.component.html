@@ -1,11 +1,13 @@
 <app-header></app-header>
 <section class="content">
-<h1 align="center">Employee Position Management</h1>
-<div align="end">
-<button type="button" class="btn bg-red waves-effect" (click)="onadd()" >
+  <div class="container-fluid">
+    <div class="block-header">
+EMPLOYEE POSITIONS DETAILS&nbsp;&nbsp;  
+<button type="button" class="btn bg-indigo waves-effect" (click)="onadd()" >
         <i class="material-icons">add</i>
         <span>Add Position</span>
 </button>
+<div align="end">
 </div>
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
@@ -43,6 +45,7 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-
+</div>
+</div>
 
 </section>
