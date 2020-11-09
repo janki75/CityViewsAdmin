@@ -14,7 +14,9 @@ import { EmployeeComponent } from './views/employee/employee.component';
 import { UpdateemployeeComponent } from './views/updateemployee/updateemployee.component';
 import { AddemployeeComponent } from './views/addemployee/addemployee.component';
 import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/editupcomingmeetings.component';
-
+import { ExpenseComponent } from './views/expense/expense.component';
+import { MonthlyexpenseComponent } from './views/monthlyexpense/monthlyexpense.component';
+import { ViewmonthlyexpenseComponent } from './views/viewmonthlyexpense/viewmonthlyexpense.component';
 const routes: Routes = [
     {
       path:'',
@@ -76,8 +78,19 @@ const routes: Routes = [
     {
       path: "dashboard/employee/addemployee",
       component:AddemployeeComponent
+    },
+    {
+      path: "dashboard/expenses",
+      component:ExpenseComponent
+    },
+    {
+      path: "dashboard/expenses/monthlyexpenses",
+      component:MonthlyexpenseComponent
+    },
+    {
+      path: "dashboard/expenses/monthlyexpenses/viewmonthlyexpenses",
+      component:ViewmonthlyexpenseComponent
     }
-
 ];
 
 @NgModule({
