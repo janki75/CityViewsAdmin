@@ -25,6 +25,7 @@ pos:any[] =[];
 err:string;
 posId:number;
 empposId:number;
+active:boolean;
   constructor(private employee:EmployeeService,private route:ActivatedRoute,private router : Router) { }
 
   ngOnInit() {
@@ -34,10 +35,12 @@ empposId:number;
       if (this.empId) {
         this.employee.getEmployeeById(this.empId)
         .subscribe((res:any) => {
+          console.log(res);
            this.empName = res.name;
            this.empAddress =  res.address;
            this.empPos = res.position;
            this.empContactNo = res.contact;
+           this.active = res.active;
         })
       }
     });
@@ -65,6 +68,7 @@ empposId:number;
         contact:this.empContactNo,
         address:this.empAddress,
         employeePositionId:this.empposId,
+        active : this.active
     }
 
     console.log(data1);
