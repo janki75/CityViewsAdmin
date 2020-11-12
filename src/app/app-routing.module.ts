@@ -17,6 +17,9 @@ import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/edit
 import { ExpenseComponent } from './views/expense/expense.component';
 import { MonthlyexpenseComponent } from './views/monthlyexpense/monthlyexpense.component';
 import { ViewmonthlyexpenseComponent } from './views/viewmonthlyexpense/viewmonthlyexpense.component';
+import { AddexpenseComponent } from './views/addexpense/addexpense.component';
+import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearlyexpense.component';
+
 const routes: Routes = [
     {
       path:'',
@@ -90,6 +93,14 @@ const routes: Routes = [
     {
       path: "dashboard/expenses/monthlyexpenses/viewmonthlyexpenses",
       component:ViewmonthlyexpenseComponent
+    },
+    {
+      path: "dashboard/expenses/addexpense",
+      component:AddexpenseComponent
+    },
+    {
+      path: "dashboard/expenses/yearlyexpenses",
+      component:ViewyearlyexpenseComponent
     }
 ];
 

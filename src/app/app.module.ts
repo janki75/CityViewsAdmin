@@ -34,6 +34,8 @@ import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/edit
 import { ExpenseComponent } from './views/expense/expense.component';
 import { MonthlyexpenseComponent } from './views/monthlyexpense/monthlyexpense.component';
 import { ViewmonthlyexpenseComponent } from './views/viewmonthlyexpense/viewmonthlyexpense.component';
+import { AddexpenseComponent } from './views/addexpense/addexpense.component';
+import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearlyexpense.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +55,9 @@ import { ViewmonthlyexpenseComponent } from './views/viewmonthlyexpense/viewmont
     EditupcomingmeetingsComponent,
     ExpenseComponent,
     MonthlyexpenseComponent,
-    ViewmonthlyexpenseComponent
+    ViewmonthlyexpenseComponent,
+    AddexpenseComponent,
+    ViewyearlyexpenseComponent
   ],
   imports: [
     BrowserModule,

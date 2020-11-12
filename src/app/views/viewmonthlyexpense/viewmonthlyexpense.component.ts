@@ -25,6 +25,11 @@ i:number;
 currYear:any;
 month:number;
 msg:string="No records are there!!";
+Amt:any;
+expDate:any;
+expReason:any;
+expenseId:any;
+err:any;
 dataSource = new MatTableDataSource();
 @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -56,7 +61,7 @@ dataSource = new MatTableDataSource();
         let year = date1.substring(6,10);
         
         if(month == this.monthNo && year == this.currYear){
-            const data1 = {amt : this.details[this.i].amount,date : this.details[this.i].date,reason : this.details[this.i].reason}
+            const data1 = {id:this.details[this.i].expenseId,amt : this.details[this.i].amount,date : this.details[this.i].date,reason : this.details[this.i].reason}
             this.expDetails.push(data1);
  
     this.dataSource.data = this.expDetails;          
@@ -68,6 +73,38 @@ dataSource = new MatTableDataSource();
     
   }
  
-  
+ getExpDetailsById(data){
+   this.exp.getById(data.id)
+   .subscribe((res:any) => {
+      this.expenseId = res.expenseId;
+      this.Amt = res.amount;
+      this.expDate = res.date;
+      this.expReason = res.reason;
+      console.log(res);
+   })
+ } 
+
+ updateExpDetails(data){
+  const data1 = {
+    amount : data.amt,
+    date : data.expdate,
+    reason : data.expreason
+  }
+  console.log(data1);
+   this.exp.editExpense(data1,this.expenseId)
+   .subscribe((res:any) => {
+    this.Amt = res.amount;
+    this.expDate = res.date;
+    this.expReason = res.reason;
+   })
+   this.router.routeReuseStrategy.shouldReuseRoute = function () {
+    return false;
+  };
+  this.router.onSameUrlNavigation = "reload";
+  this.router.navigate(["/dashboard/manageEmployees"]);
+  location.reload();
+   this.err="Expense details are updated successfully!!"
+ }
+
   
 }

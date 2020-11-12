@@ -2,7 +2,7 @@
 <section class="content">
   <div class="container-fluid">
     <div class="block-header">
-     EXPENSE DETAILS
+     MONTHLY EXPENSE DETAILS
     </div><br>
     <!-- Basic Table -->
     <div class="row-clearfix">
@@ -50,8 +50,8 @@
                     <button
                    type="button"
                     class="btn bg-green waves-effect"
-                    (click)="updateEmpDetails(row)"
-                    
+                    data-toggle="modal" data-target="#defaultModal"
+                    (click)=getExpDetailsById(row)
                   >
                     Edit-Details</button
                   >
@@ -78,8 +78,94 @@
         </div>
       </div>
     </div>
-    
+    <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title" id="defaultModalLabel">Update Expense Details</h4>
+              </div>
+              <div class="modal-body">
+                <form #updateExpForm="ngForm" (ngSubmit)="updateExpDetails(updateExpForm.value)">
+                  <div class="row clearfix">
+                    <div class="col-sm-12">
+                      
+                      <div class="form-group">
+                          <div class="form-line">
+                              <label for="contact">Amount</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Enter Amount"
+                              pattern="[0-9]*"
+                              title="Only Numbers are allowed"
+                              required
+                              [(ngModel)] = "Amt"
+                              name="amt"
+                            ngmodel
+                            #amt="ngModel"
+                            />
+                          </div>
+                        <span *ngIf="amt.invalid && amt.touched && amt.value" style="color:red; font-size:2; text-align:center;"> Entered Amount Is Invalid</span>
+                        <span *ngIf="!amt.value && amt.touched" style="color:red; font-size:2; text-align:center;">Amount Field Must be Filled</span>
       
+                      </div>
+                      
+                      
+                      <div class="form-group">
+                        <div class="form-line">
+                            <label for="contact">Date</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            maxlength="10"
+                            minlength="10"
+                            placeholder="Enter Date"
+                            pattern="[0-9/]*"
+                            title="Only Numbers are allowed"
+                            required
+                            [(ngModel)] = "expDate"
+                            name="expdate"
+                          ngmodel
+                          #expdate="ngModel"
+                          />
+                        </div>
+                      <span *ngIf="expdate.invalid && expdate.touched && expdate.value" style="color:red; font-size:2; text-align:center;"> Entered Date Is Invalid</span>
+                      <span *ngIf="!expdate.value && expdate.touched" style="color:red; font-size:2; text-align:center;">Date Field Must be Filled</span>
+    
+                    </div>
+                        
+                      <div class="form-group">
+                        <div class="form-line">
+                          <label for="contact">Reason</label>
+                          <input
+                            type="text"
+                            title="Only Characters are allowed"
+                            required
+                            class="form-control"
+                            placeholder="Enter Reason"
+                            [(ngModel)] = "expReason"
+                            name="expreason"
+                            ngModel
+                            #expreason="ngModel"
+                          />
+                        </div>
+                                      <span *ngIf="!expreason.value && expreason.touched" style="color:red; font-size:2; text-align:center;">Reason Field Must be Filled</span>
+                      </div>
+                       
+                        
+                        
+      <p style="color : red; text-align: center; font-size:medium">{{ err }}</p>  
+                      <!-- <div v-if="error !== ''" class="alert alert-danger">{{ error }}</div> -->
+                      <br />
+                      <button type="submit" class="btn btn-success waves-effect m-r-20" [disabled] = "updateExpForm.invalid">Edit</button>
+                      <button type="button" class="btn bg-red waves-effect" data-dismiss="modal">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+          </div>
+      </div>
+  </div>
     
     <!-- #END# Basic Table -->
   </div>

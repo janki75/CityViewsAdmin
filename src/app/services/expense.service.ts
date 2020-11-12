@@ -13,4 +13,23 @@ export class ExpenseService {
   getExpDetail(){
     return this.http.get(this.expense_url);
   }
+
+  getById(id){
+    return this.http.get(this.expense_url+id);
+  }
+
+  editExpense(item,id)
+  {
+    let body=JSON.stringify(item);
+    let head1=new HttpHeaders().set('Content-Type','application/json');
+
+    return this.http.put(this.expense_url+id,body,{headers:head1});
+  }
+
+  addExpDetails(item){
+    let body=JSON.stringify(item);
+    let head1=new HttpHeaders().set('Content-Type','application/json');
+
+    return this.http.post(this.expense_url,body,{headers:head1});
+  }
 }
