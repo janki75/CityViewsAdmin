@@ -31,6 +31,8 @@ import { UpdateemployeeComponent } from './views/updateemployee/updateemployee.c
 import {MatSelectModule} from '@angular/material/select';
 import { AddemployeeComponent } from './views/addemployee/addemployee.component';
 import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/editupcomingmeetings.component';
+import { FlatsComponent } from './views/flats/flats.component';
+import { AddflatsComponent } from './views/addflats/addflats.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +49,9 @@ import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/edit
     EmployeeComponent,
     UpdateemployeeComponent,
     AddemployeeComponent,
-    EditupcomingmeetingsComponent
+    EditupcomingmeetingsComponent,
+    FlatsComponent,
+    AddflatsComponent
   ],
   imports: [
     BrowserModule,

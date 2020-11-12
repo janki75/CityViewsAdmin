@@ -1,0 +1,67 @@
+<app-header></app-header>
+<section class="content">
+    <div class="container-fluid">
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                 <b>   ADD FLATS</b>
+                </h2>
+
+            </div>
+            <div class="body">
+                <form method="POST" #addFlatForm="ngForm" >
+                    <label for="startTime">Enter Flat No</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input #st="ngModel" required name="flatno" [(ngModel)]="startTime" type="text" id="flatno" class="form-control" placeholder="Eg.A101">
+                        </div>
+                        <div [hidden]="st.valid || st.untouched">
+                            <div [hidden]="!st.errors?.required"  class="text-danger">
+                                  <font size=2>*please enter flatno</font>
+                                </div>
+                               </div>
+                    </div>
+
+                    <label for="endTime">Enter Bhk</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input #et="ngModel" required name="bhk" [(ngModel)]="endTime" type="number" id="bhk" class="form-control" placeholder="Enter Bhk">
+                        </div>
+
+                        <div [hidden]="et.valid || et.untouched">
+                            <div [hidden]="!et.errors?.required"  class="text-danger">
+                                  <font size=2>*please enter bhk</font>
+                                </div>
+                               </div>
+                    </div>
+                    <label for="topic">Enter Parking Slot</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input #t="ngModel" required name="parking" [(ngModel)]="topic" type="text" id="parking" class="form-control" placeholder="Enter Parking Slot">
+                        </div>
+                        <div [hidden]="t.valid || t.untouched">
+                            <div [hidden]="!t.errors?.required"  class="text-danger">
+                                  <font size=2>*please enter parking slot</font>
+                                </div>
+                               </div>
+                    </div>
+
+
+
+
+
+                    <br>
+                    <button [disabled] = "addFlatForm.invalid" (click)="addflat()" type="button" class="btn btn-success m-t-15 waves-effect">Add Flat</button>
+                    <button style="margin-left: 2%;margin-top: 1.5%" (click)="cancel()" type="button" class="btn bg-red waves-effect">Cancel</button>
+
+                    <p style="color: red; font-size: large; text-align: center;">{{ msg }}</p>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</section>

@@ -14,6 +14,8 @@ import { EmployeeComponent } from './views/employee/employee.component';
 import { UpdateemployeeComponent } from './views/updateemployee/updateemployee.component';
 import { AddemployeeComponent } from './views/addemployee/addemployee.component';
 import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/editupcomingmeetings.component';
+import { FlatsComponent } from './views/flats/flats.component';
+import { AddflatsComponent } from './views/addflats/addflats.component';
 
 const routes: Routes = [
     {
@@ -31,6 +33,14 @@ const routes: Routes = [
     {
       path: "dashboard/meeting/pastmeeting",
       component: PastmeetingComponent
+    },
+    {
+      path: "dashboard/flats",
+      component: FlatsComponent
+    },
+    {
+      path: "dashboard/meeting/addflats",
+      component: AddflatsComponent
     },
     {
       path: "dashboard/meeting/upcomingmeeting",
@@ -63,7 +73,7 @@ const routes: Routes = [
     {
       path:'dashboard/employeeposition/addemployeepositionComponent',
       component:AddemployeepositionComponent
-     
+
     },
     {
       path: "dashboard/employee/updateemployee",
