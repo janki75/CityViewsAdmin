@@ -1,0 +1,54 @@
+<app-header></app-header>
+<section class="content">
+    <div class="container-fluid">
+        <!-- Counter Examples -->
+        <div class="block-header">
+            <h2>
+                EXPENSE DETAILS&nbsp;&nbsp;
+                <button
+                  type="button"
+                  class="btn bg-indigo waves-effect"
+                  (click)="addExp()"
+                >
+                  Add Expense</button
+                >
+            </h2>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            
+                <div class="info-box-3 bg-orange">
+                    
+            <a href="/dashboard/expenses/monthlyexpenses">
+                    <div class="icon">
+                        <div class="icon">
+                            <i class="material-icons">equalizer</i>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="text" style="font-size: 110%;">Monthly Expense Details</div>
+                    </div>
+                
+        </a>    
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box-3 bg-deep-orange">
+                    <a href="/dashboard/expenses/yearlyexpenses">
+                    <div class="icon">
+                        <div class="icon">
+                            <i class="material-icons">equalizer</i>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="text"  style="font-size: 110%;">Yearly Expense Details</div>
+                    </div>
+                </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

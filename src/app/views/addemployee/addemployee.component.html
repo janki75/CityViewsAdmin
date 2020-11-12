@@ -55,7 +55,7 @@
                   
                 <div class="form-group">
                   <div class="form-line">
-                    Address :
+                    <label for="contact">Address</label>
                     <input
                       type="text"
                       title="Only Characters are allowed"
@@ -71,8 +71,9 @@
                                 <span *ngIf="!empaddress.value && empaddress.touched" style="color:red; font-size:2; text-align:center;">Address Field Must be Filled</span>
                 </div>
 
+                   
                   <mat-form-field appearance="fill">
-                    <mat-label>Employee Position</mat-label>
+                    <mat-label>Choose Employee Position</mat-label>
                     <mat-select [(ngModel)]="Pos" name="pos" required>
                       <mat-option *ngFor="let p of pos" [value]="p.employeePositionId">
                         {{p.positionName}}

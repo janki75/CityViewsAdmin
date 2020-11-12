@@ -32,7 +32,7 @@
                     <label for="salary">Salary</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input #sal="ngModel" required name="salary" [(ngModel)]="salary" type="number" id="salary" class="form-control" placeholder="Enter Salary">
+                            <input #sal="ngModel" required name="salary" [(ngModel)]="salary" type="text" id="salary" class="form-control" placeholder="Enter Salary">
                         </div>
                         
                         <div [hidden]="sal.valid || sal.untouched">

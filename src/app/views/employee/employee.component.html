@@ -124,7 +124,7 @@
               </td>
             </ng-container> 
             <!-- Color Column -->
-
+            
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
@@ -137,7 +137,7 @@
           </table>
 
           <br>        
-          <h1><p style="color : red; text-align: center; font-size:30px; background-color: white;">{{ err }}</p></h1>
+          <h1><p style="color : red; text-align: center; font-size:30px; background-color: white;" *ngIf="emplist.length === 0">{{ msg }}</p></h1>
           <br>
           <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
         </div>

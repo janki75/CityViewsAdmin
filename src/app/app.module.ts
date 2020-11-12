@@ -31,8 +31,16 @@ import { UpdateemployeeComponent } from './views/updateemployee/updateemployee.c
 import {MatSelectModule} from '@angular/material/select';
 import { AddemployeeComponent } from './views/addemployee/addemployee.component';
 import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/editupcomingmeetings.component';
+<<<<<<< HEAD
 import { FlatsComponent } from './views/flats/flats.component';
 import { AddflatsComponent } from './views/addflats/addflats.component';
+=======
+import { ExpenseComponent } from './views/expense/expense.component';
+import { MonthlyexpenseComponent } from './views/monthlyexpense/monthlyexpense.component';
+import { ViewmonthlyexpenseComponent } from './views/viewmonthlyexpense/viewmonthlyexpense.component';
+import { AddexpenseComponent } from './views/addexpense/addexpense.component';
+import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearlyexpense.component';
+>>>>>>> 4424ae71b4ec7831844b08fb692b835262279af2
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,8 +58,16 @@ import { AddflatsComponent } from './views/addflats/addflats.component';
     UpdateemployeeComponent,
     AddemployeeComponent,
     EditupcomingmeetingsComponent,
+<<<<<<< HEAD
     FlatsComponent,
     AddflatsComponent
+=======
+    ExpenseComponent,
+    MonthlyexpenseComponent,
+    ViewmonthlyexpenseComponent,
+    AddexpenseComponent,
+    ViewyearlyexpenseComponent
+>>>>>>> 4424ae71b4ec7831844b08fb692b835262279af2
   ],
   imports: [
     BrowserModule,
