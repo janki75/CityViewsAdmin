@@ -21,6 +21,11 @@ import { MonthlyexpenseComponent } from './views/monthlyexpense/monthlyexpense.c
 import { ViewmonthlyexpenseComponent } from './views/viewmonthlyexpense/viewmonthlyexpense.component';
 import { AddexpenseComponent } from './views/addexpense/addexpense.component';
 import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearlyexpense.component';
+import { FundsComponent } from './views/funds/funds.component';
+import { AddfundComponent } from './views/addfund/addfund.component';
+import { UpdatefundComponent } from './views/updatefund/updatefund.component';
+import { OwnerComponent } from './views/owner/owner.component';
+import { AddownerComponent } from './views/addowner/addowner.component';
 
 const routes: Routes = [
     {
@@ -111,6 +116,26 @@ const routes: Routes = [
     {
       path: "dashboard/expenses/yearlyexpenses",
       component:ViewyearlyexpenseComponent
+    },
+    {
+      path: "dashboard/funds",
+      component:FundsComponent
+    },
+    {
+      path: "dashboard/funds/addfund",
+      component:AddfundComponent
+    },
+    {
+      path: "dashboard/funds/updatefund",
+      component:UpdatefundComponent
+    },
+    {
+      path: "dashboard/owner",
+      component:OwnerComponent
+    },
+    {
+      path: "dashboard/owner/addowner",
+      component:AddownerComponent
     }
 ];
 
