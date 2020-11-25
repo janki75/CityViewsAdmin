@@ -1,0 +1,97 @@
+<app-header></app-header>
+
+<section class="content">
+    <div class="container-fluid">
+        <!-- No Header Card -->
+        <div class="block-header">
+            <h2>ELECTION DETAILS <button type="button" class="btn bg-indigo waves-effect" (click)="addmeeting()" style="margin-left: 2%;">
+                <i class="material-icons">add</i>
+                <span>Arrange Election</span>
+            </button></h2>
+            
+
+            <!-- <button (click)="addmeeting()">Add meeting</button> -->
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <a href="/dashboard/meeting/pastmeeting" style="text-decoration: none;"><div class="card">
+                    <div class="body bg-red">
+                        Past Election Details
+                    </div>
+                </div>
+            </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <a href=""data-toggle="modal" data-target="#defaultModal" style="text-decoration: none;"><div class="card">
+                    <div class="body bg-orange">
+                        Upcoming Election Details
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+        <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="defaultModalLabel">Update Election Details</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="body">
+                            <div class="row clearfix">
+                              <div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12">
+                                <div
+                                  class="panel-group"
+                                  id="accordion_1"
+                                  role="tablist"
+                                  aria-multiselectable="true"
+                                >
+                                  <div
+                                    class="panel panel-primary"
+                                    *ngFor="let item of electionDetail"
+                                  >
+                                    <div class="panel-heading" role="tab" id="headingTwo_1">
+                                      <h4 class="panel-title">
+                                        <a
+                                          class="collapsed"
+                                          role="button"
+                                          data-toggle="collapse"
+                                          data-parent="#accordion_1"
+                                          [href]="'#' + item.id"
+                                          aria-expanded="false"
+                                          aria-controls="collapseTwo_1"
+                                        >
+                                          {{ item.date }}
+                                        </a>
+                                      </h4>
+                                    </div>
+                                    <div
+                                      [id]="item.id"
+                                      class="panel-collapse collapse"
+                                      role="tabpanel"
+                                      aria-labelledby="headingTwo_1"
+                                    ><br>&nbsp;&nbsp;
+
+                                    Election Heading :  {{ item.electionName }}
+                                    
+                                    <br><br>    <button
+                                          class="btn btn-success waves-effect"
+                                          style="margin-left: 5%; margin-bottom: 5%;"
+                                        >
+                                          Edit-Details
+                                </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# No Header Card -->
+    </div>
+</section>

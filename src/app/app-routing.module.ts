@@ -26,6 +26,11 @@ import { AddfundComponent } from './views/addfund/addfund.component';
 import { UpdatefundComponent } from './views/updatefund/updatefund.component';
 import { OwnerComponent } from './views/owner/owner.component';
 import { AddownerComponent } from './views/addowner/addowner.component';
+import { SalaryComponent } from './views/salary/salary.component';
+import { ViewmonthlysalaryComponent } from './views/viewmonthlysalary/viewmonthlysalary.component';
+import { ElectionComponent } from './views/election/election.component';
+import { UpdatemonthlysalaryComponent } from './views/updatemonthlysalary/updatemonthlysalary.component';
+import { AddsalaryComponent } from './views/addsalary/addsalary.component';
 
 const routes: Routes = [
     {
@@ -136,6 +141,26 @@ const routes: Routes = [
     {
       path: "dashboard/owner/addowner",
       component:AddownerComponent
+    },
+    {
+      path: "dashboard/salary",
+      component:SalaryComponent
+    },
+    {
+      path: "dashboard/salary/addsalary",
+      component:AddsalaryComponent
+    },
+    {
+      path: "dashboard/salary/viewmonthlysalary",
+      component:ViewmonthlysalaryComponent
+    },
+    {
+      path: "dashboard/salary/viewmonthlysalary/updatemonthlysalary",
+      component:UpdatemonthlysalaryComponent
+    },
+    {
+      path: "dashboard/election",
+      component:ElectionComponent
     }
 ];
 

@@ -40,10 +40,12 @@ cnt:number=0;
        }
 
           if(this.cnt == 0){
+            let date = new Date();
+            let ownerDate = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
             const data1 = {
               name:this.ownerName,
               contactNo:this.ownerContactNo,
-              dateOfPurchase:this.ownerDate,
+              dateOfPurchase:ownerDate,
               email:this.ownerEmail,
               active:true,
               password:"123456"

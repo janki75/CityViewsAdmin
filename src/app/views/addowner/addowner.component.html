@@ -72,30 +72,6 @@
                                 <span *ngIf="!owneremail.value && owneremail.touched" style="color:red; font-size:2; text-align:center;">Email Field Must be Filled</span>
                 </div>
 
-
-                <div class="form-group">
-                    <div class="form-line">
-                        <label for="expdate">Date Of Purchase</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        maxlength="10"
-                        minlength="10"
-                        placeholder="Enter date and time in specific format For eg. DD/MM/YYYY"
-                        pattern="[0-9/]*"
-                        title="Only Numbers are allowed"
-                        required
-                        [(ngModel)] = "ownerDate"
-                        name="ownerdate"
-                      ngmodel
-                      #ownerdate="ngModel"
-                      />
-                    </div>
-                  <span *ngIf="ownerdate.invalid && ownerdate.touched && ownerdate.value" style="color:red; font-size:2; text-align:center;"> Entered Date Is Invalid</span>
-                  <span *ngIf="!ownerdate.value && ownerdate.touched" style="color:red; font-size:2; text-align:center;">Date Field Must be Filled</span>
-
-                </div>
-
                    
         
                   

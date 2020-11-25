@@ -43,6 +43,12 @@ import { AddfundComponent } from './views/addfund/addfund.component';
 import { UpdatefundComponent } from './views/updatefund/updatefund.component';
 import { OwnerComponent } from './views/owner/owner.component';
 import { AddownerComponent } from './views/addowner/addowner.component';
+import { SalaryComponent } from './views/salary/salary.component';
+import { ViewmonthlysalaryComponent } from './views/viewmonthlysalary/viewmonthlysalary.component';
+import { ElectionComponent } from './views/election/election.component';
+import { UpcomingelectionComponent } from './views/upcomingelection/upcomingelection.component';
+import { UpdatemonthlysalaryComponent } from './views/updatemonthlysalary/updatemonthlysalary.component';
+import { AddsalaryComponent } from './views/addsalary/addsalary.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +77,13 @@ import { AddownerComponent } from './views/addowner/addowner.component';
     AddfundComponent,
     UpdatefundComponent,
     OwnerComponent,
-    AddownerComponent
+    AddownerComponent,
+    SalaryComponent,
+    ViewmonthlysalaryComponent,
+    ElectionComponent,
+    UpcomingelectionComponent,
+    UpdatemonthlysalaryComponent,
+    AddsalaryComponent
   ],
   imports: [
     BrowserModule,
