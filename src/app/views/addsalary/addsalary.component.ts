@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../../services/employee.service';
 import { SalaryService } from '../../services/salary.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addsalary',
@@ -18,7 +19,7 @@ Leaves:any;
 empDetail:any[] = [];
 Emp:any;
 err:string;
-  constructor(private emp : EmployeeService,private sal : SalaryService) { }
+  constructor(private emp : EmployeeService,private sal : SalaryService,private router : Router) { }
 
   ngOnInit() {
     this.emp.getallemployee()
@@ -28,10 +29,10 @@ err:string;
   }
   
       onSearchChange(event: any){
-        if(this.salDate == null){
-          this.err="Please first write the date!!";
+        if(this.salDate == null && this.Emp == undefined){
+          this.err="Please first write date and select any one employee!!";
         }
-        if(this.salDate != null){
+        if(this.salDate != null && this.Emp != undefined){
           this.emp.getEmployeeById(this.empId)
           .subscribe((res:any) => {
             let date1 = this.salDate;
@@ -75,5 +76,10 @@ err:string;
       .subscribe((res) => {
       })
       this.err="Salary details are added successfully!!";      
+    }
+
+    goBack() {
+      
+      this.router.navigate(["/dashboard/salary"]);
     }
 }
