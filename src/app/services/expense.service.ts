@@ -7,6 +7,9 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 export class ExpenseService {
 
   expense_url:string = "http://localhost:8081/adminportal/expense/";
+  fund_url:string = "http://localhost:8081/adminportal/funds/";
+  maint_url:string = "http://localhost:8081/adminportal/maintenance/";
+  income_url:string = "http://localhost:8081/adminportal/income/";
   constructor(private http : HttpClient) { }
 
 
@@ -31,5 +34,17 @@ export class ExpenseService {
     let head1=new HttpHeaders().set('Content-Type','application/json');
 
     return this.http.post(this.expense_url,body,{headers:head1});
+  }
+
+  getIncome(){
+    return this.http.get(this.income_url);
+  }
+
+  getMaint(){
+    return this.http.get(this.maint_url);
+  }
+
+  getFunds(){
+    return this.http.get(this.fund_url);
   }
 }

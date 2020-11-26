@@ -14,11 +14,11 @@
                     </div>
                     <div class="body">
                         <ul class="list-group">
-                            <li class="list-group-item">Funds<span class="badge bg-pink">+99</span></li>
-                            <li class="list-group-item">Maintenance <span class="badge bg-cyan">+99</span></li>
-                            <li class="list-group-item">Income <span class="badge bg-teal">+99</span></li>
-                            <li class="list-group-item">Expense <span class="badge bg-orange">-21</span></li>
-                            <li class="list-group-item">Total <span class="badge bg-purple">18</span></li>
+                            <li class="list-group-item">Funds<span class="badge bg-pink">+{{ totalFund }}</span></li>
+                            <li class="list-group-item">Maintenance <span class="badge bg-cyan">+{{ totalMaint }}</span></li>
+                            <li class="list-group-item">Income <span class="badge bg-teal">+{{ totalIncome }}</span></li>
+                            <li class="list-group-item">Expense <span class="badge bg-orange">-{{ totalExp }}</span></li>
+                            <li class="list-group-item">Total <span class="badge bg-purple">{{ totalIncome + totalFund + totalMaint - totalExp}}</span></li>
                         </ul>
                     </div>
                 </div>

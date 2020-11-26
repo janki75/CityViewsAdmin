@@ -1,0 +1,90 @@
+<app-header></app-header>
+<section class="content">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="header">
+          <h3>Add Owner Details</h3>
+        </div>
+        <div class="body">
+          <form #addOwnerForm="ngForm" (ngSubmit)="addDetails(addOwnerForm.value)">
+            <div class="row clearfix">
+              <div class="col-sm-12">
+                
+                <div class="form-group">
+                  <div class="form-line">
+                    <label for="empname">Owner Name</label>
+                    <input
+                      pattern="[a-zA-Z ]*"
+                      title="Only Characters are allowed"
+                      required
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Owner Name"
+                      [(ngModel)] = "ownerName"
+                      name="ownername"
+                      ngmodel
+                      #ownername="ngModel"
+                    />
+                  </div>
+                                <span *ngIf="ownername.invalid && ownername.touched && ownername.value" style="color:red; font-size:2; text-align:center;"> Entered Name Is Invalid</span>
+                                <span *ngIf="!ownername.value && ownername.touched" style="color:red; font-size:2; text-align:center;">Name Field Must be Filled</span>
+                </div>
+                <div class="form-group">
+                    <div class="form-line">
+                        <label for="contact">Contact Number</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter Contact Number"
+                        maxlength="10"
+                        minlength="10"
+                        pattern="[0-9]*"
+                        title="Only Numbers are allowed"
+                        required
+                        [(ngModel)] = "ownerContactNo"
+                        name="ownercontactno"
+                      ngmodel
+                      #ownercontactno="ngModel"
+                      />
+                    </div>
+                  <span *ngIf="ownercontactno.invalid && ownercontactno.touched && ownercontactno.value" style="color:red; font-size:2; text-align:center;"> Entered Mobile Number Is Invalid</span>
+                  <span *ngIf="!ownercontactno.value && ownercontactno.touched" style="color:red; font-size:2; text-align:center;">Mobile Number Field Must be Filled</span>
+
+                </div>
+
+                  
+                <div class="form-group">
+                  <div class="form-line">
+                    <label for="contact">Email</label>
+                    <input
+                      type="email"
+                      title="Only Characters are allowed"
+                      required
+                      class="form-control"
+                      placeholder="Enter Email"
+                      [(ngModel)] = "ownerEmail"
+                      name="owneremail"
+                      ngModel
+                      #owneremail="ngModel"
+                    />
+                  </div>
+                                <span *ngIf="owneremail.invalid && owneremail.touched && owneremail.value" style="color:red; font-size:2; text-align:center;"> Entered Email Is Invalid</span>
+                                <span *ngIf="!owneremail.value && owneremail.touched" style="color:red; font-size:2; text-align:center;">Email Field Must be Filled</span>
+                </div>
+
+                   
+        
+                  
+<p style="color : red; text-align: center; font-size:medium">{{ err }}</p>  
+                <!-- <div v-if="error !== ''" class="alert alert-danger">{{ error }}</div> -->
+                <br />
+                <button type="submit" class="btn btn-success waves-effect m-r-20" [disabled] = "addOwnerForm.invalid">Save</button>
+                <button type="button" class="btn bg-red waves-effect" (click)="goBack()">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
