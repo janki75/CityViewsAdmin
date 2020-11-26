@@ -38,6 +38,9 @@ import { MonthlyexpenseComponent } from './views/monthlyexpense/monthlyexpense.c
 import { ViewmonthlyexpenseComponent } from './views/viewmonthlyexpense/viewmonthlyexpense.component';
 import { AddexpenseComponent } from './views/addexpense/addexpense.component';
 import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearlyexpense.component';
+import { FlatOwnerDetailsComponent } from './views/flat-owner-details/flat-owner-details.component';
+import { AssignownertoflatComponent } from './views/assignownertoflat/assignownertoflat.component';
+import { EditflatComponent } from './views/editflat/editflat.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +64,10 @@ import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearly
     MonthlyexpenseComponent,
     ViewmonthlyexpenseComponent,
     AddexpenseComponent,
-    ViewyearlyexpenseComponent
+    ViewyearlyexpenseComponent,
+    FlatOwnerDetailsComponent,
+    AssignownertoflatComponent,
+    EditflatComponent
   ],
   imports: [
     BrowserModule,

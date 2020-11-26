@@ -21,6 +21,9 @@ import { MonthlyexpenseComponent } from './views/monthlyexpense/monthlyexpense.c
 import { ViewmonthlyexpenseComponent } from './views/viewmonthlyexpense/viewmonthlyexpense.component';
 import { AddexpenseComponent } from './views/addexpense/addexpense.component';
 import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearlyexpense.component';
+import { FlatOwnerDetailsComponent } from './views/flat-owner-details/flat-owner-details.component';
+import { AssignownertoflatComponent } from './views/assignownertoflat/assignownertoflat.component';
+import { EditflatComponent } from './views/editflat/editflat.component';
 
 const routes: Routes = [
     {
@@ -44,8 +47,20 @@ const routes: Routes = [
       component: FlatsComponent
     },
     {
+      path: "dashboard/flats/assignowner/:id",
+      component: AssignownertoflatComponent
+    },
+    {
       path: "dashboard/meeting/addflats",
       component: AddflatsComponent
+    },
+    {
+      path: "dashboard/meeting/editflat/:id",
+      component: EditflatComponent
+    },
+    {
+path:"dashboard/flats/ownerdetail/:id",
+component:FlatOwnerDetailsComponent
     },
     {
       path: "dashboard/meeting/upcomingmeeting",

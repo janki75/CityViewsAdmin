@@ -115,7 +115,7 @@
 
                                 <td>{{item.ownerName}}</td>
                                 <td>
-                                  <button type="button" class="btn bg-cyan waves-effect">Edit Flat Detail</button>
+                                  <button (click)="onedit(item.flatId)" type="button" class="btn bg-cyan waves-effect">Edit Flat Detail</button>
                                 </td>
                             </tr>
 
@@ -153,8 +153,8 @@
                                                 <td>{{item.parkingSlot}}</td>
                                                 <td>{{item.ownerName}}</td>
                                                 <td>
-                                                    <button type="button" (click)="onview()" class="btn bg-lime waves-effect">View Owner Details</button>&nbsp;
-                                                    <button type="button" class="btn bg-red waves-effect">Not Occupied</button>&nbsp;
+                                                    <button type="button" (click)="onview(item.ownerId)" class="btn bg-lime waves-effect">View Owner Details</button>&nbsp;
+                                                    <button type="button" (click)="onnotoccupied(item.flatId)"class="btn bg-red waves-effect">Not Occupied</button>&nbsp;
                                                 </td>
                                             </tr>
 
@@ -166,13 +166,41 @@
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="messages">
-                        <b>NOT-OCCUPIED FLATS</b>
-                        <p>
-                            Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
-                            Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
-                            pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
-                            sadipscing mel.
-                        </p>
+                      <br>
+                      <div class="card">
+                          <div class="header">
+                              <h2>VACANT FLAT DETAILS</h2>
+
+                          </div>
+                          <div class="body">
+                              <div class="table-responsive">
+                                  <table class="table table-hover dashboard-task-infos">
+                                      <thead>
+                                          <tr>
+                                              <th>Flat No</th>
+                                              <th>Bhk</th>
+                                              <th>Parking Slot</th>
+
+                                              <th>Action</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr *ngFor="let item of vacant">
+                                              <td>{{item.flatNo}}</td>
+                                              <td>{{item.bhk}}</td>
+                                              <td>{{item.parkingSlot}}</td>
+
+                                              <td>
+                                                <button (click)="onassign(item.flatId)" type="button" class="btn bg-amber waves-effect">Assign Owner To Flat</button>
+                                              </td>
+                                          </tr>
+
+
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
                     </div>
 
                 </div>
