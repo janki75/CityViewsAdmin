@@ -84,6 +84,21 @@ monthNo:number;
           })
           this.err = "Salary details are updated successfully!!";
         }  
+        
+        if(this.Emp == undefined){
+          const data1 = {
+            amountPaid : this.Amt,
+            noOfLeaves : this.Leaves,
+            employeeId : this.empId,
+            datePaid : this.salDate
+          }
+
+          this.sal.editSalary(data1,this.salId)
+          .subscribe((res) => {
+
+          })
+          this.err = "Salary details are updated successfully!!";
+        }  
       }
 
       goBack() {
