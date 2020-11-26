@@ -38,11 +38,9 @@ import { MonthlyexpenseComponent } from './views/monthlyexpense/monthlyexpense.c
 import { ViewmonthlyexpenseComponent } from './views/viewmonthlyexpense/viewmonthlyexpense.component';
 import { AddexpenseComponent } from './views/addexpense/addexpense.component';
 import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearlyexpense.component';
-<<<<<<< HEAD
 import { FlatOwnerDetailsComponent } from './views/flat-owner-details/flat-owner-details.component';
 import { AssignownertoflatComponent } from './views/assignownertoflat/assignownertoflat.component';
 import { EditflatComponent } from './views/editflat/editflat.component';
-=======
 import { FundsComponent } from './views/funds/funds.component';
 import { AddfundComponent } from './views/addfund/addfund.component';
 import { UpdatefundComponent } from './views/updatefund/updatefund.component';
@@ -54,7 +52,6 @@ import { ElectionComponent } from './views/election/election.component';
 import { UpcomingelectionComponent } from './views/upcomingelection/upcomingelection.component';
 import { UpdatemonthlysalaryComponent } from './views/updatemonthlysalary/updatemonthlysalary.component';
 import { AddsalaryComponent } from './views/addsalary/addsalary.component';
->>>>>>> 6989c47fc60b887d05163afeb3d58bc25af1fc20
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,11 +76,9 @@ import { AddsalaryComponent } from './views/addsalary/addsalary.component';
     ViewmonthlyexpenseComponent,
     AddexpenseComponent,
     ViewyearlyexpenseComponent,
-<<<<<<< HEAD
     FlatOwnerDetailsComponent,
     AssignownertoflatComponent,
-    EditflatComponent
-=======
+    EditflatComponent,
     FundsComponent,
     AddfundComponent,
     UpdatefundComponent,
@@ -95,7 +90,6 @@ import { AddsalaryComponent } from './views/addsalary/addsalary.component';
     UpcomingelectionComponent,
     UpdatemonthlysalaryComponent,
     AddsalaryComponent
->>>>>>> 6989c47fc60b887d05163afeb3d58bc25af1fc20
   ],
   imports: [
     BrowserModule,
