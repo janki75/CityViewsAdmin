@@ -47,8 +47,8 @@ err:string;
 
   editDetails(data){
     this.fund.getIdByOwnerName(this.ownerEmail)
-    .subscribe((res:number) => {
-        this.ownerId = res;
+    .subscribe((res:any) => {
+        this.ownerId = res.id;
         
         if(this.Owner == null){
           this.fundOwnerId = this.ownerId;

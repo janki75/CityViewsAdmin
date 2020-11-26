@@ -16,7 +16,7 @@
         <br>
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <a href="/dashboard/meeting/pastmeeting" style="text-decoration: none;"><div class="card">
+                <a href="" data-toggle="modal" data-target="#defaultModal4" style="text-decoration: none;"><div class="card">
                     <div class="body bg-red">
                         Past Election Details
                     </div>
@@ -205,6 +205,68 @@
             </div>
         </div>
     </div>
+    
+    <div class="modal fade" id="defaultModal4" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title" id="defaultModalLabel">Election Details</h4>
+              </div>
+              <div class="modal-body">
+                  <div class="body">
+                      <div class="row clearfix">
+                        <div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12">
+                          <div
+                            class="panel-group"
+                            id="accordion_1"
+                            role="tablist"
+                            aria-multiselectable="true"
+                          >
+                            <div
+                              class="panel panel-primary"
+                              *ngFor="let item of electionDetail"
+                            >
+                              <div class="panel-heading" role="tab" id="headingOne_1">
+                                <h4 class="panel-title">
+                                  <a
+                                    class="collapsed"
+                                    role="button"
+                                    data-toggle="collapse"
+                                    data-parent="#accordion_2"
+                                    [href]="'#' + item.id + '_1'"
+                                    aria-expanded="false"
+                                    aria-controls="collapseOne_1"
+                                  >
+                                    {{ item.date }}
+                                  </a>
+                                </h4>
+                              </div>
+                              <div
+                                [id]="item.id+'_1'"
+                                class="panel-collapse collapse"
+                                role="tabpanel"
+                                aria-labelledby="headingOne_1"
+                              ><br>&nbsp;&nbsp;
+
+                              Election Heading :  {{ item.electionName }}
+                              
+                              <br><br>    <button
+                                    class="btn btn-success waves-effect"
+                                    style="margin-left: 5%; margin-bottom: 5%;"
+                                    (click) = getDetails1(item)
+                                  >
+                                    View-Details
+                          </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+          </div>
+      </div>
+  </div>
         <!-- #END# No Header Card -->
     </div>
 </section>

@@ -15,6 +15,7 @@ export class ElectionComponent implements OnInit {
   eleDate : any;
   todaydt : any;
   year:any;
+  finaltodaydt:any;
   constructor(private ele : ElectionService) { }
 
   ngOnInit() {
@@ -44,13 +45,12 @@ export class ElectionComponent implements OnInit {
     this.err = "Election heading is updated successfully!!";
   }
 
-  /*addEleDetails(data){
+  addEleDetails(data){
     this.todaydt=new Date().toString();
     var month=new Date().getMonth()+1;
     this.year=new Date().getFullYear().toString();
-    
-        console.log(eleDate > date);
-    if(eleDate >= date){
+    this.finaltodaydt=this.todaydt.substring(8,10)+"/"+month+"/"+this.year;
+    if(this.eleDate > this.finaltodaydt){
       const data1 = {
         electionName : this.electionName,
         date : this.eleDate 
@@ -64,5 +64,9 @@ export class ElectionComponent implements OnInit {
     else{
       this.err = "The date must be greater than current date!!";
     }
-  }*/
+  }
+
+  getDetails1(data){
+    console.log(data);
+  }
 }
