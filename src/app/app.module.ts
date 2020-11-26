@@ -38,6 +38,10 @@ import { MonthlyexpenseComponent } from './views/monthlyexpense/monthlyexpense.c
 import { ViewmonthlyexpenseComponent } from './views/viewmonthlyexpense/viewmonthlyexpense.component';
 import { AddexpenseComponent } from './views/addexpense/addexpense.component';
 import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearlyexpense.component';
+import { MaintenanceComponent } from './views/maintenance/maintenance.component';
+import { AddmaintenanceComponent } from './views/addmaintenance/addmaintenance.component';
+import { EditmaintenanceComponent } from './views/editmaintenance/editmaintenance.component';
+import { DuemaintenanceComponent } from './views/duemaintenance/duemaintenance.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +65,12 @@ import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearly
     MonthlyexpenseComponent,
     ViewmonthlyexpenseComponent,
     AddexpenseComponent,
-    ViewyearlyexpenseComponent
+    ViewyearlyexpenseComponent,
+    MaintenanceComponent,
+    AddmaintenanceComponent,
+    EditmaintenanceComponent,
+    DuemaintenanceComponent
+  
   ],
   imports: [
     BrowserModule,

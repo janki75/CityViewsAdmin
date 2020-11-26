@@ -1,3 +1,5 @@
+import { EditmaintenanceComponent } from './views/editmaintenance/editmaintenance.component';
+import { MaintenanceComponent } from './views/maintenance/maintenance.component';
 import { ManageemployeepositionComponent } from './views/manageemployeeposition/manageemployeeposition.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -21,6 +23,9 @@ import { MonthlyexpenseComponent } from './views/monthlyexpense/monthlyexpense.c
 import { ViewmonthlyexpenseComponent } from './views/viewmonthlyexpense/viewmonthlyexpense.component';
 import { AddexpenseComponent } from './views/addexpense/addexpense.component';
 import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearlyexpense.component';
+import { AddmaintenanceComponent } from './views/addmaintenance/addmaintenance.component';
+import { DuemaintenanceComponent } from './views/duemaintenance/duemaintenance.component';
+
 
 const routes: Routes = [
     {
@@ -111,7 +116,24 @@ const routes: Routes = [
     {
       path: "dashboard/expenses/yearlyexpenses",
       component:ViewyearlyexpenseComponent
+    },
+    {
+      path: "dashboard/maintenance",
+      component:MaintenanceComponent
+    },
+    {
+      path: "dashboard/addmaintenance",
+      component:AddmaintenanceComponent
+    },
+    {
+      path: "dashboard/editmaintenance/:id",
+      component:EditmaintenanceComponent
+    },
+    {
+      path:"dashboard/duemaintenance",
+      component:DuemaintenanceComponent
     }
+
 ];
 
 @NgModule({

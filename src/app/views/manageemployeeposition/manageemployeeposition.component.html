@@ -42,9 +42,12 @@ EMPLOYEE POSITIONS DETAILS&nbsp;&nbsp;
 
   </ng-container>
 
+
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<h1><p style="color : red; text-align: center; font-size:30px; " *ngIf="msg">{{ msg }}</p></h1>
 </div>
 </div>
 
