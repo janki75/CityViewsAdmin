@@ -28,9 +28,11 @@ import { OwnerComponent } from './views/owner/owner.component';
 import { AddownerComponent } from './views/addowner/addowner.component';
 import { SalaryComponent } from './views/salary/salary.component';
 import { ViewmonthlysalaryComponent } from './views/viewmonthlysalary/viewmonthlysalary.component';
-import { ElectionComponent } from './views/election/election.component';
 import { UpdatemonthlysalaryComponent } from './views/updatemonthlysalary/updatemonthlysalary.component';
 import { AddsalaryComponent } from './views/addsalary/addsalary.component';
+import { ElectionComponent } from './views/election/election.component';
+import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelection.component';
+
 
 const routes: Routes = [
     {
@@ -161,6 +163,10 @@ const routes: Routes = [
     {
       path: "dashboard/election",
       component:ElectionComponent
+    },
+    {
+      path: "dashboard/election/pastelection",
+      component:ViewpastelectionComponent
     }
 ];
 

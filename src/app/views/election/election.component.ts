@@ -16,6 +16,7 @@ export class ElectionComponent implements OnInit {
   todaydt : any;
   year:any;
   finaltodaydt:any;
+  eleresult:any[] = [];
   constructor(private ele : ElectionService) { }
 
   ngOnInit() {
@@ -24,6 +25,10 @@ export class ElectionComponent implements OnInit {
       this.electionDetail = res;
     })
 
+    this.ele.getelectionresult()
+    .subscribe((res:any) => {
+      this.eleresult = res;
+    })
   }
 
   getDetails(data){
@@ -31,6 +36,8 @@ export class ElectionComponent implements OnInit {
     this.electionId = data.id;
     this.date = data.date;
   }
+
+
 
   updateEleDetails(data){
     const data1 = {

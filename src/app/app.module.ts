@@ -49,6 +49,7 @@ import { ElectionComponent } from './views/election/election.component';
 import { UpcomingelectionComponent } from './views/upcomingelection/upcomingelection.component';
 import { UpdatemonthlysalaryComponent } from './views/updatemonthlysalary/updatemonthlysalary.component';
 import { AddsalaryComponent } from './views/addsalary/addsalary.component';
+import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelection.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +84,8 @@ import { AddsalaryComponent } from './views/addsalary/addsalary.component';
     ElectionComponent,
     UpcomingelectionComponent,
     UpdatemonthlysalaryComponent,
-    AddsalaryComponent
+    AddsalaryComponent,
+    ViewpastelectionComponent
   ],
   imports: [
     BrowserModule,
