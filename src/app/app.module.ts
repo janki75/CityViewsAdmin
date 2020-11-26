@@ -42,6 +42,20 @@ import { MaintenanceComponent } from './views/maintenance/maintenance.component'
 import { AddmaintenanceComponent } from './views/addmaintenance/addmaintenance.component';
 import { EditmaintenanceComponent } from './views/editmaintenance/editmaintenance.component';
 import { DuemaintenanceComponent } from './views/duemaintenance/duemaintenance.component';
+import { FlatOwnerDetailsComponent } from './views/flat-owner-details/flat-owner-details.component';
+import { AssignownertoflatComponent } from './views/assignownertoflat/assignownertoflat.component';
+import { EditflatComponent } from './views/editflat/editflat.component';
+import { FundsComponent } from './views/funds/funds.component';
+import { AddfundComponent } from './views/addfund/addfund.component';
+import { UpdatefundComponent } from './views/updatefund/updatefund.component';
+import { OwnerComponent } from './views/owner/owner.component';
+import { AddownerComponent } from './views/addowner/addowner.component';
+import { SalaryComponent } from './views/salary/salary.component';
+import { ViewmonthlysalaryComponent } from './views/viewmonthlysalary/viewmonthlysalary.component';
+import { ElectionComponent } from './views/election/election.component';
+import { UpcomingelectionComponent } from './views/upcomingelection/upcomingelection.component';
+import { UpdatemonthlysalaryComponent } from './views/updatemonthlysalary/updatemonthlysalary.component';
+import { AddsalaryComponent } from './views/addsalary/addsalary.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,8 +83,22 @@ import { DuemaintenanceComponent } from './views/duemaintenance/duemaintenance.c
     MaintenanceComponent,
     AddmaintenanceComponent,
     EditmaintenanceComponent,
-    DuemaintenanceComponent
+    DuemaintenanceComponent,
   
+    FlatOwnerDetailsComponent,
+    AssignownertoflatComponent,
+    EditflatComponent,
+    FundsComponent,
+    AddfundComponent,
+    UpdatefundComponent,
+    OwnerComponent,
+    AddownerComponent,
+    SalaryComponent,
+    ViewmonthlysalaryComponent,
+    ElectionComponent,
+    UpcomingelectionComponent,
+    UpdatemonthlysalaryComponent,
+    AddsalaryComponent
   ],
   imports: [
     BrowserModule,

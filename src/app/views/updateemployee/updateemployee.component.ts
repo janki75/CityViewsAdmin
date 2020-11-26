@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
-import { of } from 'rxjs';
 import { EmployeeService } from '../../services/employee.service';
 
 interface Food {
@@ -71,8 +70,6 @@ active:boolean;
         active : this.active
     }
 
-    console.log(data1);
-    
     this.employee.updateEmpDetails(data1)
     .subscribe((res) => {
 

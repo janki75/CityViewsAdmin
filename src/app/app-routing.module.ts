@@ -26,6 +26,19 @@ import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearly
 import { AddmaintenanceComponent } from './views/addmaintenance/addmaintenance.component';
 import { DuemaintenanceComponent } from './views/duemaintenance/duemaintenance.component';
 
+import { FlatOwnerDetailsComponent } from './views/flat-owner-details/flat-owner-details.component';
+import { AssignownertoflatComponent } from './views/assignownertoflat/assignownertoflat.component';
+import { EditflatComponent } from './views/editflat/editflat.component';
+import { FundsComponent } from './views/funds/funds.component';
+import { AddfundComponent } from './views/addfund/addfund.component';
+import { UpdatefundComponent } from './views/updatefund/updatefund.component';
+import { OwnerComponent } from './views/owner/owner.component';
+import { AddownerComponent } from './views/addowner/addowner.component';
+import { SalaryComponent } from './views/salary/salary.component';
+import { ViewmonthlysalaryComponent } from './views/viewmonthlysalary/viewmonthlysalary.component';
+import { ElectionComponent } from './views/election/election.component';
+import { UpdatemonthlysalaryComponent } from './views/updatemonthlysalary/updatemonthlysalary.component';
+import { AddsalaryComponent } from './views/addsalary/addsalary.component';
 
 const routes: Routes = [
     {
@@ -49,8 +62,20 @@ const routes: Routes = [
       component: FlatsComponent
     },
     {
+      path: "dashboard/flats/assignowner/:id",
+      component: AssignownertoflatComponent
+    },
+    {
       path: "dashboard/meeting/addflats",
       component: AddflatsComponent
+    },
+    {
+      path: "dashboard/meeting/editflat/:id",
+      component: EditflatComponent
+    },
+    {
+path:"dashboard/flats/ownerdetail/:id",
+component:FlatOwnerDetailsComponent
     },
     {
       path: "dashboard/meeting/upcomingmeeting",
@@ -132,6 +157,47 @@ const routes: Routes = [
     {
       path:"dashboard/duemaintenance",
       component:DuemaintenanceComponent
+     
+    },
+    {
+      path: "dashboard/funds",
+      component:FundsComponent
+    },
+    {
+      path: "dashboard/funds/addfund",
+      component:AddfundComponent
+    },
+    {
+      path: "dashboard/funds/updatefund",
+      component:UpdatefundComponent
+    },
+    {
+      path: "dashboard/owner",
+      component:OwnerComponent
+    },
+    {
+      path: "dashboard/owner/addowner",
+      component:AddownerComponent
+    },
+    {
+      path: "dashboard/salary",
+      component:SalaryComponent
+    },
+    {
+      path: "dashboard/salary/addsalary",
+      component:AddsalaryComponent
+    },
+    {
+      path: "dashboard/salary/viewmonthlysalary",
+      component:ViewmonthlysalaryComponent
+    },
+    {
+      path: "dashboard/salary/viewmonthlysalary/updatemonthlysalary",
+      component:UpdatemonthlysalaryComponent
+    },
+    {
+      path: "dashboard/election",
+      component:ElectionComponent
     }
 
 ];

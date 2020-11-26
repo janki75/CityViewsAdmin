@@ -15,7 +15,7 @@
                     <label for="startTime">Enter Flat No</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input #st="ngModel" required name="flatno" [(ngModel)]="startTime" type="text" id="flatno" class="form-control" placeholder="Eg.A101">
+                            <input #st="ngModel" required name="flatno" [(ngModel)]="flatNo" type="text" id="flatno" class="form-control" placeholder="Eg.A101">
                         </div>
                         <div [hidden]="st.valid || st.untouched">
                             <div [hidden]="!st.errors?.required"  class="text-danger">
@@ -27,7 +27,7 @@
                     <label for="endTime">Enter Bhk</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input #et="ngModel" required name="bhk" [(ngModel)]="endTime" type="number" id="bhk" class="form-control" placeholder="Enter Bhk">
+                            <input #et="ngModel" required name="bhk" [(ngModel)]="bhk" type="number" id="bhk" class="form-control" placeholder="Enter Bhk">
                         </div>
 
                         <div [hidden]="et.valid || et.untouched">
@@ -39,7 +39,7 @@
                     <label for="topic">Enter Parking Slot</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input #t="ngModel" required name="parking" [(ngModel)]="topic" type="text" id="parking" class="form-control" placeholder="Enter Parking Slot">
+                            <input #t="ngModel" required name="parking" [(ngModel)]="parkingSlot" type="text" id="parking" class="form-control" placeholder="Enter Parking Slot">
                         </div>
                         <div [hidden]="t.valid || t.untouched">
                             <div [hidden]="!t.errors?.required"  class="text-danger">
@@ -56,7 +56,6 @@
                     <button [disabled] = "addFlatForm.invalid" (click)="addflat()" type="button" class="btn btn-success m-t-15 waves-effect">Add Flat</button>
                     <button style="margin-left: 2%;margin-top: 1.5%" (click)="cancel()" type="button" class="btn bg-red waves-effect">Cancel</button>
 
-                    <p style="color: red; font-size: large; text-align: center;">{{ msg }}</p>
 
                 </form>
             </div>

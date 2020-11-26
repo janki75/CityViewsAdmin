@@ -1,0 +1,37 @@
+<app-header></app-header>
+<section class="content">
+    <div class="container-fluid">
+        <!-- Counter Examples -->
+
+<br>
+<div class="card" style="width: 50%;">
+    <div class="header">
+        <h2>OWNER LIST</h2>
+
+    </div>
+    <div class="body">
+        <div class="table-responsive">
+            <table class="table table-hover dashboard-task-infos">
+                <thead>
+                    <tr>
+
+                        <th>OwnerName</th>
+                        <th>ContactNo</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of ownerarr">
+                        <td>{{item.name}}</td>
+                        <td>{{item.contactNo}}</td>
+                       <td><button (click)="onadd(item.id)" type="button" class="btn bg-blue-grey waves-effect">Add Owner To Flat</button></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+</section>
