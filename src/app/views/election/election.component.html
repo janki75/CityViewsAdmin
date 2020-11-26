@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <!-- No Header Card -->
         <div class="block-header">
-            <h2>ELECTION DETAILS <button type="button" class="btn bg-indigo waves-effect" (click)="addmeeting()" style="margin-left: 2%;">
+            <h2>ELECTION DETAILS <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#defaultModal3" style="margin-left: 2%;">
                 <i class="material-icons">add</i>
                 <span>Arrange Election</span>
             </button></h2>
@@ -36,7 +36,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="defaultModalLabel">Update Election Details</h4>
+                        <h4 class="modal-title" id="defaultModalLabel">Election Details</h4>
                     </div>
                     <div class="modal-body">
                         <div class="body">
@@ -79,6 +79,9 @@
                                     <br><br>    <button
                                           class="btn btn-success waves-effect"
                                           style="margin-left: 5%; margin-bottom: 5%;"
+                                          data-target="#defaultModal2"
+                                          data-toggle="modal"
+                                          (click) = getDetails(item)
                                         >
                                           Edit-Details
                                 </button>
@@ -92,6 +95,116 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="defaultModal2" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title" id="defaultModalLabel">Update Election Details</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form #updateEleForm="ngForm" (ngSubmit)="updateEleDetails(updateEleForm.value)">
+                      <div class="row clearfix">
+                        <div class="col-sm-12">
+                            
+                          <div class="form-group">
+                            <div class="form-line">
+                              <label for="contact">Election Heading</label>
+                              <input
+                                type="text"
+                                title="Only Characters are allowed"
+                                required
+                                class="form-control"
+                                placeholder="Enter Election Heading"
+                                [(ngModel)] = "electionName"
+                                name="electioname"
+                                ngModel
+                                #electioname="ngModel"
+                              />
+                            </div>
+                                          <span *ngIf="!electioname.value && electioname.touched" style="color:red; font-size:2; text-align:center;">Election Heading Field Must be Filled</span>
+                          </div>
+                           
+                            
+                            
+          <p style="color : red; text-align: center; font-size:medium">{{ err }}</p>  
+                          <!-- <div v-if="error !== ''" class="alert alert-danger">{{ error }}</div> -->
+                          <br />
+                          <button type="submit" class="btn btn-success waves-effect m-r-20" [disabled] = "updateEleForm.invalid">Edit</button>
+                          <button type="button" class="btn bg-red waves-effect" data-dismiss="modal">Cancel</button>
+                        </div>
+                      </div>
+                    </form>
+            
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="modal fade" id="defaultModal3" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel">Add Election Details</h4>
+                </div>
+                <div class="modal-body">
+                  <form #addEleForm="ngForm" (ngSubmit)="addEleDetails(addEleForm.value)">
+                    <div class="row clearfix">
+                      <div class="col-sm-12">
+                          
+                        <div class="form-group">
+                          <div class="form-line">
+                            <label for="contact">Election Heading</label>
+                            <input
+                              type="text"
+                              title="Only Characters are allowed"
+                              required
+                              class="form-control"
+                              placeholder="Enter Election Heading"
+                              [(ngModel)] = "electionName"
+                              name="electioname"
+                              ngModel
+                              #electioname="ngModel"
+                            />
+                          </div>
+                                        <span *ngIf="!electioname.value && electioname.touched" style="color:red; font-size:2; text-align:center;">Election Heading Field Must be Filled</span>
+                        </div>
+                         
+                        <div class="form-group">
+                          <div class="form-line">
+                              <label for="contact">Date</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              maxlength="10"
+                              minlength="10"
+                              placeholder="Enter Date"
+                              pattern="[0-9/]*"
+                              title="Only Numbers are allowed"
+                              required
+                              [(ngModel)] = "eleDate"
+                              name="eledate"
+                            ngmodel
+                            #eledate="ngModel"
+                            />
+                          </div>
+                        <span *ngIf="eledate.invalid && eledate.touched && eledate.value" style="color:red; font-size:2; text-align:center;"> Entered Date Is Invalid</span>
+                        <span *ngIf="!eledate.value && eledate.touched" style="color:red; font-size:2; text-align:center;">Date Field Must be Filled</span>
+                      </div>
+
+                          
+        <p style="color : red; text-align: center; font-size:medium">{{ err }}</p>  
+                        <!-- <div v-if="error !== ''" class="alert alert-danger">{{ error }}</div> -->
+                        <br />
+                        <button type="submit" class="btn btn-success waves-effect m-r-20" [disabled] = "addEleForm.invalid">Edit</button>
+                        <button type="button" class="btn bg-red waves-effect" data-dismiss="modal">Cancel</button>
+                      </div>
+                    </div>
+                  </form>
+          
+                </div>
+            </div>
+        </div>
+    </div>
         <!-- #END# No Header Card -->
     </div>
 </section>
