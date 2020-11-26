@@ -23,19 +23,26 @@ Amt:number;
 fundDate:any;
 fundReason:any;
 err:any;
+ownerList:any[] = [];
+i:number;
   constructor(private fund : FundsService,private router : Router) { }
 
   ngOnInit() {
     this.fund.getallowners()
     .subscribe((res:any) => {
-      this.owner = res;
+      this.ownerList = res;
+      for(this.i = 1;this.i<this.ownerList.length;this.i++){
+        const data = {email : this.ownerList[this.i].email};
+          this.owner.push(data);    
+      }
+      console.log(this.owner);
     })    
   }
 
   addDetails(data){
     this.fund.getIdByOwnerName(data.owner)
-    .subscribe((res:number) => {
-      this.ownerId = res;
+    .subscribe((res:any) => {
+      this.ownerId = res.id;
       const data1 = {
         amount:this.Amt,
         date:this.fundDate,
