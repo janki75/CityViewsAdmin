@@ -13,13 +13,17 @@ export class ManageemployeepositionComponent implements OnInit {
   dataSource = new MatTableDataSource();
  
   constructor(private _route:Router,private _posserv:ManagemployeepositionService) { }
-
+msg:string="";
   ngOnInit() {
    
     this._posserv.getAllEmployeePosition().subscribe(
       (data:employeePosition[])=>{
         console.log(data);
+        if(data.length>0)
         this.dataSource.data=data;
+        else
+        this.msg="No records found!!";
+
 
       }
     );

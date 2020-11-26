@@ -38,6 +38,13 @@ import { MonthlyexpenseComponent } from './views/monthlyexpense/monthlyexpense.c
 import { ViewmonthlyexpenseComponent } from './views/viewmonthlyexpense/viewmonthlyexpense.component';
 import { AddexpenseComponent } from './views/addexpense/addexpense.component';
 import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearlyexpense.component';
+import { MaintenanceComponent } from './views/maintenance/maintenance.component';
+import { AddmaintenanceComponent } from './views/addmaintenance/addmaintenance.component';
+import { EditmaintenanceComponent } from './views/editmaintenance/editmaintenance.component';
+import { DuemaintenanceComponent } from './views/duemaintenance/duemaintenance.component';
+import { FlatOwnerDetailsComponent } from './views/flat-owner-details/flat-owner-details.component';
+import { AssignownertoflatComponent } from './views/assignownertoflat/assignownertoflat.component';
+import { EditflatComponent } from './views/editflat/editflat.component';
 import { FundsComponent } from './views/funds/funds.component';
 import { AddfundComponent } from './views/addfund/addfund.component';
 import { UpdatefundComponent } from './views/updatefund/updatefund.component';
@@ -74,6 +81,14 @@ import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelec
     ViewmonthlyexpenseComponent,
     AddexpenseComponent,
     ViewyearlyexpenseComponent,
+    MaintenanceComponent,
+    AddmaintenanceComponent,
+    EditmaintenanceComponent,
+    DuemaintenanceComponent,
+  
+    FlatOwnerDetailsComponent,
+    AssignownertoflatComponent,
+    EditflatComponent,
     FundsComponent,
     AddfundComponent,
     UpdatefundComponent,

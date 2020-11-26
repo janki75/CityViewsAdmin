@@ -6,13 +6,13 @@
         <div class="card">
             <div class="header">
                 <h2>
-                 <b>   ADD FLATS</b>
+                 <b>   EDIT FLATS</b>
                 </h2>
 
             </div>
             <div class="body">
                 <form method="POST" #addFlatForm="ngForm" >
-                    <label for="startTime">Enter Flat No</label>
+                    <label for="startTime">Flat No</label>
                     <div class="form-group">
                         <div class="form-line">
                             <input #st="ngModel" required name="flatno" [(ngModel)]="flatNo" type="text" id="flatno" class="form-control" placeholder="Eg.A101">
@@ -24,7 +24,7 @@
                                </div>
                     </div>
 
-                    <label for="endTime">Enter Bhk</label>
+                    <label for="endTime">Bhk</label>
                     <div class="form-group">
                         <div class="form-line">
                             <input #et="ngModel" required name="bhk" [(ngModel)]="bhk" type="number" id="bhk" class="form-control" placeholder="Enter Bhk">
@@ -36,7 +36,7 @@
                                 </div>
                                </div>
                     </div>
-                    <label for="topic">Enter Parking Slot</label>
+                    <label for="topic">Parking Slot</label>
                     <div class="form-group">
                         <div class="form-line">
                             <input #t="ngModel" required name="parking" [(ngModel)]="parkingSlot" type="text" id="parking" class="form-control" placeholder="Enter Parking Slot">
@@ -53,7 +53,7 @@
 
 
                     <br>
-                    <button [disabled] = "addFlatForm.invalid" (click)="addflat()" type="button" class="btn btn-success m-t-15 waves-effect">Add Flat</button>
+                    <button [disabled] = "addFlatForm.invalid" (click)="onsave()" type="button" class="btn btn-success m-t-15 waves-effect">Save</button>
                     <button style="margin-left: 2%;margin-top: 1.5%" (click)="cancel()" type="button" class="btn bg-red waves-effect">Cancel</button>
 
 

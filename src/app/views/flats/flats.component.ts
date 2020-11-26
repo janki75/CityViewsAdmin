@@ -13,6 +13,7 @@ export class FlatsComponent implements OnInit {
 
   flat_arr:flat_Class[]=[];
   occupied:flat_Class[]=[];
+  vacant:flat_Class[]=[];
 
 
   constructor(private flatser:FlatsService,private _route:Router) { }
@@ -29,8 +30,17 @@ export class FlatsComponent implements OnInit {
 
     this.flatser.getoccupiedflats().subscribe(
       (data:any)=>{
+        console.log(data);
         this.occupied=data;
+
+
       }
+    );
+
+    this.flatser.getvacantflats().subscribe(
+    (data:any)=>{
+        this.vacant=data;
+    }
     );
   }
 
@@ -38,9 +48,36 @@ addflats()
 {
   this._route.navigate(['dashboard/meeting/addflats']);
 }
-onview()
+onview(id)
 {
+console.log(id);
+this._route.navigate(['dashboard/flats/ownerdetail/'+id]);
 
+}
+onassign(id)
+{
+  console.log(id);
+  this._route.navigate(['dashboard/flats/assignowner/'+id]);
+}
+onedit(id)
+{
+  console.log(id);
+  this._route.navigate(['dashboard/meeting/editflat/'+id]);
+}
+onnotoccupied(id)
+{
+console.log(id);
+this.flatser.updatetonotoccupiedflat(id).subscribe(
+  (data:any)=>{
+    console.log("done");
+  }
+);
+this._route.routeReuseStrategy.shouldReuseRoute = function () {
+  return false;
+};
+this._route.onSameUrlNavigation = "reload";
+
+location.reload();
 }
 
 }

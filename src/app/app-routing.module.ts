@@ -1,3 +1,5 @@
+import { EditmaintenanceComponent } from './views/editmaintenance/editmaintenance.component';
+import { MaintenanceComponent } from './views/maintenance/maintenance.component';
 import { ManageemployeepositionComponent } from './views/manageemployeeposition/manageemployeeposition.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -21,6 +23,12 @@ import { MonthlyexpenseComponent } from './views/monthlyexpense/monthlyexpense.c
 import { ViewmonthlyexpenseComponent } from './views/viewmonthlyexpense/viewmonthlyexpense.component';
 import { AddexpenseComponent } from './views/addexpense/addexpense.component';
 import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearlyexpense.component';
+import { AddmaintenanceComponent } from './views/addmaintenance/addmaintenance.component';
+import { DuemaintenanceComponent } from './views/duemaintenance/duemaintenance.component';
+
+import { FlatOwnerDetailsComponent } from './views/flat-owner-details/flat-owner-details.component';
+import { AssignownertoflatComponent } from './views/assignownertoflat/assignownertoflat.component';
+import { EditflatComponent } from './views/editflat/editflat.component';
 import { FundsComponent } from './views/funds/funds.component';
 import { AddfundComponent } from './views/addfund/addfund.component';
 import { UpdatefundComponent } from './views/updatefund/updatefund.component';
@@ -56,8 +64,20 @@ const routes: Routes = [
       component: FlatsComponent
     },
     {
+      path: "dashboard/flats/assignowner/:id",
+      component: AssignownertoflatComponent
+    },
+    {
       path: "dashboard/meeting/addflats",
       component: AddflatsComponent
+    },
+    {
+      path: "dashboard/meeting/editflat/:id",
+      component: EditflatComponent
+    },
+    {
+path:"dashboard/flats/ownerdetail/:id",
+component:FlatOwnerDetailsComponent
     },
     {
       path: "dashboard/meeting/upcomingmeeting",
@@ -125,6 +145,23 @@ const routes: Routes = [
       component:ViewyearlyexpenseComponent
     },
     {
+      path: "dashboard/maintenance",
+      component:MaintenanceComponent
+    },
+    {
+      path: "dashboard/addmaintenance",
+      component:AddmaintenanceComponent
+    },
+    {
+      path: "dashboard/editmaintenance/:id",
+      component:EditmaintenanceComponent
+    },
+    {
+      path:"dashboard/duemaintenance",
+      component:DuemaintenanceComponent
+     
+    },
+    {
       path: "dashboard/funds",
       component:FundsComponent
     },
@@ -168,6 +205,7 @@ const routes: Routes = [
       path: "dashboard/election/pastelection",
       component:ViewpastelectionComponent
     }
+
 ];
 
 @NgModule({

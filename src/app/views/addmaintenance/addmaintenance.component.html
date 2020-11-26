@@ -1,0 +1,58 @@
+<app-header></app-header>
+<section class="content">
+    <div class="container-fluid">
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                 <b>  Add Maintenance Detail</b>
+                </h2>
+               
+            </div>
+            <div class="body">
+                <form method="POST" #addForm="ngForm" >
+                        <div class="example-container">
+                                <mat-form-field appearance="fill">
+                                  <mat-label>Enter your Amount</mat-label>
+                                  <input type="number" #amt="ngModel" name="amount" id="amount" [(ngModel)]="amount" matInput  required>
+                                  <div [hidden]="amt.valid || amt.untouched">
+                                        <div [hidden]="!amt.errors?.required"  class="text-danger">
+                                              <font size=2>*please enter Amount of Maintenance</font>
+                                            </div>
+                                           </div>
+                                </mat-form-field>
+                              </div>
+                    <br>
+                    <mat-form-field appearance="fill">
+                            <mat-label>Choose Flat No</mat-label>
+                            <mat-select [(ngModel)]="flat_no" name="flatid" required>
+                              <mat-option *ngFor="let item of arrflat" [value]="item.flatNo">
+                                {{item.flatNo}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                            <br>
+
+                          <mat-form-field appearance="fill">
+                                <mat-label>Choose Month</mat-label>
+                                <mat-select [(ngModel)]="month" name="month" required>
+                                  <mat-option *ngFor="let item of arrmonths" [value]="item">
+                                    {{item}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+
+                              <br>
+
+                    <button [disabled] = "addForm.invalid" (click)="addItem()" type="button" class="btn bg-green waves-effect">Save</button>
+                    <button style="margin-left: 2%" (click)="cancel()" type="button" class="btn bg-red waves-effect">Cancel</button>
+
+                    <p style="color: red; font-size: large; text-align: center;">{{ msg }}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</section>
