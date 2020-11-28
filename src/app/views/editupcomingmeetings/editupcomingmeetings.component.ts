@@ -16,13 +16,12 @@ export class EditupcomingmeetingsComponent implements OnInit {
   agenda:string;
   minutesOfMeeting:string;
   msg:string;
-  todaydt:string;
-  month:string;
-  year:string;
-  finaltodaydt:string;
-  fmonth:string;
+
   msg1:string;
   msg2:string;
+  active:boolean;
+  todaydt:any;
+finaltodaydt:any;
   constructor(private _meetserv:MeetingService,private _acroute:ActivatedRoute,private _route:Router) { }
 
   ngOnInit() {
@@ -37,7 +36,7 @@ export class EditupcomingmeetingsComponent implements OnInit {
           this.topic=data.topic;
           this.agenda=data.agenda;
           this.minutesOfMeeting=data.minutesOfMeeting;
-
+          this.active=data.active;
 
         }
         );
@@ -46,22 +45,39 @@ export class EditupcomingmeetingsComponent implements OnInit {
 
   }
   updateItem(){
-    var startsub=this.startTime.substring(0,10);
-    var endsub=this.endTime.substring(0,10);
-    this.todaydt=new Date().toString();
-    console.log(this.todaydt);
-    console.log(this.todaydt.substring(8,10));
-    var month=new Date().getMonth()+1;
-    console.log(month);
 
-    this.year=new Date().getFullYear().toString();
-    console.log(this.year);
-    this.finaltodaydt=this.todaydt.substring(8,10)+"/"+month+"/"+this.year;
-    console.log(this.finaltodaydt);
-    console.log(startsub);
-      if(this.endTime>this.startTime && startsub==endsub && startsub>=this.finaltodaydt)
-      {
-    this._meetserv.editMeeting(new meeting(this.meetingId,this.startTime,this.endTime,this.topic,this.agenda,this.minutesOfMeeting)).subscribe(
+    var sday=this.startTime.substring(0,2);
+    console.log(sday);
+    var smonth=this.startTime.substring(3,5);
+    var syear=this.startTime.substring(6,10);
+    console.log(smonth);
+    console.log(syear);
+    var endday=this.endTime.substring(0,2);
+    var endmonth=this.endTime.substring(3,5);
+    var endyear=this.endTime.substring(6,10);
+    var sthour=this.startTime.substring(11,13);
+    var stmin=this.startTime.substring(14,16);
+    var ssec=this.startTime.substring(17,19);
+    console.log(sthour);
+    console.log(stmin);
+    console.log(ssec);
+    var ehour=this.endTime.substring(11,13);
+    var emin=this.endTime.substring(14,16);
+    var esec=this.endTime.substring(17,19);
+    this.todaydt=new Date();
+    var day = this.todaydt.getDate();
+        var month=new Date().getMonth()+1;
+        var newmonth=month.toString();
+        var year=new Date().getFullYear().toString();
+        this.finaltodaydt=day+"/"+month+"/"+year;
+
+
+        if(sday==endday && smonth==endmonth && syear==endyear && sday>=day && smonth>=newmonth && syear>=year)
+        {
+
+          if((ehour==sthour && emin>stmin && esec>=ssec)|| ehour>sthour )
+          {
+    this._meetserv.editMeeting(new meeting(this.meetingId,this.startTime,this.endTime,this.topic,this.agenda,this.minutesOfMeeting,this.active)).subscribe(
       (data:any)=>{
 
 
@@ -69,11 +85,15 @@ export class EditupcomingmeetingsComponent implements OnInit {
     );
     alert("Meeting updated successfully!");
     this._route.navigate(['/dashboard/meeting/upcomingmeeting']);
-  }
+     }
+     else{
+      alert("Check your time.Endtime should not be less than Starttime of meeting!");
+     }
+
+      }
+
   else{
-    this.msg="Meeting should be completed on same day !";
-    this.msg1="Endtime should be greater than Starttime !";
-    this.msg2="Starttime should not be less than today's date !"
+    alert("Check your date.It should not be less than today's date and meeting must be completed on the same day");
   }
   }
 

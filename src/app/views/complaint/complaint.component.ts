@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class ComplaintComponent implements OnInit {
 complaint_arr:complaint_Class[]=[];
 i:number=0;
+msg:string;
 
 
   constructor(private complaint_service:ComplaintService,private route:Router) { }
@@ -20,7 +21,14 @@ i:number=0;
     this.complaint_service.getallcomplaint().subscribe(
       (data:complaint_Class[])=>{
         console.log(data);
-        this.complaint_arr=data;
+        if(data.length==0)
+        {
+           this.msg="NO COMPLAINTS!"
+        }
+        else{
+          this.complaint_arr=data;
+        }
+
 
 
 

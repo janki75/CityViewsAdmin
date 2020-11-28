@@ -56,6 +56,9 @@ import { ElectionComponent } from './views/election/election.component';
 import { UpcomingelectionComponent } from './views/upcomingelection/upcomingelection.component';
 import { UpdatemonthlysalaryComponent } from './views/updatemonthlysalary/updatemonthlysalary.component';
 import { AddsalaryComponent } from './views/addsalary/addsalary.component';
+import { ElectionpositionComponent } from './views/electionposition/electionposition.component';
+import { AddelectionpositionComponent } from './views/addelectionposition/addelectionposition.component';
+import { EditelectionpositionComponent } from './views/editelectionposition/editelectionposition.component';
 import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelection.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
@@ -89,7 +92,7 @@ import { ViewresultsComponent } from './views/viewresults/viewresults.component'
     AddmaintenanceComponent,
     EditmaintenanceComponent,
     DuemaintenanceComponent,
-  
+
     FlatOwnerDetailsComponent,
     AssignownertoflatComponent,
     EditflatComponent,
@@ -105,7 +108,11 @@ import { ViewresultsComponent } from './views/viewresults/viewresults.component'
     UpdatemonthlysalaryComponent,
     AddsalaryComponent,
     ViewpastelectionComponent,
-    ViewresultsComponent
+    ViewresultsComponent,
+    ElectionpositionComponent,
+    AddelectionpositionComponent,
+    EditelectionpositionComponent,
+    ViewpastelectionComponent
   ],
   imports: [
     BrowserModule,
