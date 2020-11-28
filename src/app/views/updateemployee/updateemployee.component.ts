@@ -25,6 +25,7 @@ err:string;
 posId:number;
 empposId:number;
 active:boolean;
+Position:any;
   constructor(private employee:EmployeeService,private route:ActivatedRoute,private router : Router) { }
 
   ngOnInit() {

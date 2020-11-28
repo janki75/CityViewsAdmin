@@ -1,3 +1,5 @@
+import { EditmaintenanceComponent } from './views/editmaintenance/editmaintenance.component';
+import { MaintenanceComponent } from './views/maintenance/maintenance.component';
 import { ManageemployeepositionComponent } from './views/manageemployeeposition/manageemployeeposition.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -21,6 +23,9 @@ import { MonthlyexpenseComponent } from './views/monthlyexpense/monthlyexpense.c
 import { ViewmonthlyexpenseComponent } from './views/viewmonthlyexpense/viewmonthlyexpense.component';
 import { AddexpenseComponent } from './views/addexpense/addexpense.component';
 import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearlyexpense.component';
+import { AddmaintenanceComponent } from './views/addmaintenance/addmaintenance.component';
+import { DuemaintenanceComponent } from './views/duemaintenance/duemaintenance.component';
+
 import { FlatOwnerDetailsComponent } from './views/flat-owner-details/flat-owner-details.component';
 import { AssignownertoflatComponent } from './views/assignownertoflat/assignownertoflat.component';
 import { EditflatComponent } from './views/editflat/editflat.component';
@@ -31,12 +36,17 @@ import { OwnerComponent } from './views/owner/owner.component';
 import { AddownerComponent } from './views/addowner/addowner.component';
 import { SalaryComponent } from './views/salary/salary.component';
 import { ViewmonthlysalaryComponent } from './views/viewmonthlysalary/viewmonthlysalary.component';
-import { ElectionComponent } from './views/election/election.component';
 import { UpdatemonthlysalaryComponent } from './views/updatemonthlysalary/updatemonthlysalary.component';
 import { AddsalaryComponent } from './views/addsalary/addsalary.component';
+<<<<<<< HEAD
 import { ElectionpositionComponent } from './views/electionposition/electionposition.component';
 import { AddelectionpositionComponent } from './views/addelectionposition/addelectionposition.component';
 import { EditelectionpositionComponent } from './views/editelectionposition/editelectionposition.component';
+=======
+import { ElectionComponent } from './views/election/election.component';
+import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelection.component';
+
+>>>>>>> c77302e521a70d2dfd7dfbec85bf649e9c4b59fa
 
 const routes: Routes = [
     {
@@ -141,6 +151,23 @@ component:FlatOwnerDetailsComponent
       component:ViewyearlyexpenseComponent
     },
     {
+      path: "dashboard/maintenance",
+      component:MaintenanceComponent
+    },
+    {
+      path: "dashboard/addmaintenance",
+      component:AddmaintenanceComponent
+    },
+    {
+      path: "dashboard/editmaintenance/:id",
+      component:EditmaintenanceComponent
+    },
+    {
+      path:"dashboard/duemaintenance",
+      component:DuemaintenanceComponent
+     
+    },
+    {
       path: "dashboard/funds",
       component:FundsComponent
     },
@@ -181,6 +208,7 @@ component:FlatOwnerDetailsComponent
       component:ElectionComponent
     },
     {
+<<<<<<< HEAD
       path: "dashboard/electionposition",
       component:ElectionpositionComponent
     },
@@ -191,7 +219,12 @@ component:FlatOwnerDetailsComponent
     {
       path: "dashboard/electionposition/editelectionposition/:id",
       component:EditelectionpositionComponent
+=======
+      path: "dashboard/election/pastelection",
+      component:ViewpastelectionComponent
+>>>>>>> c77302e521a70d2dfd7dfbec85bf649e9c4b59fa
     }
+
 ];
 
 @NgModule({

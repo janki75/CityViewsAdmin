@@ -9,6 +9,7 @@
                 <span>Arrange Election</span>
             </button></h2>
             
+            
 
             <!-- <button (click)="addmeeting()">Add meeting</button> -->
         </div>
@@ -63,7 +64,7 @@
                                           aria-expanded="false"
                                           aria-controls="collapseTwo_1"
                                         >
-                                          {{ item.date }}
+                                          {{ item.electionDate }}
                                         </a>
                                       </h4>
                                     </div>
@@ -195,7 +196,7 @@
         <p style="color : red; text-align: center; font-size:medium">{{ err }}</p>  
                         <!-- <div v-if="error !== ''" class="alert alert-danger">{{ error }}</div> -->
                         <br />
-                        <button type="submit" class="btn btn-success waves-effect m-r-20" [disabled] = "addEleForm.invalid">Edit</button>
+                        <button type="submit" class="btn btn-success waves-effect m-r-20" [disabled] = "addEleForm.invalid">Add</button>
                         <button type="button" class="btn bg-red waves-effect" data-dismiss="modal">Cancel</button>
                       </div>
                     </div>
@@ -224,7 +225,7 @@
                           >
                             <div
                               class="panel panel-primary"
-                              *ngFor="let item of electionDetail"
+                              *ngFor="let item of electionList"
                             >
                               <div class="panel-heading" role="tab" id="headingOne_1">
                                 <h4 class="panel-title">
@@ -233,16 +234,16 @@
                                     role="button"
                                     data-toggle="collapse"
                                     data-parent="#accordion_2"
-                                    [href]="'#' + item.id + '_1'"
+                                    [href]="'#' + item.electionId + '_1'"
                                     aria-expanded="false"
                                     aria-controls="collapseOne_1"
                                   >
-                                    {{ item.date }}
+                                    {{ item.electionDate }}
                                   </a>
                                 </h4>
                               </div>
                               <div
-                                [id]="item.id+'_1'"
+                                [id]="item.electionId+'_1'"
                                 class="panel-collapse collapse"
                                 role="tabpanel"
                                 aria-labelledby="headingOne_1"

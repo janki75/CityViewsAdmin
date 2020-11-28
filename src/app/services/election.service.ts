@@ -6,6 +6,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 })
 export class ElectionService {
   election_url:string="http://localhost:8081/adminportal/election/";
+  electionResult_url:string="http://localhost:8081/adminportal/electionResult/";
   constructor(private _http:HttpClient) { }
   getallelection()
   {
@@ -26,5 +27,10 @@ export class ElectionService {
     let head1=new HttpHeaders().set('Content-Type','application/json');
 
     return this._http.post(this.election_url,body,{headers:head1});
+  }
+
+  getelectionresult()
+  {
+    return this._http.get(this.electionResult_url);
   }
 }

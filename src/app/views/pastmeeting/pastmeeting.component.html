@@ -57,13 +57,12 @@
             </td>
           </ng-container>
 
-          <br>        
-          <h1><p style="color : red; text-align: center; font-size:30px; background-color: white;" *ngIf="items.length === 0">{{ msg }}</p></h1>
-          <br>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
         </table>
-        
+                
+        <p style="color : red; text-align: center; font-size:30px; font-weight: bold; background-color: white;" *ngIf="items.length === 0">{{ msg }}</p>
         <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
       </div>
 

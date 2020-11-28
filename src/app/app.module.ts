@@ -38,6 +38,10 @@ import { MonthlyexpenseComponent } from './views/monthlyexpense/monthlyexpense.c
 import { ViewmonthlyexpenseComponent } from './views/viewmonthlyexpense/viewmonthlyexpense.component';
 import { AddexpenseComponent } from './views/addexpense/addexpense.component';
 import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearlyexpense.component';
+import { MaintenanceComponent } from './views/maintenance/maintenance.component';
+import { AddmaintenanceComponent } from './views/addmaintenance/addmaintenance.component';
+import { EditmaintenanceComponent } from './views/editmaintenance/editmaintenance.component';
+import { DuemaintenanceComponent } from './views/duemaintenance/duemaintenance.component';
 import { FlatOwnerDetailsComponent } from './views/flat-owner-details/flat-owner-details.component';
 import { AssignownertoflatComponent } from './views/assignownertoflat/assignownertoflat.component';
 import { EditflatComponent } from './views/editflat/editflat.component';
@@ -52,9 +56,13 @@ import { ElectionComponent } from './views/election/election.component';
 import { UpcomingelectionComponent } from './views/upcomingelection/upcomingelection.component';
 import { UpdatemonthlysalaryComponent } from './views/updatemonthlysalary/updatemonthlysalary.component';
 import { AddsalaryComponent } from './views/addsalary/addsalary.component';
+<<<<<<< HEAD
 import { ElectionpositionComponent } from './views/electionposition/electionposition.component';
 import { AddelectionpositionComponent } from './views/addelectionposition/addelectionposition.component';
 import { EditelectionpositionComponent } from './views/editelectionposition/editelectionposition.component';
+=======
+import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelection.component';
+>>>>>>> c77302e521a70d2dfd7dfbec85bf649e9c4b59fa
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +87,11 @@ import { EditelectionpositionComponent } from './views/editelectionposition/edit
     ViewmonthlyexpenseComponent,
     AddexpenseComponent,
     ViewyearlyexpenseComponent,
+    MaintenanceComponent,
+    AddmaintenanceComponent,
+    EditmaintenanceComponent,
+    DuemaintenanceComponent,
+  
     FlatOwnerDetailsComponent,
     AssignownertoflatComponent,
     EditflatComponent,
@@ -93,9 +106,13 @@ import { EditelectionpositionComponent } from './views/editelectionposition/edit
     UpcomingelectionComponent,
     UpdatemonthlysalaryComponent,
     AddsalaryComponent,
+<<<<<<< HEAD
     ElectionpositionComponent,
     AddelectionpositionComponent,
     EditelectionpositionComponent
+=======
+    ViewpastelectionComponent
+>>>>>>> c77302e521a70d2dfd7dfbec85bf649e9c4b59fa
   ],
   imports: [
     BrowserModule,
