@@ -35,13 +35,17 @@ export class UpcomingmeetingComponent implements OnInit {
       this.arr = res;
       if(this.arr.length > 0){
         for(this.i = 0 ;this.i < this.arr.length;this.i++){
-          let startdate = new Date(this.arr[this.i].startTime);
-          let enddate = new Date(this.arr[this.i].endTime);
-          let d = startdate.getDate() + "-" + (startdate.getMonth() + 1) + "-" + startdate.getFullYear() + " " + startdate.getHours() + ":" + startdate.getMinutes() + ":" + startdate.getSeconds();
-          let d1 = enddate.getDate() + "-" + (enddate.getMonth() + 1 )+ "-" + enddate.getFullYear()  + " " + enddate.getHours() + ":" + enddate.getMinutes() + ":" + enddate.getSeconds();
-          const data1 = {meetingId:res[this.i].meetingId,agenda:res[this.i].agenda,topic:res[this.i].topic,minutesOfMeeting:res[this.i].minutesOfMeeting,startTime:d,endTime:d1}
-          this.items.push(data1);
-          this.dataSource.data = this.items;
+          if(this.arr[this.i].active==true)
+          {
+            let startdate = new Date(this.arr[this.i].startTime);
+            let enddate = new Date(this.arr[this.i].endTime);
+            let d = startdate.getDate() + "-" + (startdate.getMonth() + 1) + "-" + startdate.getFullYear() + " " + startdate.getHours() + ":" + startdate.getMinutes() + ":" + startdate.getSeconds();
+            let d1 = enddate.getDate() + "-" + (enddate.getMonth() + 1 )+ "-" + enddate.getFullYear()  + " " + enddate.getHours() + ":" + enddate.getMinutes() + ":" + enddate.getSeconds();
+            const data1 = {meetingId:res[this.i].meetingId,agenda:res[this.i].agenda,topic:res[this.i].topic,minutesOfMeeting:res[this.i].minutesOfMeeting,startTime:d,endTime:d1}
+            this.items.push(data1);
+            this.dataSource.data = this.items;
+          }
+
         }
       }
     })
