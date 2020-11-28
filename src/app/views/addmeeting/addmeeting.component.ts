@@ -29,6 +29,7 @@ finaltodaydt:string;
 fmonth:string;
 msg1:string;
 msg2:string;
+active:boolean;
 
   ngOnInit() {
 
@@ -44,7 +45,8 @@ msg2:string;
             endTime : this.endTime,
             topic : this.topic,
             agenda : this.agenda,
-            minutesOfMeeting : this.minutesOfMeeting
+            minutesOfMeeting : this.minutesOfMeeting,
+            active:true
            }
            console.log(this.startTime);
 var startsub=this.startTime.substring(0,10);

@@ -15,9 +15,11 @@ export class UpcomingmeetingComponent implements OnInit {
   items : any[] = [];
   arr : any[] = [];
   i : number;
+  id:number;
   msg:string="No records are there!!";
   displayedColumns: string[] = ['agenda', 'topic', 'minutesOfMeeting', 'startTime' , 'endTime','action'];
   dataSource = new MatTableDataSource;
+
 
   @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
 
@@ -29,6 +31,7 @@ export class UpcomingmeetingComponent implements OnInit {
   ngOnInit() {
     this._meetingserv.getUpcomingMeeting()
     .subscribe((res:any) => {
+    console.log(res);
       this.arr = res;
       if(this.arr.length > 0){
         for(this.i = 0 ;this.i < this.arr.length;this.i++){
@@ -48,6 +51,25 @@ export class UpcomingmeetingComponent implements OnInit {
   {
    console.log(element.meetingId);
    this._route.navigate(["dashboard/meeting/editupcomingmeeting",element.meetingId]);
+  }
+  ondelete(id)
+  {
+    console.log(id);
+    this.id=id;
+  }
+  onmodaldel(){
+    this._meetingserv.deletemeeting(this.id).subscribe(
+      (data:any)=>{
+        console.log(data);
+      }
+    );
+
+    this._route.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+    this._route.onSameUrlNavigation = "reload";
+
+    location.reload();
   }
 
 

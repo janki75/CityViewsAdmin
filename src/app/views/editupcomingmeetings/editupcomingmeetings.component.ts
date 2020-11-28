@@ -23,6 +23,7 @@ export class EditupcomingmeetingsComponent implements OnInit {
   fmonth:string;
   msg1:string;
   msg2:string;
+  active:boolean;
   constructor(private _meetserv:MeetingService,private _acroute:ActivatedRoute,private _route:Router) { }
 
   ngOnInit() {
@@ -37,7 +38,7 @@ export class EditupcomingmeetingsComponent implements OnInit {
           this.topic=data.topic;
           this.agenda=data.agenda;
           this.minutesOfMeeting=data.minutesOfMeeting;
-
+          this.active=data.active;
 
         }
         );
@@ -61,7 +62,7 @@ export class EditupcomingmeetingsComponent implements OnInit {
     console.log(startsub);
       if(this.endTime>this.startTime && startsub==endsub && startsub>=this.finaltodaydt)
       {
-    this._meetserv.editMeeting(new meeting(this.meetingId,this.startTime,this.endTime,this.topic,this.agenda,this.minutesOfMeeting)).subscribe(
+    this._meetserv.editMeeting(new meeting(this.meetingId,this.startTime,this.endTime,this.topic,this.agenda,this.minutesOfMeeting,this.active)).subscribe(
       (data:any)=>{
 
 

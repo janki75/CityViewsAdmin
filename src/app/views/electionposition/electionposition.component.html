@@ -1,0 +1,66 @@
+<app-header></app-header>
+
+<section class="content">
+    <div class="container-fluid">
+        <!-- No Header Card -->
+
+        <div class="container-fluid">
+          <div class="block-header">
+              <h2>ELECTION POSITIONS</h2>
+          </div>
+          <div class="card" style="width: 50%">
+            <div class="header bg-blue-grey">
+              <h2><button type="button" class="btn bg-red waves-effect" (click)="onaddposition()">
+                <i class="material-icons">add</i>
+                <span>ADD POSITION</span>
+            </button></h2>
+
+            </div>
+            <div class="body">
+
+              <table border=2 align="center" style="width: 80%;">
+                <tr>
+                  <th>Position Name</th>
+                  <th>Action</th>
+                </tr>
+                <tr *ngFor="let item of arr">
+                  <td style="font-family: sans-serif"><b>{{item.name}}</b></td>
+                  <td>
+                      <button type="button" class="btn bg-blue-grey waves-effect" (click)="onedit(item.id)">EDIT</button>
+                      <button type="button"  data-toggle="modal" data-target="#myModal" class="btn bg-red waves-effect" (click)="ondelete(item.id)">DELETE</button>
+                          <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+
+                          <!-- Modal -->
+                          <div id="myModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Delete Position</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <p>Are You Sure You Want To Delete This Position?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" (click)="onmodaldel()">Delete</button>
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                  </td>
+                </tr>
+              </table>
+              <h2 style="font-size: 20px;color: red" align="center">{{msg}}</h2>
+
+            </div>
+
+        </div>
+
+        </div>
+        </div>
+        </section>

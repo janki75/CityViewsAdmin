@@ -34,6 +34,9 @@ import { ViewmonthlysalaryComponent } from './views/viewmonthlysalary/viewmonthl
 import { ElectionComponent } from './views/election/election.component';
 import { UpdatemonthlysalaryComponent } from './views/updatemonthlysalary/updatemonthlysalary.component';
 import { AddsalaryComponent } from './views/addsalary/addsalary.component';
+import { ElectionpositionComponent } from './views/electionposition/electionposition.component';
+import { AddelectionpositionComponent } from './views/addelectionposition/addelectionposition.component';
+import { EditelectionpositionComponent } from './views/editelectionposition/editelectionposition.component';
 
 const routes: Routes = [
     {
@@ -176,6 +179,18 @@ component:FlatOwnerDetailsComponent
     {
       path: "dashboard/election",
       component:ElectionComponent
+    },
+    {
+      path: "dashboard/electionposition",
+      component:ElectionpositionComponent
+    },
+    {
+      path: "dashboard/electionposition/addelectionposition",
+      component:AddelectionpositionComponent
+    },
+    {
+      path: "dashboard/electionposition/editelectionposition/:id",
+      component:EditelectionpositionComponent
     }
 ];
 
