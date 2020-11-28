@@ -64,7 +64,8 @@
                                           aria-expanded="false"
                                           aria-controls="collapseTwo_1"
                                         >
-                                          {{ item.electionDate }}
+                                          Start Date : {{ item.electionDate }}<br><br>
+                                          End Date : {{ item.endDate }}
                                         </a>
                                       </h4>
                                     </div>
@@ -85,7 +86,17 @@
                                           (click) = getDetails(item)
                                         >
                                           Edit-Details
-                                </button>
+                                </button>&nbsp;&nbsp;
+
+                                <button
+                                class="btn btn-danger waves-effect"
+                                style="margin-left: 5%; margin-bottom: 5%;"
+                                data-target="#defaultModal5"
+                                data-toggle="modal"
+                                (click) = getDetails(item)
+                              >
+                                Delete
+                      </button>
                                     </div>
                                   </div>
                                 </div>
@@ -125,9 +136,48 @@
                             </div>
                                           <span *ngIf="!electioname.value && electioname.touched" style="color:red; font-size:2; text-align:center;">Election Heading Field Must be Filled</span>
                           </div>
-                           
-                            
-                            
+
+                          <div class="form-group">
+                            <div class="form-line">
+                                <label>Start Date</label>
+                              <input
+                                type="date"
+                                class="form-control"
+                                placeholder="Enter Date"
+                                title="Only Numbers are allowed"
+                                required
+                                [(ngModel)] = "eleDate"
+                                name="eledate"
+                              ngmodel
+                              #eledate="ngModel"
+                              />
+                              
+                          {{ eleDate }}
+                            </div>
+                          <span *ngIf="!eledate.value && eledate.touched" style="color:red; font-size:2; text-align:center;">Start Date Must be Selected</span>
+                        </div>
+  
+                        
+                        <div class="form-group">
+                          <div class="form-line">
+                              <label>End Date</label>
+                            <input
+                              type="date"
+                              class="form-control"
+                              placeholder="Enter End Date"
+                              title="Only Numbers are allowed"
+                              required
+                              [(ngModel)] = "endDate"
+                              name="enddate"
+                            ngmodel
+                            #enddate="ngModel"
+                            />
+                            {{ endDate }}
+                          </div>
+                        <span *ngIf="!enddate.value && enddate.touched" style="color:red; font-size:2; text-align:center;">End Date Must be Selected</span>
+                            </div>
+  
+
           <p style="color : red; text-align: center; font-size:medium">{{ err }}</p>  
                           <!-- <div v-if="error !== ''" class="alert alert-danger">{{ error }}</div> -->
                           <br />
@@ -172,14 +222,11 @@
                          
                         <div class="form-group">
                           <div class="form-line">
-                              <label for="contact">Date</label>
+                              <label>Start Date</label>
                             <input
-                              type="text"
+                              type="date"
                               class="form-control"
-                              maxlength="10"
-                              minlength="10"
                               placeholder="Enter Date"
-                              pattern="[0-9/]*"
                               title="Only Numbers are allowed"
                               required
                               [(ngModel)] = "eleDate"
@@ -188,11 +235,29 @@
                             #eledate="ngModel"
                             />
                           </div>
-                        <span *ngIf="eledate.invalid && eledate.touched && eledate.value" style="color:red; font-size:2; text-align:center;"> Entered Date Is Invalid</span>
-                        <span *ngIf="!eledate.value && eledate.touched" style="color:red; font-size:2; text-align:center;">Date Field Must be Filled</span>
+                        
+                        <span *ngIf="!eledate.value && eledate.touched" style="color:red; font-size:2; text-align:center;">Start Date Must be Selected</span>
                       </div>
 
-                          
+                      
+                      <div class="form-group">
+                        <div class="form-line">
+                            <label>End Date</label>
+                          <input
+                            type="date"
+                            class="form-control"
+                            placeholder="Enter End Date"
+                            title="Only Numbers are allowed"
+                            required
+                            [(ngModel)] = "endDate"
+                            name="enddate"
+                          ngmodel
+                          #enddate="ngModel"
+                          />
+                        </div>
+                      <span *ngIf="!enddate.value && enddate.touched" style="color:red; font-size:2; text-align:center;">End Date Must be Selected</span>
+                          </div>
+
         <p style="color : red; text-align: center; font-size:medium">{{ err }}</p>  
                         <!-- <div v-if="error !== ''" class="alert alert-danger">{{ error }}</div> -->
                         <br />
@@ -238,7 +303,8 @@
                                     aria-expanded="false"
                                     aria-controls="collapseOne_1"
                                   >
-                                    {{ item.electionDate }}
+                                    Start Date : {{ item.electionDate }}<br><br>
+                                    End Date : {{ item.endDate }}
                                   </a>
                                 </h4>
                               </div>
@@ -251,13 +317,14 @@
 
                               Election Heading :  {{ item.electionName }}
                               
-                              <br><br>    <button
+                              <br><br>    <a [href]="'dashboard/election/pastelection/viewresults?electionId=' + item.electionId"
                                     class="btn btn-success waves-effect"
                                     style="margin-left: 5%; margin-bottom: 5%;"
-                                    (click) = getDetails1(item)
+                                    
                                   >
                                     View-Details
-                          </button>
+                            </a>
+
                               </div>
                             </div>
                           </div>
@@ -268,6 +335,23 @@
           </div>
       </div>
   </div>
+
+  <div class="modal fade" id="defaultModal5" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="defaultModalLabel">Confirmation Message</h4>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to cancel the election ?
+            </div>
+            <div class="modal-footer">
+                        <button type="submit" class="btn btn-success waves-effect m-r-20" (click)="updateStatus()">Yes</button>
+                        <button type="button" class="btn bg-red waves-effect" data-dismiss="modal">No</button>
+                      </div>
+        </div>
+    </div>
+</div>
         <!-- #END# No Header Card -->
     </div>
 </section>

@@ -57,6 +57,10 @@ import { UpcomingelectionComponent } from './views/upcomingelection/upcomingelec
 import { UpdatemonthlysalaryComponent } from './views/updatemonthlysalary/updatemonthlysalary.component';
 import { AddsalaryComponent } from './views/addsalary/addsalary.component';
 import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelection.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { ViewresultsComponent } from './views/viewresults/viewresults.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,7 +104,8 @@ import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelec
     UpcomingelectionComponent,
     UpdatemonthlysalaryComponent,
     AddsalaryComponent,
-    ViewpastelectionComponent
+    ViewpastelectionComponent,
+    ViewresultsComponent
   ],
   imports: [
     BrowserModule,
@@ -120,7 +125,9 @@ import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelec
   MatInputModule,
   MatSortModule,
   MatSelectModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatDatepickerModule,
+  MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

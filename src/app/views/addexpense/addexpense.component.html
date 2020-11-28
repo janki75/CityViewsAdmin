@@ -34,25 +34,14 @@
                     
                     <div class="form-group">
                       <div class="form-line">
-                          <label for="expdate">Date</label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          maxlength="10"
-                          minlength="10"
-                          placeholder="Enter date and time in specific format For eg. DD/MM/YYYY"
-                          pattern="[0-9/]*"
-                          title="Only Numbers are allowed"
-                          required
-                          [(ngModel)] = "expDate"
-                          name="expdate"
-                        ngmodel
-                        #expdate="ngModel"
-                        />
-                      </div>
-                    <span *ngIf="expdate.invalid && expdate.touched && expdate.value" style="color:red; font-size:2; text-align:center;"> Entered Date Is Invalid</span>
-                    <span *ngIf="!expdate.value && expdate.touched" style="color:red; font-size:2; text-align:center;">Date Field Must be Filled</span>
-  
+                          <label for="expdate">Date</label><br>
+                          <mat-form-field color="accent" appearance="fill">
+                            <mat-label>Choose a date</mat-label>
+                            <input matInput [matDatepicker]="picker2" [(ngModel)]="expDate" name="expdate" #expdate="ngModel" required>
+                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                            <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                          </mat-form-field>
+                        </div>
                   </div>
                       
                     <div class="form-group">

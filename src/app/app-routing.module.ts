@@ -40,6 +40,7 @@ import { UpdatemonthlysalaryComponent } from './views/updatemonthlysalary/update
 import { AddsalaryComponent } from './views/addsalary/addsalary.component';
 import { ElectionComponent } from './views/election/election.component';
 import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelection.component';
+import { ViewresultsComponent } from './views/viewresults/viewresults.component';
 
 
 const routes: Routes = [
@@ -204,8 +205,11 @@ component:FlatOwnerDetailsComponent
     {
       path: "dashboard/election/pastelection",
       component:ViewpastelectionComponent
+    },
+    {
+      path: "dashboard/election/pastelection/viewresults",
+      component:ViewresultsComponent
     }
-
 ];
 
 @NgModule({
