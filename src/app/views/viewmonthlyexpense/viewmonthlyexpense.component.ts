@@ -30,6 +30,7 @@ expDate:any;
 expReason:any;
 expenseId:any;
 err:any;
+fullDate:any;
 dataSource = new MatTableDataSource();
 @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -73,21 +74,33 @@ dataSource = new MatTableDataSource();
     
   }
  
- getExpDetailsById(data){
+ getExpDetailsById(data){ 
    this.exp.getById(data.id)
    .subscribe((res:any) => {
       this.expenseId = res.expenseId;
       this.Amt = res.amount;
       this.expDate = res.date;
       this.expReason = res.reason;
-      console.log(res);
    })
  } 
 
  updateExpDetails(data){
+  let date = new Date(this.expDate);
+  let day = date.getDate();
+  let month = date.getMonth()+1;
+  let year = date.getFullYear();
+  if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9){
+    this.fullDate = "0" + day + "/" + month + "/" +year;
+    
+  }
+  else
+  {
+    this.fullDate = day + "/" + month + "/" +year;
+    
+  }
   const data1 = {
     amount : data.amt,
-    date : data.expdate,
+    date : this.fullDate,
     reason : data.expreason
   }
   console.log(data1);
@@ -105,6 +118,4 @@ dataSource = new MatTableDataSource();
   location.reload();
    this.err="Expense details are updated successfully!!"
  }
-
-  
 }

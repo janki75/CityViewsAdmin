@@ -25,6 +25,7 @@ fundReason:any;
 err:any;
 ownerList:any[] = [];
 i:number;
+fulldate:any;
   constructor(private fund : FundsService,private router : Router) { }
 
   ngOnInit() {
@@ -32,7 +33,7 @@ i:number;
     .subscribe((res:any) => {
       this.ownerList = res;
       for(this.i = 1;this.i<this.ownerList.length;this.i++){
-        const data = {email : this.ownerList[this.i].email};
+        const data = {name: this.ownerList[this.i].name,email : this.ownerList[this.i].email};
           this.owner.push(data);    
       }
       console.log(this.owner);
@@ -40,12 +41,26 @@ i:number;
   }
 
   addDetails(data){
+    let date = new Date(this.fundDate);
+    let day = date.getDate();
+    let month = date.getMonth()+1;
+    let year = date.getFullYear();
+    if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9){
+      this.fulldate = "0" + day + "/" + month + "/" +year;
+      
+    }
+    else
+    {
+      this.fulldate = day + "/" + month + "/" +year;
+      
+    }
+     
     this.fund.getIdByOwnerName(data.owner)
     .subscribe((res:any) => {
       this.ownerId = res.id;
       const data1 = {
         amount:this.Amt,
-        date:this.fundDate,
+        date:this.fulldate,
         reason:this.fundReason,
         paymentMode:"offline",
         ownerId:this.ownerId

@@ -90,25 +90,23 @@
                     
                     <div class="form-group">
                       <div class="form-line">
-                          <label for="contact">Date</label>
+                          <label>Date</label>
                         <input
-                          type="text"
+                          type="date"
                           class="form-control"
-                          maxlength="10"
-                          minlength="10"
                           placeholder="Enter Date"
-                          pattern="[0-9/]*"
                           title="Only Numbers are allowed"
                           required
                           [(ngModel)] = "salDate"
                           name="saldate"
                         ngmodel
                         #saldate="ngModel"
+                        (input)="onSearchDate($event.target.value)"
                         />
+                        {{ salDate }}
                       </div>
-                    <span *ngIf="saldate.invalid && saldate.touched && saldate.value" style="color:red; font-size:2; text-align:center;"> Entered Date Is Invalid</span>
-                    <span *ngIf="!saldate.value && saldate.touched" style="color:red; font-size:2; text-align:center;">Date Field Must be Filled</span>
-                  </div>
+                    <span *ngIf="!saldate.value && saldate.touched" style="color:red; font-size:2; text-align:center;">Date Must be Selected</span>
+                        </div>
                       
                      
                       

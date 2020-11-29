@@ -24,7 +24,15 @@ fulldate:any;
     let day = date.getDate();
     let month = date.getMonth()+1;
     let year = date.getFullYear();
-    this.fulldate = day + "/" + month + "/" +year; 
+    if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9){
+      this.fulldate = "0" + day + "/" + month + "/" +year;
+      
+    }
+    else
+    {
+      this.fulldate = day + "/" + month + "/" +year;
+      
+    }
     const data1 = {
       amount : data.amt,
       date : this.fulldate,

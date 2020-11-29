@@ -23,6 +23,8 @@ salary:any;
 Emp:any;
 err:string;
 monthNo:number;
+fulldate:any;
+sta:boolean=false;
   constructor(private router : Router,private route : ActivatedRoute,private sal : SalaryService,private emp : EmployeeService) { }
 
   ngOnInit() {
@@ -50,8 +52,15 @@ monthNo:number;
     this.emp.getEmployeeById(this.empId)
     .subscribe((res:any) => {
       let date1 = this.salDate;
-      this.month = date1.substring(3,5);
+      if(this.sta == false){
+        this.month = date1.substring(3,5);
+      }
+      if(this.sta == true){
+        this.month = date1.substring(5,7);
+      }
+      
       this.salary = res.posSalary;
+      console.log(this.month);
       
       if(this.month == '01' || this.month == '03' || this.month == '05'|| this.month == '07'|| this.month == '08'|| this.month == '10'|| this.month == '12'){
        let sal = this.salary/31;
@@ -71,11 +80,24 @@ monthNo:number;
 
       updateSalDetails(data){
         if(this.Emp != undefined){
+          let date = new Date(this.salDate);
+    let day = date.getDate();
+    let month = date.getMonth()+1;
+    let year = date.getFullYear();
+    if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9){
+      this.fulldate = "0" + day + "/" + month + "/" +year;
+      
+    }
+    else
+    {
+      this.fulldate = day + "/" + month + "/" +year;
+      
+    }
           const data1 = {
             amountPaid : this.Amt,
             noOfLeaves : this.Leaves,
             employeeId : this.Emp,
-            datePaid : this.salDate
+            datePaid : this.fulldate
           }
 
           this.sal.editSalary(data1,this.salId)
@@ -86,11 +108,24 @@ monthNo:number;
         }  
         
         if(this.Emp == undefined){
+          let date = new Date(this.salDate);
+    let day = date.getDate();
+    let month = date.getMonth()+1;
+    let year = date.getFullYear();
+    if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9){
+      this.fulldate = "0" + day + "/" + month + "/" +year;
+      
+    }
+    else
+    {
+      this.fulldate = day + "/" + month + "/" +year;
+      
+    }
           const data1 = {
             amountPaid : this.Amt,
             noOfLeaves : this.Leaves,
             employeeId : this.empId,
-            datePaid : this.salDate
+            datePaid : this.fulldate
           }
 
           this.sal.editSalary(data1,this.salId)
@@ -108,5 +143,11 @@ monthNo:number;
           },
         };
         this.router.navigate(["/dashboard/salary/viewmonthlysalary"],navigationExtras);
+      }
+
+      onSearchDate(event){
+        this.salDate = event;
+        this.sta = true;
+        console.log(this.salDate);
       }
 }

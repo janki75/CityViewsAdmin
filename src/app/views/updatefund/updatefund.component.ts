@@ -15,11 +15,14 @@ export class UpdatefundComponent implements OnInit {
   fundReason:any;
   ownerEmail:any;
   owner:any[] = [];
+  ownerList:any[] = [];
   Owner:any;
   ownerId:number;
   fundOwnerId:number;
   ownerEmailId:number;
 err:string;
+i:number;
+fulldate:any;
   constructor(private fund:FundsService,private route:ActivatedRoute,private router : Router) { }
 
   ngOnInit() {
@@ -40,8 +43,11 @@ err:string;
 
     this.fund.getallowners()
     .subscribe((res:any) => {
-      this.owner = res;
-
+      this.ownerList = res;
+      for(this.i = 1;this.i<this.ownerList.length;this.i++){
+        const data = {name: this.ownerList[this.i].name,email : this.ownerList[this.i].email};
+          this.owner.push(data);    
+      }
     })
   }
 
@@ -52,9 +58,23 @@ err:string;
         
         if(this.Owner == null){
           this.fundOwnerId = this.ownerId;
+          let date = new Date(this.fundDate);
+    let day = date.getDate();
+    let month = date.getMonth()+1;
+    let year = date.getFullYear();
+    if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9){
+      this.fulldate = "0" + day + "/" + month + "/" +year;
+      
+    }
+    else
+    {
+      this.fulldate = day + "/" + month + "/" +year;
+      
+    }
+    
           const data1 = {
             amount:this.Amt,
-            date:this.fundDate,
+            date:this.fulldate,
             reason:this.fundReason,
             paymentMode:"offline",
             ownerId:this.fundOwnerId
@@ -69,15 +89,29 @@ err:string;
 
       else{
         this.fund.getIdByOwnerName(this.Owner)
-        .subscribe((res:number) => {
-          this.fundOwnerId = res;
+        .subscribe((res:any) => {
+          this.fundOwnerId = res.id;
+          let date = new Date(this.fundDate);
+    let day = date.getDate();
+    let month = date.getMonth()+1;
+    let year = date.getFullYear();
+    if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9){
+      this.fulldate = "0" + day + "/" + month + "/" +year;
+      
+    }
+    else
+    {
+      this.fulldate = day + "/" + month + "/" +year;
+      
+    }
           const data1 = {
             amount:this.Amt,
-            date:this.fundDate,
+            date:this.fulldate,
             reason:this.fundReason,
             paymentMode:"offline",
             ownerId:this.fundOwnerId
         }
+        console.log(data1);
         this.fund.editFundDetail(data1,this.fundId)
         .subscribe((res)=>{
    

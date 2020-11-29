@@ -19,6 +19,7 @@ result:any[] = [];
 eleResDetail:any[] = [];
 max:number = 0;
 winner:string="";
+j:number=1;
 msg="No records found!!";
   constructor(private route:ActivatedRoute,private router : Router,private ele : ElectionService) { 
     
@@ -57,11 +58,12 @@ msg="No records found!!";
                       this.max = this.eleDetail[this.i].voteCount;
                       this.winner = this.eleDetail[this.i].ownerName;
                 }
-                const data1 = {ownername:this.eleDetail[this.i].ownerName,vote:this.eleDetail[this.i].voteCount}                
+                const data1 = {no:this.j++,ownername:this.eleDetail[this.i].ownerName,vote:this.eleDetail[this.i].voteCount}                
                 this.eleResDetail.push(data1);
             }
           }
         })
+        this.j=1;
         this.max = 0;
         this.winner = "";
         this.eleResDetail.splice(0,this.eleResDetail.length);

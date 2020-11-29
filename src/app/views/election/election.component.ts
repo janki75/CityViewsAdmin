@@ -54,11 +54,12 @@ export class ElectionComponent implements OnInit {
          if(eleDate == day && eleMonth == month && eleYear == this.year)
          {
            this.currElection = this.eleresult[this.i].date + " - " + this.eleresult[this.i].electionName;        
-             if(this.currElection != ' '){
-               alert('There is an election today!!!');
-             }
+             
          }
         }
+      }
+      if(this.currElection != ' '){
+        alert('There is an election today!!!');
       }
 
     })
