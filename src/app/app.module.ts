@@ -19,7 +19,10 @@ import {
   MatInputModule,
   MatSortModule,
   MatPaginator,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MAT_DATE_LOCALE,
 } from "@angular/material";
 import { EditmeetingComponent } from './views/editmeeting/editmeeting.component';
 import { ComplaintComponent } from './views/complaint/complaint.component';
@@ -31,6 +34,9 @@ import { UpdateemployeeComponent } from './views/updateemployee/updateemployee.c
 import {MatSelectModule} from '@angular/material/select';
 import { AddemployeeComponent } from './views/addemployee/addemployee.component';
 import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/editupcomingmeetings.component';
+import { IncomeComponent } from './views/income/income.component';
+import { UpdateincomeComponent } from './views/updateincome/updateincome.component';
+import { AddincomeComponent } from './views/addincome/addincome.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +53,10 @@ import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/edit
     EmployeeComponent,
     UpdateemployeeComponent,
     AddemployeeComponent,
-    EditupcomingmeetingsComponent
+    EditupcomingmeetingsComponent,
+    IncomeComponent,
+    UpdateincomeComponent,
+    AddincomeComponent
   ],
   imports: [
     BrowserModule,
@@ -67,9 +76,13 @@ import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/edit
   MatInputModule,
   MatSortModule,
   MatSelectModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -73,7 +73,7 @@ export class EditupcomingmeetingsComponent implements OnInit {
   else{
     this.msg="Meeting should be completed on same day !";
     this.msg1="Endtime should be greater than Starttime !";
-    this.msg2="Starttime should not be less than today's date !"
+    this.msg2="Starttime should not be less than today's date !" 
   }
   }
 
