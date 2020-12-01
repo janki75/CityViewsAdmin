@@ -24,7 +24,7 @@
                         <div class="form-line">
                         <mat-form-field appearance="fill">
                             <mat-label for="date">Date</mat-label>
-                            <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" #dt="ngModel" required name="date" [(ngModel)]="date"  [value]="date" id="date" class="form-control">
+                            <input matInput [min]="mindate" [matDatepicker]="picker" #dt="ngModel" required name="date" [(ngModel)]="date"  [value]="date" id="date" class="form-control">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                       </mat-form-field>    

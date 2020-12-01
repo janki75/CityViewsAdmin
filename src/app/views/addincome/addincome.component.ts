@@ -21,8 +21,11 @@ i:number;
 j:number;
 datebooked:string="";
 flag:number=0;
+mindate:Date;
 
-  constructor(private _incomeservice : IncomeService,private _route : Router) { }
+  constructor(private _incomeservice : IncomeService,private _route : Router) {
+    this.mindate=new Date();
+   }
 
   ngOnInit() {
     this._incomeservice.getallincome().subscribe(

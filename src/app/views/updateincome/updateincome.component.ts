@@ -22,8 +22,12 @@ export class UpdateincomeComponent implements OnInit {
   j:number;
   datebooked:string="";
   flag:number=0;
+  currentdate:string;
+  mindate:Date;
  
-    constructor(private _incomeservice:IncomeService, private _acroute:ActivatedRoute, private _route : Router) { }
+    constructor(private _incomeservice:IncomeService, private _acroute:ActivatedRoute, private _route : Router) {
+      this.mindate=new Date();
+     }
   
     ngOnInit() {
       this._acroute.params.subscribe(
@@ -41,6 +45,17 @@ export class UpdateincomeComponent implements OnInit {
           );
         }
       );
+
+      var temp1 = new Date(new Date(this.date).setDate(new Date(this.date).getDate() + 1));
+      var dateadjusted1= temp1.toISOString();
+      var isodate1=dateadjusted1.substring(0,10);
+      var day= dateadjusted1.substring(8,10);
+      var month=dateadjusted1.substring(5,7);
+      var year=dateadjusted1.substring(4,0);
+      var finaldate1= day+"/"+month+"/"+year;
+      //console.log(finaldate1);
+      this.currentdate=finaldate1;
+
       this._incomeservice.getallincome().subscribe(
         (data:income[])=>{
             this.i=0;
