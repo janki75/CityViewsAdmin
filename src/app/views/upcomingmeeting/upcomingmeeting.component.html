@@ -50,11 +50,37 @@
                   class="btn bg-cyan waves-effect"
                   (click)="onedit(element)"
                 >
-                  Edit Details</button
+                  Edit</button
                 >
+                <button type="button"   data-toggle="modal" data-target="#myModal" class="btn bg-deep-orange waves-effect" (click)="ondelete(element.meetingId)">Delete</button>
+
+                  <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Delete Meeting</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Are You Sure You Want To Delete This Meeting?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" (click)="onmodaldel()">Delete</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
               </div>
+
             </td>
           </ng-container>
+          <br>
+          <h1><p style="color : red; text-align: center; font-size:30px; background-color: white;" *ngIf="items.length === 0">{{ msg }}</p></h1>
+          <br>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

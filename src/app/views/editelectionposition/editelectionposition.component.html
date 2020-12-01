@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+<section class="content">
+    <div class="container-fluid">
+        <!-- No Header Card -->
+
+        <div class="container-fluid">
+
+          <div class="card" style="width: 50%">
+            <div class="header bg-blue-grey">
+              <h2>
+                <span>EDIT ELECTION POSITION</span>
+            </h2>
+
+            </div>
+            <div class="body">
+
+              <form method="POST" #addpositionForm="ngForm" >
+                <label for="startTime">Position Name</label>
+                <div class="form-group">
+                    <div class="form-line">
+                        <input #st="ngModel" required name="pname" [(ngModel)]="positionName" type="text" id="pname" class="form-control" placeholder="Enter Election Position Name">
+                    </div>
+                    <div [hidden]="st.valid || st.untouched">
+                        <div [hidden]="!st.errors?.required"  class="text-danger">
+                              <font size=2>*please enter position name</font>
+                            </div>
+                           </div>
+                </div>
+
+
+
+
+
+                <br>
+                <button [disabled] = "addpositionForm.invalid" (click)="onedit()" type="button" class="btn btn-success m-t-15 waves-effect">Save</button>
+                <button style="margin-left: 2%;margin-top: 2.5%" (click)="cancel()" type="button" class="btn bg-red waves-effect">Cancel</button>
+
+
+            </form>
+            </div>
+        </div>
+        </div>
+        </div>
+        </section>

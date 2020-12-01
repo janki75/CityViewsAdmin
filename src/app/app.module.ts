@@ -37,6 +37,37 @@ import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/edit
 import { IncomeComponent } from './views/income/income.component';
 import { UpdateincomeComponent } from './views/updateincome/updateincome.component';
 import { AddincomeComponent } from './views/addincome/addincome.component';
+import { FlatsComponent } from './views/flats/flats.component';
+import { AddflatsComponent } from './views/addflats/addflats.component';
+import { ExpenseComponent } from './views/expense/expense.component';
+import { MonthlyexpenseComponent } from './views/monthlyexpense/monthlyexpense.component';
+import { ViewmonthlyexpenseComponent } from './views/viewmonthlyexpense/viewmonthlyexpense.component';
+import { AddexpenseComponent } from './views/addexpense/addexpense.component';
+import { ViewyearlyexpenseComponent } from './views/viewyearlyexpense/viewyearlyexpense.component';
+import { MaintenanceComponent } from './views/maintenance/maintenance.component';
+import { AddmaintenanceComponent } from './views/addmaintenance/addmaintenance.component';
+import { EditmaintenanceComponent } from './views/editmaintenance/editmaintenance.component';
+import { DuemaintenanceComponent } from './views/duemaintenance/duemaintenance.component';
+import { FlatOwnerDetailsComponent } from './views/flat-owner-details/flat-owner-details.component';
+import { AssignownertoflatComponent } from './views/assignownertoflat/assignownertoflat.component';
+import { EditflatComponent } from './views/editflat/editflat.component';
+import { FundsComponent } from './views/funds/funds.component';
+import { AddfundComponent } from './views/addfund/addfund.component';
+import { UpdatefundComponent } from './views/updatefund/updatefund.component';
+import { OwnerComponent } from './views/owner/owner.component';
+import { AddownerComponent } from './views/addowner/addowner.component';
+import { SalaryComponent } from './views/salary/salary.component';
+import { ViewmonthlysalaryComponent } from './views/viewmonthlysalary/viewmonthlysalary.component';
+import { ElectionComponent } from './views/election/election.component';
+import { UpcomingelectionComponent } from './views/upcomingelection/upcomingelection.component';
+import { UpdatemonthlysalaryComponent } from './views/updatemonthlysalary/updatemonthlysalary.component';
+import { AddsalaryComponent } from './views/addsalary/addsalary.component';
+import { ElectionpositionComponent } from './views/electionposition/electionposition.component';
+import { AddelectionpositionComponent } from './views/addelectionposition/addelectionposition.component';
+import { EditelectionpositionComponent } from './views/editelectionposition/editelectionposition.component';
+import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelection.component';
+import { ViewresultsComponent } from './views/viewresults/viewresults.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +87,39 @@ import { AddincomeComponent } from './views/addincome/addincome.component';
     EditupcomingmeetingsComponent,
     IncomeComponent,
     UpdateincomeComponent,
-    AddincomeComponent
+    AddincomeComponent,
+    FlatsComponent,
+    AddflatsComponent,
+    ExpenseComponent,
+    MonthlyexpenseComponent,
+    ViewmonthlyexpenseComponent,
+    AddexpenseComponent,
+    ViewyearlyexpenseComponent,
+    MaintenanceComponent,
+    AddmaintenanceComponent,
+    EditmaintenanceComponent,
+    DuemaintenanceComponent,
+
+    FlatOwnerDetailsComponent,
+    AssignownertoflatComponent,
+    EditflatComponent,
+    FundsComponent,
+    AddfundComponent,
+    UpdatefundComponent,
+    OwnerComponent,
+    AddownerComponent,
+    SalaryComponent,
+    ViewmonthlysalaryComponent,
+    ElectionComponent,
+    UpcomingelectionComponent,
+    UpdatemonthlysalaryComponent,
+    AddsalaryComponent,
+    ViewpastelectionComponent,
+    ViewresultsComponent,
+    ElectionpositionComponent,
+    AddelectionpositionComponent,
+    EditelectionpositionComponent,
+    ViewpastelectionComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +132,7 @@ import { AddincomeComponent } from './views/addincome/addincome.component';
     MatInputModule,
     MatSortModule,
   MatIconModule,
-    
+
   MatButtonModule,
   MatFormFieldModule,
   MatIconModule,
@@ -82,6 +145,7 @@ import { AddincomeComponent } from './views/addincome/addincome.component';
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
+  MatNativeDateModule
   ],
   bootstrap: [AppComponent]
 })

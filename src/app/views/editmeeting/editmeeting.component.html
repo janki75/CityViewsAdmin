@@ -15,7 +15,7 @@
                     <label for="startTime">Choose Starting Time</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input #st="ngModel" required id="startTime" name="startTime" [(ngModel)]="startTime" type="text" id="startTime" class="form-control" placeholder="Enter date and time in specific format For eg. DD/MM/YYYY HH:MM:SS">
+                            <input disabled #st="ngModel" required id="startTime" name="startTime" [(ngModel)]="startTime" type="text" id="startTime" class="form-control" placeholder="Enter date and time in specific format For eg. DD/MM/YYYY HH:MM:SS">
                         </div>
                         <div [hidden]="st.valid || st.untouched">
                             <div [hidden]="!st.errors?.required"  class="text-danger">
@@ -27,7 +27,7 @@
                     <label for="endTime">Choose Ending Time</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input #et="ngModel" required name="endTime" [(ngModel)]="endTime" type="text" id="endTime" class="form-control" placeholder="Enter date and time in specific format For eg. DD/MM/YYYY HH:MM:SS">
+                            <input disabled #et="ngModel" required name="endTime" [(ngModel)]="endTime" type="text" id="endTime" class="form-control" placeholder="Enter date and time in specific format For eg. DD/MM/YYYY HH:MM:SS">
                         </div>
                         <div [hidden]="et.valid || et.untouched">
                             <div [hidden]="!et.errors?.required"  class="text-danger">

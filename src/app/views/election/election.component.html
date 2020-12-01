@@ -1,0 +1,357 @@
+<app-header></app-header>
+
+<section class="content">
+    <div class="container-fluid">
+        <!-- No Header Card -->
+        <div class="block-header">
+            <h2>ELECTION DETAILS <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#defaultModal3" style="margin-left: 2%;">
+                <i class="material-icons">add</i>
+                <span>Arrange Election</span>
+            </button></h2>
+            
+            
+
+            <!-- <button (click)="addmeeting()">Add meeting</button> -->
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <a href="" data-toggle="modal" data-target="#defaultModal4" style="text-decoration: none;"><div class="card">
+                    <div class="body bg-red">
+                        Past Election Details
+                    </div>
+                </div>
+            </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <a href=""data-toggle="modal" data-target="#defaultModal" style="text-decoration: none;"><div class="card">
+                    <div class="body bg-orange">
+                        Upcoming Election Details
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+        <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="defaultModalLabel">Election Details</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="body">
+                            <div class="row clearfix">
+                              <div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12">
+                                <div
+                                  class="panel-group"
+                                  id="accordion_1"
+                                  role="tablist"
+                                  aria-multiselectable="true"
+                                >
+                                  <div
+                                    class="panel panel-primary"
+                                    *ngFor="let item of electionDetail"
+                                  >
+                                    <div class="panel-heading" role="tab" id="headingTwo_1">
+                                      <h4 class="panel-title">
+                                        <a
+                                          class="collapsed"
+                                          role="button"
+                                          data-toggle="collapse"
+                                          data-parent="#accordion_1"
+                                          [href]="'#' + item.id"
+                                          aria-expanded="false"
+                                          aria-controls="collapseTwo_1"
+                                        >
+                                          Start Date : {{ item.electionDate }}<br><br>
+                                          End Date : {{ item.endDate }}
+                                        </a>
+                                      </h4>
+                                    </div>
+                                    <div
+                                      [id]="item.id"
+                                      class="panel-collapse collapse"
+                                      role="tabpanel"
+                                      aria-labelledby="headingTwo_1"
+                                    ><br>&nbsp;&nbsp;
+
+                                    Election Heading :  {{ item.electionName }}
+                                    
+                                    <br><br>    <button
+                                          class="btn btn-success waves-effect"
+                                          style="margin-left: 5%; margin-bottom: 5%;"
+                                          data-target="#defaultModal2"
+                                          data-toggle="modal"
+                                          (click) = getDetails(item)
+                                        >
+                                          Edit-Details
+                                </button>&nbsp;&nbsp;
+
+                                <button
+                                class="btn btn-danger waves-effect"
+                                style="margin-left: 5%; margin-bottom: 5%;"
+                                data-target="#defaultModal5"
+                                data-toggle="modal"
+                                (click) = getDetails(item)
+                              >
+                                Delete
+                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="defaultModal2" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title" id="defaultModalLabel">Update Election Details</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form #updateEleForm="ngForm" (ngSubmit)="updateEleDetails(updateEleForm.value)">
+                      <div class="row clearfix">
+                        <div class="col-sm-12">
+                            
+                          <div class="form-group">
+                            <div class="form-line">
+                              <label for="contact">Election Heading</label>
+                              <input
+                                type="text"
+                                title="Only Characters are allowed"
+                                required
+                                class="form-control"
+                                placeholder="Enter Election Heading"
+                                [(ngModel)] = "electionName"
+                                name="electioname"
+                                ngModel
+                                #electioname="ngModel"
+                              />
+                            </div>
+                                          <span *ngIf="!electioname.value && electioname.touched" style="color:red; font-size:2; text-align:center;">Election Heading Field Must be Filled</span>
+                          </div>
+
+                          <div class="form-group">
+                            <div class="form-line">
+                                <label>Start Date</label>
+                              <input
+                                type="date"
+                                class="form-control"
+                                placeholder="Enter Date"
+                                title="Only Numbers are allowed"
+                                required
+                                [(ngModel)] = "eleDate"
+                                name="eledate"
+                              ngmodel
+                              #eledate="ngModel"
+                              />
+                              
+                          {{ eleDate }}
+                            </div>
+                          <span *ngIf="!eledate.value && eledate.touched" style="color:red; font-size:2; text-align:center;">Start Date Must be Selected</span>
+                        </div>
+  
+                        
+                        <div class="form-group">
+                          <div class="form-line">
+                              <label>End Date</label>
+                            <input
+                              type="date"
+                              class="form-control"
+                              placeholder="Enter End Date"
+                              title="Only Numbers are allowed"
+                              required
+                              [(ngModel)] = "endDate"
+                              name="enddate"
+                            ngmodel
+                            #enddate="ngModel"
+                            />
+                            {{ endDate }}
+                          </div>
+                        <span *ngIf="!enddate.value && enddate.touched" style="color:red; font-size:2; text-align:center;">End Date Must be Selected</span>
+                            </div>
+  
+
+          <p style="color : red; text-align: center; font-size:medium">{{ err }}</p>  
+                          <!-- <div v-if="error !== ''" class="alert alert-danger">{{ error }}</div> -->
+                          <br />
+                          <button type="submit" class="btn btn-success waves-effect m-r-20" [disabled] = "updateEleForm.invalid">Edit</button>
+                          <button type="button" class="btn bg-red waves-effect" data-dismiss="modal">Cancel</button>
+                        </div>
+                      </div>
+                    </form>
+            
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="modal fade" id="defaultModal3" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel">Add Election Details</h4>
+                </div>
+                <div class="modal-body">
+                  <form #addEleForm="ngForm" (ngSubmit)="addEleDetails(addEleForm.value)">
+                    <div class="row clearfix">
+                      <div class="col-sm-12">
+                          
+                        <div class="form-group">
+                          <div class="form-line">
+                            <label for="contact">Election Heading</label>
+                            <input
+                              type="text"
+                              title="Only Characters are allowed"
+                              required
+                              class="form-control"
+                              placeholder="Enter Election Heading"
+                              [(ngModel)] = "electionName"
+                              name="electioname"
+                              ngModel
+                              #electioname="ngModel"
+                            />
+                          </div>
+                                        <span *ngIf="!electioname.value && electioname.touched" style="color:red; font-size:2; text-align:center;">Election Heading Field Must be Filled</span>
+                        </div>
+                         
+                        <div class="form-group">
+                          <div class="form-line">
+                              <label>Start Date</label>
+                            <input
+                              type="date"
+                              class="form-control"
+                              placeholder="Enter Date"
+                              title="Only Numbers are allowed"
+                              required
+                              [(ngModel)] = "eleDate"
+                              name="eledate"
+                            ngmodel
+                            #eledate="ngModel"
+                            />
+                          </div>
+                        
+                        <span *ngIf="!eledate.value && eledate.touched" style="color:red; font-size:2; text-align:center;">Start Date Must be Selected</span>
+                      </div>
+
+                      
+                      <div class="form-group">
+                        <div class="form-line">
+                            <label>End Date</label>
+                          <input
+                            type="date"
+                            class="form-control"
+                            placeholder="Enter End Date"
+                            title="Only Numbers are allowed"
+                            required
+                            [(ngModel)] = "endDate"
+                            name="enddate"
+                          ngmodel
+                          #enddate="ngModel"
+                          />
+                        </div>
+                      <span *ngIf="!enddate.value && enddate.touched" style="color:red; font-size:2; text-align:center;">End Date Must be Selected</span>
+                          </div>
+
+        <p style="color : red; text-align: center; font-size:medium">{{ err }}</p>  
+                        <!-- <div v-if="error !== ''" class="alert alert-danger">{{ error }}</div> -->
+                        <br />
+                        <button type="submit" class="btn btn-success waves-effect m-r-20" [disabled] = "addEleForm.invalid">Add</button>
+                        <button type="button" class="btn bg-red waves-effect" data-dismiss="modal">Cancel</button>
+                      </div>
+                    </div>
+                  </form>
+          
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="defaultModal4" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title" id="defaultModalLabel">Election Details</h4>
+              </div>
+              <div class="modal-body">
+                  <div class="body">
+                      <div class="row clearfix">
+                        <div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12">
+                          <div
+                            class="panel-group"
+                            id="accordion_1"
+                            role="tablist"
+                            aria-multiselectable="true"
+                          >
+                            <div
+                              class="panel panel-primary"
+                              *ngFor="let item of electionList"
+                            >
+                              <div class="panel-heading" role="tab" id="headingOne_1">
+                                <h4 class="panel-title">
+                                  <a
+                                    class="collapsed"
+                                    role="button"
+                                    data-toggle="collapse"
+                                    data-parent="#accordion_2"
+                                    [href]="'#' + item.electionId + '_1'"
+                                    aria-expanded="false"
+                                    aria-controls="collapseOne_1"
+                                  >
+                                    Start Date : {{ item.electionDate }}<br><br>
+                                    End Date : {{ item.endDate }}
+                                  </a>
+                                </h4>
+                              </div>
+                              <div
+                                [id]="item.electionId+'_1'"
+                                class="panel-collapse collapse"
+                                role="tabpanel"
+                                aria-labelledby="headingOne_1"
+                              ><br>&nbsp;&nbsp;
+
+                              Election Heading :  {{ item.electionName }}
+                              
+                              <br><br>    <a [href]="'dashboard/election/pastelection/viewresults?electionId=' + item.electionId"
+                                    class="btn btn-success waves-effect"
+                                    style="margin-left: 5%; margin-bottom: 5%;"
+                                    
+                                  >
+                                    View-Details
+                            </a>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="modal fade" id="defaultModal5" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="defaultModalLabel">Confirmation Message</h4>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to cancel the election ?
+            </div>
+            <div class="modal-footer">
+                        <button type="submit" class="btn btn-success waves-effect m-r-20" (click)="updateStatus()">Yes</button>
+                        <button type="button" class="btn bg-red waves-effect" data-dismiss="modal">No</button>
+                      </div>
+        </div>
+    </div>
+</div>
+        <!-- #END# No Header Card -->
+    </div>
+</section>

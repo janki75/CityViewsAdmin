@@ -15,7 +15,7 @@ export class PastmeetingComponent implements OnInit {
   meeting_arr:meeting[]=[];
   arr : any[] = [];
   i : number;
-
+msg:string = "No records are there!!";
   displayedColumns: string[] = ['agenda', 'topic', 'minutesOfMeeting', 'startTime' , 'endTime','action'];
   dataSource = new MatTableDataSource;
 

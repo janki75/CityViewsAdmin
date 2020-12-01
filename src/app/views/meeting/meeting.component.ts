@@ -13,11 +13,7 @@ export class MeetingComponent implements OnInit {
   constructor(public _route:Router,public _meetingserv:MeetingService) { }
 
   ngOnInit() {
-    this._meetingserv.getMeetingById(2).subscribe(
-      (data:any)=>{
-        console.log(data);
-      }
-    );
+    
   }
   addmeeting()
   {

@@ -39,5 +39,11 @@ upcomingmeeting_url:string="http://localhost:8081/adminportal/meeting/upcoming/"
   {
    return this._http.get(this.upcomingmeeting_url);
   }
+deletemeeting(id)
+{
+  let body=JSON.stringify("");
+  let head1=new HttpHeaders().set('Content-Type','application/json');
 
+  return this._http.put(this.add_meeting_url+id+"/inactive",body,{headers:head1});
+}
 }

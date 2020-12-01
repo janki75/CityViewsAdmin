@@ -1,0 +1,126 @@
+<app-header></app-header>
+<section class="content">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="header">
+          <h3>Update Salary Details</h3>
+        </div>
+        <div class="body">
+            <form #updateSalForm="ngForm" (ngSubmit)="updateSalDetails(updateSalForm.value)">
+                <div class="row clearfix">
+                  <div class="col-sm-12">
+                    
+                      <div class="form-group">
+                          <div class="form-line">
+                            <label for="empname">Employee Name</label>
+                            <input
+                              pattern="[a-zA-Z ]*"
+                              title="Only Characters are allowed"
+                              required
+                              type="text"
+                              class="form-control"
+                              placeholder="Enter Employee Name"
+                              [(ngModel)] = "empName"
+                              name="empname"
+                              ngmodel
+                              #empname="ngModel"
+                              disabled
+                            />
+                          </div>
+                                        <span *ngIf="empname.invalid && empname.touched && empname.value" style="color:red; font-size:2; text-align:center;"> Entered Name Is Invalid</span>
+                                        <span *ngIf="!empname.value && empname.touched" style="color:red; font-size:2; text-align:center;">Name Field Must be Filled</span>
+                        </div>
+
+                        
+                        <mat-form-field appearance="fill">
+                          <mat-label>Choose Employee</mat-label>
+                          <mat-select [(ngModel)]="Emp" name="emp">
+                            <mat-option *ngFor="let e of empDetail" [value]="e.employeeId">
+                              {{e.name + " - " + e.contact}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+
+                        <div class="form-group">
+                          <div class="form-line">
+                              <label for="contact">No. Of Leaves</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Enter no. of leaves"
+                              pattern="[0-9]*"
+                              title="Only Numbers are allowed"
+                              required
+                              [(ngModel)] = "Leaves"
+                              name="leaves"
+                            ngmodel
+                            #leaves="ngModel"
+                            (input)="onSearchChange($event.target.value)"
+                            />
+                          </div>
+                        <span *ngIf="leaves.invalid && leaves.touched && leaves.value" style="color:red; font-size:2; text-align:center;"> Entered No. of leaves Is Invalid</span>
+                        <span *ngIf="!leaves.value && leaves.touched" style="color:red; font-size:2; text-align:center;">No. of leaves Field Must be Filled</span>
+      
+                      </div>
+                
+
+                    <div class="form-group">
+                        <div class="form-line">
+                            <label for="contact">Amount</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Enter Amount"
+                            pattern="[0-9]*"
+                            title="Only Numbers are allowed"
+                            required
+                            [(ngModel)] = "Amt"
+                            name="amt"
+                          ngmodel
+                          #amt="ngModel"
+                          disabled
+                          />
+                        </div>
+                      <span *ngIf="amt.invalid && amt.touched && amt.value" style="color:red; font-size:2; text-align:center;"> Entered Amount Is Invalid</span>
+                      <span *ngIf="!amt.value && amt.touched" style="color:red; font-size:2; text-align:center;">Amount Field Must be Filled</span>
+    
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                      <div class="form-line">
+                          <label>Date</label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          placeholder="Enter Date"
+                          title="Only Numbers are allowed"
+                          required
+                          [(ngModel)] = "salDate"
+                          name="saldate"
+                        ngmodel
+                        #saldate="ngModel"
+                        (input)="onSearchDate($event.target.value)"
+                        />
+                        {{ salDate }}
+                      </div>
+                    <span *ngIf="!saldate.value && saldate.touched" style="color:red; font-size:2; text-align:center;">Date Must be Selected</span>
+                        </div>
+                      
+                     
+                      
+                      
+                  <p style="color : red; text-align: center; font-size:medium">{{ err }}</p>  
+                    <!-- <div v-if="error !== ''" class="alert alert-danger">{{ error }}</div> -->
+                    <br />
+                    <button type="submit" class="btn btn-success waves-effect m-r-20" [disabled] = "updateSalForm.invalid">Edit</button>
+                    <button type="button" class="btn bg-red waves-effect" (click)="goBack()">Cancel</button>
+                  </div>
+                </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </section>
+

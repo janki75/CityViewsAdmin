@@ -7,7 +7,7 @@
             <h2>MEETING DETAILS <button type="button" class="btn bg-indigo waves-effect" (click)="addmeeting()" style="margin-left: 2%;">
                 <i class="material-icons">add</i>
                 <span>Arrange Meeting</span>
-            </button></h2><br><br>
+            </button></h2>
             
 
             <!-- <button (click)="addmeeting()">Add meeting</button> -->
@@ -16,7 +16,7 @@
         <br>
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <a href="/dashboard/meeting/pastmeeting" style="text-decoration: none;"><div class="card">
+                <a routerLink="/dashboard/meeting/pastmeeting" style="text-decoration: none;"><div class="card">
                     <div class="body bg-red">
                         Past Meeting Details
                     </div>
@@ -24,7 +24,7 @@
             </a>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <a href="/dashboard/meeting/upcomingmeeting" style="text-decoration: none;"><div class="card">
+                <a routerLink="/dashboard/meeting/upcomingmeeting" style="text-decoration: none;"><div class="card">
                     <div class="body bg-orange">
                         Upcoming Meeting Details
                     </div>

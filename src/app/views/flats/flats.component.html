@@ -1,0 +1,219 @@
+<app-header></app-header>
+
+<section class="content">
+    <div class="container-fluid">
+        <!-- No Header Card -->
+
+        <div class="container-fluid">
+          <div class="block-header">
+
+
+          </div>
+
+          <div class="card">
+            <div class="header">
+              <h2>FLATS <button type="button" class="btn bg-indigo waves-effect" (click)="addflats()" style="margin-left: 2%;">
+                <i class="material-icons">add</i>
+                <span>ADD FLATS</span>
+            </button></h2>
+
+            </div>
+            <div class="body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" data-toggle="tab" aria-expanded="true">ALL FLATS</a></li>
+                    <li role="presentation" class=""><a href="#profile" data-toggle="tab" aria-expanded="false">OCCUPIED FLATS</a></li>
+                    <li role="presentation" class=""><a href="#messages" data-toggle="tab" aria-expanded="false">NOT-OCCUPIED FLATS</a></li>
+
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade active in" id="home">
+                      <br>
+                       <!-- <div align="end">
+          </div>
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+          </mat-form-field>
+
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort  width="100%">
+           <ng-container matColumnDef="flatNo">
+              <th mat-header-cell *matHeaderCellDef> Flat No </th>
+              <td mat-cell *matCellDef="let element">  {{element.flatNo}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="bhk">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>BHK</th>
+              <td mat-cell *matCellDef="let element"> {{element.bhk}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="parkingSlot">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Parking Slot</th>
+              <td mat-cell *matCellDef="let element"> {{element.parkingSlot}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="occupied">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Occupied/Not Occupied</th>
+              <td mat-cell *matCellDef="let element"> {{element.occupied}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="ownerName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Flat Owner</th>
+              <td mat-cell *matCellDef="let element"> {{element.ownerName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef>Actions</th>
+
+              <td mat-cell *matCellDef="let element">
+
+                <button type="button" class="btn bg-cyan waves-effect">Edit Flat</button>&nbsp;
+                <button type="button" class="btn bg-lime waves-effect">View Owner Details</button>&nbsp;
+                <button type="button" class="btn bg-red waves-effect">Not Occupied</button>&nbsp;
+                <button type="button" class="btn bg-amber waves-effect">Assign Owner To Flat</button>
+
+              </td>
+
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table> -->
+
+          <div class="card">
+            <div class="header">
+                <h2>FLAT DETAILS</h2>
+
+            </div>
+            <div class="body">
+                <div class="table-responsive">
+                    <table class="table table-hover dashboard-task-infos">
+                        <thead>
+                            <tr>
+                                <th>Flat No</th>
+                                <th>Bhk</th>
+                                <th>Parking Slot</th>
+                                <th>Occupied/Not-Occupied</th>
+                                <th>Flat Owner</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of flat_arr">
+                                <td>{{item.flatNo}}</td>
+                                <td>{{item.bhk}}</td>
+                                <td>{{item.parkingSlot}}</td>
+                                <td >
+                                  <div *ngIf="item.occupied==true">
+                                    <span class="label bg-green">Occupied</span>
+                                  </div>
+                                  <div *ngIf="item.occupied==false">
+                                    <span class="label bg-red">Not-Occupied</span>
+                                  </div>
+                                </td>
+
+                                <td>{{item.ownerName}}</td>
+                                <td>
+                                  <button (click)="onedit(item.flatId)" type="button" class="btn bg-cyan waves-effect">Edit Flat Detail</button>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="profile">
+                        <br>
+                        <div class="card">
+                            <div class="header">
+                                <h2>OCCUPIED FLAT DETAILS</h2>
+
+                            </div>
+                            <div class="body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover dashboard-task-infos">
+                                        <thead>
+                                            <tr>
+                                                <th>Flat No</th>
+                                                <th>Bhk</th>
+                                                <th>Parking Slot</th>
+                                                <th>Flat Owner</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of occupied">
+                                                <td>{{item.flatNo}}</td>
+                                                <td>{{item.bhk}}</td>
+                                                <td>{{item.parkingSlot}}</td>
+                                                <td>{{item.ownerName}}</td>
+                                                <td>
+                                                    <button type="button" (click)="onview(item.ownerId)" class="btn bg-lime waves-effect">View Owner Details</button>&nbsp;
+                                                    <button type="button" (click)="onnotoccupied(item.flatId)"class="btn bg-red waves-effect">Not Occupied</button>&nbsp;
+                                                </td>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="messages">
+                      <br>
+                      <div class="card">
+                          <div class="header">
+                              <h2>VACANT FLAT DETAILS</h2>
+
+                          </div>
+                          <div class="body">
+                              <div class="table-responsive">
+                                  <table class="table table-hover dashboard-task-infos">
+                                      <thead>
+                                          <tr>
+                                              <th>Flat No</th>
+                                              <th>Bhk</th>
+                                              <th>Parking Slot</th>
+
+                                              <th>Action</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr *ngFor="let item of vacant">
+                                              <td>{{item.flatNo}}</td>
+                                              <td>{{item.bhk}}</td>
+                                              <td>{{item.parkingSlot}}</td>
+
+                                              <td>
+                                                <button (click)="onassign(item.flatId)" type="button" class="btn bg-amber waves-effect">Assign Owner To Flat</button>
+                                              </td>
+                                          </tr>
+
+
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+      </div>
+
+        </div>
+        <!-- #END# No Header Card -->
+
+</section>

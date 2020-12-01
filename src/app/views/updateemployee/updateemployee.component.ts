@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
-import { of } from 'rxjs';
 import { EmployeeService } from '../../services/employee.service';
 
 interface Food {
@@ -26,6 +25,7 @@ err:string;
 posId:number;
 empposId:number;
 active:boolean;
+Position:any;
   constructor(private employee:EmployeeService,private route:ActivatedRoute,private router : Router) { }
 
   ngOnInit() {
@@ -71,8 +71,6 @@ active:boolean;
         active : this.active
     }
 
-    console.log(data1);
-    
     this.employee.updateEmpDetails(data1)
     .subscribe((res) => {
 

@@ -24,6 +24,7 @@ export class EmployeeComponent implements OnInit {
   emplist: any = [];
   mobile:number;
   err:string="";
+  msg:string="No records are there!!";
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 

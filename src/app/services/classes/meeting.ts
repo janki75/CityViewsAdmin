@@ -8,7 +8,8 @@ export class meeting
         public endTime:string,
         public topic:string,
         public agenda:string,
-        public minutesOfMeeting:string
+        public minutesOfMeeting:string,
+        public active:boolean
 
 ){}
 }
