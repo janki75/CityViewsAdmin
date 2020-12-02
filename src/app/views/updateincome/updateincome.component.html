@@ -1,0 +1,87 @@
+<app-header></app-header>
+<section class="content">
+    <div class="container-fluid">
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                 <b>   Update Income </b>
+                </h2>
+
+            </div>
+            <div class="body">
+                <form mamthod="POST" #editincomeform="ngForm" >
+                    <label for="name">Name</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input pattern="[a-zA-Z ]*" #n="ngModel" required id="name" name="name" [(ngModel)]="name" type="text" id="name" class="form-control" placeholder="Enter Name">
+                        </div>
+                        <span *ngIf="n.invalid && n.touched && n.value" style="color:red; font-size:2; text-align:center;"> *Please Enter a Valid Name </span>
+                    </div>
+
+                    <label for="name">Current Date</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input readonly #n="ngModel" required id="date" name="date" [(ngModel)]="currentdate" type="text" class="form-control" placeholder="Current Date">
+                        </div>
+                    </div>
+                  
+                    <label for="name">New Date</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                        <mat-form-field appearance="fill">
+                            <mat-label for="date">New Date</mat-label>
+                            <input  matInput [matDatepicker]="picker" #dt="ngModel" [min]="mindate" required name="date" [(ngModel)]="date"  [value]="date" id="date" class="form-control">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>    
+                        </div>
+                        <div [hidden]="dt.valid || dt.untouched">
+                            <div [hidden]="!dt.errors?.required"  class="text-danger">
+                                  <font size=2>*Date is a mandotory field</font>
+                            </div>
+                        </div>
+                        <p style="color: red; font-size: large; text-align: center;">{{ datebooked }}</p>
+                    </div>
+ 
+                    <label for="amount">Amount</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input #amt="ngModel" pattern="[0-9]*" required name="amount" [(ngModel)]="amount" type="text" id="amount" class="form-control" placeholder="Enter Amount">
+                        </div>
+                        <span *ngIf="amt.invalid && amt.touched && amt.value" style="color:red; font-size:2; text-align:center;"> *Please Enter a Valid Amount </span>
+                    </div>
+                    <label for="contactNo">Contact Number</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input #num="ngModel" required maxlength="10" minlength="10" pattern="[0-9]*" name="contactNo" [(ngModel)]="contactNo" type="text" id="contactNo" class="form-control" placeholder="Enter Contact Number">
+                        </div>
+
+                        <span *ngIf="num.invalid && num.touched && num.value" style="color:red; font-size:2; text-align:center;"> *Please Enter a Valid Contact Number </span>
+
+                    </div>
+
+                    <label for="reason">Reason</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <input required #rea="ngModel" name="reason" [(ngModel)]="reason" type="text" id="reason" class="form-control" placeholder="Enter Reason">
+                        </div>
+                        <div [hidden]="rea.valid || rea.untouched">
+                            <div [hidden]="!rea.errors?.required"  class="text-danger">
+                                  <font size=2>*Reason is a mandotory field</font>
+                                </div>
+                               </div>
+                    </div>
+
+
+                    <br>
+                    <button [disabled] = "editincomeform.invalid" (click)="updateItem()" type="button" class="btn btn-primary m-t-15 waves-effect">Update Income Details</button>
+                    <button (click)="goBack()" type="button" class="btn btn-accent m-t-15 waves-effect">Cancel</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</section>

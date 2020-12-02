@@ -19,7 +19,10 @@ import {
   MatInputModule,
   MatSortModule,
   MatPaginator,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MAT_DATE_LOCALE,
 } from "@angular/material";
 import { EditmeetingComponent } from './views/editmeeting/editmeeting.component';
 import { ComplaintComponent } from './views/complaint/complaint.component';
@@ -31,6 +34,9 @@ import { UpdateemployeeComponent } from './views/updateemployee/updateemployee.c
 import {MatSelectModule} from '@angular/material/select';
 import { AddemployeeComponent } from './views/addemployee/addemployee.component';
 import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/editupcomingmeetings.component';
+import { IncomeComponent } from './views/income/income.component';
+import { UpdateincomeComponent } from './views/updateincome/updateincome.component';
+import { AddincomeComponent } from './views/addincome/addincome.component';
 import { FlatsComponent } from './views/flats/flats.component';
 import { AddflatsComponent } from './views/addflats/addflats.component';
 import { ExpenseComponent } from './views/expense/expense.component';
@@ -60,8 +66,6 @@ import { ElectionpositionComponent } from './views/electionposition/electionposi
 import { AddelectionpositionComponent } from './views/addelectionposition/addelectionposition.component';
 import { EditelectionpositionComponent } from './views/editelectionposition/editelectionposition.component';
 import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelection.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
 import { ViewresultsComponent } from './views/viewresults/viewresults.component';
 import { LoginComponent } from './views/login/login.component';
 
@@ -82,6 +86,9 @@ import { LoginComponent } from './views/login/login.component';
     UpdateemployeeComponent,
     AddemployeeComponent,
     EditupcomingmeetingsComponent,
+    IncomeComponent,
+    UpdateincomeComponent,
+    AddincomeComponent,
     FlatsComponent,
     AddflatsComponent,
     ExpenseComponent,
@@ -136,9 +143,12 @@ import { LoginComponent } from './views/login/login.component';
   MatSelectModule,
   MatPaginatorModule,
   MatDatepickerModule,
+  MatNativeDateModule,
+  ],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
   MatNativeDateModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

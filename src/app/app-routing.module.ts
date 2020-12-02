@@ -16,6 +16,9 @@ import { EmployeeComponent } from './views/employee/employee.component';
 import { UpdateemployeeComponent } from './views/updateemployee/updateemployee.component';
 import { AddemployeeComponent } from './views/addemployee/addemployee.component';
 import { EditupcomingmeetingsComponent } from './views/editupcomingmeetings/editupcomingmeetings.component';
+import { IncomeComponent } from "./views/income/income.component";
+import { UpdateincomeComponent } from './views/updateincome/updateincome.component';
+import { AddincomeComponent } from './views/addincome/addincome.component';
 import { FlatsComponent } from './views/flats/flats.component';
 import { AddflatsComponent } from './views/addflats/addflats.component';
 import { ExpenseComponent } from './views/expense/expense.component';
@@ -129,6 +132,18 @@ component:FlatOwnerDetailsComponent
     {
       path: "dashboard/employee/addemployee",
       component:AddemployeeComponent
+    },
+    {
+      path: "dashboard/income",
+      component:IncomeComponent
+    },
+    {
+      path: "dashboard/income/updateincome/:id",
+      component: UpdateincomeComponent
+    },
+    {
+      path: "dashboard/income/addincome",
+      component:AddincomeComponent
     },
     {
       path: "dashboard/expenses",

@@ -17,7 +17,7 @@ export class EmployeeComponent implements OnInit {
     "contact",
     "address",
     "position",
-    "active",
+    "active", 
     "action",
   ];
   dataSource = new MatTableDataSource();
