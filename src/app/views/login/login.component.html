@@ -1,0 +1,66 @@
+
+<body class="login-page">
+    <div class="login-box">
+        <div class="logo">
+            <a href="javascript:void(0);"><b>CityViews</b></a>
+            <small>Appartment Management System</small>
+        </div>
+        <div class="card">
+            <div class="body">
+                <form #addForm="ngForm" id="sign_in" method="POST">
+                    <div class="msg">Sign in to start..</div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">person</i>
+                        </span>
+                        <div class="form-line">
+                            <input email #em="ngModel" [(ngModel)]="email" type="email" class="form-control" name="email" placeholder="email" required autofocus>
+                        </div>
+                        <div [hidden]="em.valid || em.untouched">
+                            <div [hidden]="!em.errors?.required"  class="text-danger">
+                                  <font size=2>*please enter Email</font>
+                                </div>
+                                <div [hidden]="!em.errors?.email"  class="text-danger">
+                                    <font size=2>*please enter valid Email</font>
+                                  </div>
+                               </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        <div class="form-line">
+                               
+                            <input minlength="8"  #pass="ngModel" [(ngModel)]="password" [type]="hide ? 'password' : 'text'"  class="form-control" name="password" placeholder="Password" required>
+                            <!-- <mat-icon style="color: white" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+                        </div>
+                        <div [hidden]="pass.valid || pass.untouched">
+                            <div [hidden]="!pass.errors?.required"  class="text-danger">
+                                  <font size=2>*please enter Password</font>
+                                </div>
+
+                                <div [hidden]="!pass.errors?.minlength"  class="text-danger">
+                                    <font size=2>* password must be of 8 characters</font>
+                                  </div>
+                               </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <button [disabled] = "addForm.invalid" (click)="onclick()" class="btn btn-block bg-pink waves-effect" type="submit">SIGN IN</button>
+                        </div>
+                    </div>
+                    <div class="row m-t-15 m-b--20">
+                        <div class="col-xs-6">
+                            <a href="sign-up.html">Register Now!</a>
+                        </div>
+                        <div class="col-xs-6 align-right">
+                            <a href="forgot-password.html">Forgot Password?</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
