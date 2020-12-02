@@ -45,12 +45,13 @@ import { EditelectionpositionComponent } from './views/editelectionposition/edit
 import { ElectionComponent } from './views/election/election.component';
 import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelection.component';
 import { ViewresultsComponent } from './views/viewresults/viewresults.component';
+import { LoginComponent } from './views/login/login.component';
 
 
 const routes: Routes = [
     {
       path:'',
-      component:HeaderComponent
+      component:LoginComponent
     },
     {
       path: "dashboard",

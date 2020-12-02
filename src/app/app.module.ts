@@ -63,6 +63,7 @@ import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelec
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { ViewresultsComponent } from './views/viewresults/viewresults.component';
+import { LoginComponent } from './views/login/login.component';
 
 @NgModule({
   declarations: [
@@ -112,7 +113,8 @@ import { ViewresultsComponent } from './views/viewresults/viewresults.component'
     ElectionpositionComponent,
     AddelectionpositionComponent,
     EditelectionpositionComponent,
-    ViewpastelectionComponent
+    ViewpastelectionComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
