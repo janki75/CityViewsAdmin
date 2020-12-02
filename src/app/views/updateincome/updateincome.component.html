@@ -11,7 +11,7 @@
 
             </div>
             <div class="body">
-                <form mamthod="POST" #editincomeform="ngForm" >
+                <form method="POST" #editincomeform="ngForm" >
                     <label for="name">Name</label>
                     <div class="form-group">
                         <div class="form-line">
@@ -23,7 +23,7 @@
                     <label for="name">Current Date</label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input readonly #n="ngModel" required id="date" name="date" [(ngModel)]="currentdate" type="text" class="form-control" placeholder="Current Date">
+                            <input readonly id="currentdate" name="currentdate" [(ngModel)]="currentdate" type="text" placeholder="Current Date" class="form-control">
                         </div>
                     </div>
                   
@@ -31,17 +31,16 @@
                     <div class="form-group">
                         <div class="form-line">
                         <mat-form-field appearance="fill">
-                            <mat-label for="date">New Date</mat-label>
-                            <input  matInput [matDatepicker]="picker" #dt="ngModel" [min]="mindate" required name="date" [(ngModel)]="date"  [value]="date" id="date" class="form-control">
+                            <input  matInput [matDatepicker]="picker" [min]="mindate" name="date" [(ngModel)]="date" [value]="date" id="date" class="form-control">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                       </mat-form-field>    
                         </div>
-                        <div [hidden]="dt.valid || dt.untouched">
+                        <!-- <div [hidden]="dt.valid || dt.untouched">
                             <div [hidden]="!dt.errors?.required"  class="text-danger">
                                   <font size=2>*Date is a mandotory field</font>
                             </div>
-                        </div>
+                        </div> -->
                         <p style="color: red; font-size: large; text-align: center;">{{ datebooked }}</p>
                     </div>
  
@@ -76,7 +75,7 @@
 
 
                     <br>
-                    <button [disabled] = "editincomeform.invalid" (click)="updateItem()" type="button" class="btn btn-primary m-t-15 waves-effect">Update Income Details</button>
+                    <button [disabled] = "!editincomeform.valid" (click)="updateItem()" type="button" class="btn btn-primary m-t-15 waves-effect">Update Income Details</button>
                     <button (click)="goBack()" type="button" class="btn btn-accent m-t-15 waves-effect">Cancel</button>
                   </form>
             </div>

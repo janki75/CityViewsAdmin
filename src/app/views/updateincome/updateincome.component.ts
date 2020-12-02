@@ -14,7 +14,7 @@ export class UpdateincomeComponent implements OnInit {
   incomeId:number;
   name:any;
   contactNo:any;
-  date:string;
+  date:string="";
   reason:any;
   amount:any;
   alldate:string[]=[];
@@ -37,24 +37,16 @@ export class UpdateincomeComponent implements OnInit {
           (data:income)=>{
             console.log(data);
             this.amount=data.amount; 
-            this.date=data.date;
+            //this.date=data.date;
             this.reason=data.reason;
             this.name=data.name;
             this.contactNo=data.contactNo;
+            this.currentdate=data.date;
           }
           );
         }
       );
 
-      var temp1 = new Date(new Date(this.date).setDate(new Date(this.date).getDate() + 1));
-      var dateadjusted1= temp1.toISOString();
-      var isodate1=dateadjusted1.substring(0,10);
-      var day= dateadjusted1.substring(8,10);
-      var month=dateadjusted1.substring(5,7);
-      var year=dateadjusted1.substring(4,0);
-      var finaldate1= day+"/"+month+"/"+year;
-      //console.log(finaldate1);
-      this.currentdate=finaldate1;
 
       this._incomeservice.getallincome().subscribe(
         (data:income[])=>{
@@ -95,6 +87,17 @@ export class UpdateincomeComponent implements OnInit {
 
 
     updateItem(){
+
+      if(this.date===""){
+        this._incomeservice.updateincomedetails(new income(this.incomeId,this.amount,this.name,this.currentdate,this.contactNo,this.reason)).subscribe(
+          (data:any)=>{
+            console.log(data)
+          }
+        );
+        alert("Income updated successfully!");
+        this._route.navigate(['/dashboard/income']);
+      }
+      else{
       var temp = new Date(new Date(this.date).setDate(new Date(this.date).getDate() + 1));
       console.log(temp);
       var dateadjusted= temp.toISOString();
@@ -128,6 +131,7 @@ export class UpdateincomeComponent implements OnInit {
         this.datebooked="Date Already Booked: Please select some other date";
         this.flag=0;
         
+      }
       }
     }
 

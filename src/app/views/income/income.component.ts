@@ -22,7 +22,7 @@ export class IncomeComponent implements OnInit {
     "action",
   ];
   dataSource = new MatTableDataSource();
-  incomelist: any = [];
+  incomelist:income[] = [];
   mobile:number;
   err:string="";
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -35,7 +35,7 @@ export class IncomeComponent implements OnInit {
     this.dataSource.sort = this.sort;
 
     this._incomeservice.getallincome()
-    .subscribe((res) => {
+    .subscribe((res:income[]) => {
       this.incomelist = res;
       
     if(this.incomelist.length > 0){
@@ -55,6 +55,19 @@ export class IncomeComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  deleteincome(element:income){
+    console.log(element.incomeId);
+    this._incomeservice.delincomedetails(element).subscribe(
+      (data:any)=>{
+        console.log(data);
+        this.incomelist.splice(this.incomelist.indexOf(element),1);
+        
+        this.dataSource.data=this.incomelist;
+        this.ngOnInit();
+        }
+      );
   }
 
   updateIncome(element:income)
