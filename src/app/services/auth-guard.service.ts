@@ -11,11 +11,9 @@ export class AuthGuardService {
 
 
   canActivate(route:ActivatedRouteSnapshot,state:RouterStateSnapshot):boolean{
-    if(localStorage.getItem('email')=="")
+    if(localStorage.getItem('ownerId')=="")
     {
-      alert('page not found');
-
-      // this._route.navigate(['pagenotfound'])
+   this._route.navigate(['']);
     }
     else{
       return true;
