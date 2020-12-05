@@ -32,5 +32,11 @@ export class IncomeService {
    
     return this._http.post(this.income_url,body,{headers:head1});
   }
+
+  delincomedetails(item){
+    let body=JSON.stringify(item);
+    let head1=new HttpHeaders().set('Content-Type','application/json');
+    return this._http.delete(this.income_url+item.incomeId,{headers:head1});
+  }
 }
  
