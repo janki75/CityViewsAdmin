@@ -67,6 +67,7 @@ import { AddelectionpositionComponent } from './views/addelectionposition/addele
 import { EditelectionpositionComponent } from './views/editelectionposition/editelectionposition.component';
 import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelection.component';
 import { ViewresultsComponent } from './views/viewresults/viewresults.component';
+import { LoginComponent } from './views/login/login.component';
 
 @NgModule({
   declarations: [
@@ -119,7 +120,8 @@ import { ViewresultsComponent } from './views/viewresults/viewresults.component'
     ElectionpositionComponent,
     AddelectionpositionComponent,
     EditelectionpositionComponent,
-    ViewpastelectionComponent
+    ViewpastelectionComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

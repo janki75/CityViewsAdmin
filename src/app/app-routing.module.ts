@@ -48,125 +48,155 @@ import { EditelectionpositionComponent } from './views/editelectionposition/edit
 import { ElectionComponent } from './views/election/election.component';
 import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelection.component';
 import { ViewresultsComponent } from './views/viewresults/viewresults.component';
+import { LoginComponent } from './views/login/login.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 const routes: Routes = [
     {
       path:'',
-      component:HeaderComponent
+      component:LoginComponent,
     },
     {
       path: "dashboard",
-      component: HeaderComponent
+      component: HeaderComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/meeting",
-      component: MeetingComponent
+      component: MeetingComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/meeting/pastmeeting",
-      component: PastmeetingComponent
+      component: PastmeetingComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/flats",
-      component: FlatsComponent
+      component: FlatsComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/flats/assignowner/:id",
-      component: AssignownertoflatComponent
+      component: AssignownertoflatComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/meeting/addflats",
-      component: AddflatsComponent
+      component: AddflatsComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/meeting/editflat/:id",
-      component: EditflatComponent
+      component: EditflatComponent,
+      canActivate:[AuthGuardService]
     },
     {
 path:"dashboard/flats/ownerdetail/:id",
-component:FlatOwnerDetailsComponent
+component:FlatOwnerDetailsComponent,
+canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/meeting/upcomingmeeting",
-      component: UpcomingmeetingComponent
+      component: UpcomingmeetingComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/meeting/addmeeting",
-      component: AddmeetingComponent
+      component: AddmeetingComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/meeting/editmeet/:id",
-      component: EditmeetingComponent
+      component: EditmeetingComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/meeting/editupcomingmeeting/:id",
-      component: EditupcomingmeetingsComponent
+      component: EditupcomingmeetingsComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/complaint",
-      component:ComplaintComponent
+      component:ComplaintComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/employeeposition",
-      component:ManageemployeepositionComponent
+      component:ManageemployeepositionComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path:'dashboard/employeeposition/editemployeeposition/:id',
-      component:EditemployeepositionComponent
+      component:EditemployeepositionComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path:'dashboard/employeeposition/addemployeepositionComponent',
-      component:AddemployeepositionComponent
+      component:AddemployeepositionComponent,
+      canActivate:[AuthGuardService]
 
     },
     {
       path: "dashboard/employee/updateemployee",
-      component:UpdateemployeeComponent
+      component:UpdateemployeeComponent,
+      canActivate:[AuthGuardService]
     },
   {
     path: "dashboard/employee",
-    component:EmployeeComponent
+    component:EmployeeComponent,
+    canActivate:[AuthGuardService]
   },
     {
       path: "dashboard/employee/addemployee",
-      component:AddemployeeComponent
+      component:AddemployeeComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/income",
-      component:IncomeComponent
+      component:IncomeComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/income/updateincome/:id",
-      component: UpdateincomeComponent
+      component: UpdateincomeComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/income/addincome",
-      component:AddincomeComponent
+      component:AddincomeComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/expenses",
-      component:ExpenseComponent
+      component:ExpenseComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/expenses/monthlyexpenses",
-      component:MonthlyexpenseComponent
+      component:MonthlyexpenseComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/expenses/monthlyexpenses/viewmonthlyexpenses",
-      component:ViewmonthlyexpenseComponent
+      component:ViewmonthlyexpenseComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/expenses/addexpense",
-      component:AddexpenseComponent
+      component:AddexpenseComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/expenses/yearlyexpenses",
-      component:ViewyearlyexpenseComponent
+      component:ViewyearlyexpenseComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/maintenance",
-      component:MaintenanceComponent
+      component:MaintenanceComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/addmaintenance",
@@ -174,72 +204,89 @@ component:FlatOwnerDetailsComponent
     },
     {
       path: "dashboard/editmaintenance/:id",
-      component:EditmaintenanceComponent
+      component:EditmaintenanceComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path:"dashboard/duemaintenance",
-      component:DuemaintenanceComponent
+      component:DuemaintenanceComponent,
+      canActivate:[AuthGuardService]
 
     },
     {
       path: "dashboard/funds",
-      component:FundsComponent
+      component:FundsComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/funds/addfund",
-      component:AddfundComponent
+      component:AddfundComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/funds/updatefund",
-      component:UpdatefundComponent
+      component:UpdatefundComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/owner",
-      component:OwnerComponent
+      component:OwnerComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/owner/addowner",
-      component:AddownerComponent
+      component:AddownerComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/salary",
-      component:SalaryComponent
+      component:SalaryComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/salary/addsalary",
-      component:AddsalaryComponent
+      component:AddsalaryComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/salary/viewmonthlysalary",
-      component:ViewmonthlysalaryComponent
+      component:ViewmonthlysalaryComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/salary/viewmonthlysalary/updatemonthlysalary",
-      component:UpdatemonthlysalaryComponent
+      component:UpdatemonthlysalaryComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/election",
-      component:ElectionComponent
+      component:ElectionComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/electionposition",
-      component:ElectionpositionComponent
+      component:ElectionpositionComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/electionposition/addelectionposition",
-      component:AddelectionpositionComponent
+      component:AddelectionpositionComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/electionposition/editelectionposition/:id",
-      component:EditelectionpositionComponent
+      component:EditelectionpositionComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/election/pastelection",
-      component:ViewpastelectionComponent
+      component:ViewpastelectionComponent,
+      canActivate:[AuthGuardService]
     },
     {
       path: "dashboard/election/pastelection/viewresults",
-      component:ViewresultsComponent
+      component:ViewresultsComponent,
+      canActivate:[AuthGuardService]
     }
 ];
 
