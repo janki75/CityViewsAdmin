@@ -64,8 +64,56 @@
                   >Inactive</span
                 >
               </td>
-            </ng-container>
 
+            </ng-container>
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+                ACTION
+              </th>
+              <td mat-cell *matCellDef="let row"><br>
+                <div>
+                  <button
+                  *ngIf="row.active == false"
+                    type="button"
+                    class="btn bg-cyan waves-effect"
+                    (click)="updateStatus(row)"
+                    
+                  >
+                    Active</button
+                  >
+                  
+                  <button
+                  *ngIf="row.active == true"
+                    type="button"
+                    class="btn bg-cyan waves-effect"
+                    disabled="true"
+                    
+                  >
+                    Active</button
+                  >&nbsp;&nbsp;
+                  <button
+                  *ngIf="row.active == false"
+                    type="button"
+                    class="btn bg-red waves-effect"
+                    data-toggle="modal"
+                
+                disabled="true"
+                  >
+                    Inactive
+                  </button>
+                  <button
+                  *ngIf="row.active == true"
+                    type="button"
+                    class="btn bg-red waves-effect"
+                    (click)="updateStatus1(row)"
+                    data-toggle="modal"
+                
+                  >
+                    Inactive
+                  </button>&nbsp;&nbsp;
+                </div>
+              </td>
+            </ng-container>
 
             <!-- Color Column -->
             

@@ -17,12 +17,15 @@ export class OwnerComponent implements OnInit {
     "contactNo",
     "dateOfPurchase",
     "email",
-    "active"
+    "active",
+    "action"
   ];
   dataSource = new MatTableDataSource();
   ownerlist: any = [];
+  owners: any = [];
   mobile:number;
   err:string="";
+  i:number=0;
   msg:string="No records are there!!";
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -37,8 +40,12 @@ export class OwnerComponent implements OnInit {
     .subscribe((res) => {
       this.ownerlist = res;
       
+      for(this.i=1;this.i<this.ownerlist.length;this.i++){
+        this.owners.push(this.ownerlist[this.i]);
+      }
+
     if(this.ownerlist.length > 0){
-      this.dataSource.data = this.ownerlist;
+      this.dataSource.data = this.owners;
     }
     
 
@@ -62,4 +69,38 @@ export class OwnerComponent implements OnInit {
      this.route.navigate(['dashboard/owner/addowner']);
    }
 
+   updateStatus(data){
+     const data1 = {
+       ownerId : data.id
+     }
+
+     this._owner.updateStatus(data1)
+     .subscribe((res) => {
+
+     })
+     this.route.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+    this.route.onSameUrlNavigation = "reload";
+    this.route.navigate(["/dashboard/owner"]);
+    location.reload();
+     
+   }
+
+   updateStatus1(data){
+     const data1 = {
+       ownerId : data.id
+     }
+
+     this._owner.updateStatus1(data1)
+     .subscribe((res) => {
+       
+     })
+     this.route.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+    this.route.onSameUrlNavigation = "reload";
+    this.route.navigate(["/dashboard/owner"]);
+    location.reload();
+  }
 }

@@ -24,4 +24,19 @@ export class OwnerService {
 
     return this._http.post(this.owner_url,body,{headers:head1});
   }
+
+  updateStatus(data){
+    let body=JSON.stringify(data);
+    let head1=new HttpHeaders().set('Content-Type','application/json');
+
+    return this._http.put(this.owner_url+data.ownerId+"/active",{headers:head1});
+  }
+
+  updateStatus1(data){
+    let body=JSON.stringify(data);
+    let head1=new HttpHeaders().set('Content-Type','application/json');
+
+    return this._http.put(this.owner_url+data.ownerId+"/inactive",{headers:head1});
+  }
+
 }
