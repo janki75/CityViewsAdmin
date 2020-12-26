@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   {
     if(this.email=='admin@gmail.com' && this.password=='admin@cityviews@123')
     {
+      localStorage.setItem('ownerId',0+"");
       this._route.navigate(['/dashboard']);
     }
     else{

@@ -12,6 +12,7 @@ import { complaint_Class } from '../../services/classes/complaint';
 
 
 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -28,7 +29,7 @@ meetingarr:meeting[]=[];
 comparr:complaint_Class[]=[];
 msg:string;
 compmsg:string;
-  constructor(private compser:ComplaintService, private flatser:FlatsService,private ownerser:OwnerService,private expenseser:ExpenseService,private incomeser:IncomeService,private meetingser:MeetingService) { }
+  constructor(private _route:Router, private compser:ComplaintService, private flatser:FlatsService,private ownerser:OwnerService,private expenseser:ExpenseService,private incomeser:IncomeService,private meetingser:MeetingService) { }
 
   ngOnInit() {
     this.ownerser.getAllOwner().subscribe(
@@ -133,4 +134,9 @@ compmsg:string;
   }
 
   
+  signOut()
+  {
+    localStorage.setItem('ownerId','');
+    this._route.navigate(['']);
+  }
 }

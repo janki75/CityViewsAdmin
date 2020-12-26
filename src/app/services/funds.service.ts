@@ -21,7 +21,7 @@ export class FundsService {
   }
 
   getFundDetailById(data){
-    return this._http.get(this.fund_url+"fetch/"+data);
+    return this._http.get(this.fund_url+"fetchbyelection/"+data);
   }
 
   addFundDetail(item){
