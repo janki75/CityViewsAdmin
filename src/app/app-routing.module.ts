@@ -44,7 +44,7 @@ import { AddsalaryComponent } from './views/addsalary/addsalary.component';
 import { ElectionpositionComponent } from './views/electionposition/electionposition.component';
 import { AddelectionpositionComponent } from './views/addelectionposition/addelectionposition.component';
 import { EditelectionpositionComponent } from './views/editelectionposition/editelectionposition.component';
-
+import { DashoardComponent } from './views/dashoard/dashoard.component';
 import { ElectionComponent } from './views/election/election.component';
 import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelection.component';
 import { ViewresultsComponent } from './views/viewresults/viewresults.component';
@@ -59,7 +59,7 @@ const routes: Routes = [
     },
     {
       path: "dashboard",
-      component: HeaderComponent,
+      component: DashoardComponent,
       canActivate:[AuthGuardService]
     },
     {

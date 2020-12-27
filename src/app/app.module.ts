@@ -68,6 +68,7 @@ import { EditelectionpositionComponent } from './views/editelectionposition/edit
 import { ViewpastelectionComponent } from './views/viewpastelection/viewpastelection.component';
 import { ViewresultsComponent } from './views/viewresults/viewresults.component';
 import { LoginComponent } from './views/login/login.component';
+import { DashoardComponent } from './views/dashoard/dashoard.component';
 
 @NgModule({
   declarations: [
@@ -121,7 +122,8 @@ import { LoginComponent } from './views/login/login.component';
     AddelectionpositionComponent,
     EditelectionpositionComponent,
     ViewpastelectionComponent,
-    LoginComponent
+    LoginComponent,
+    DashoardComponent
   ],
   imports: [
     BrowserModule,
