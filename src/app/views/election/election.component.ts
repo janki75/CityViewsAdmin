@@ -54,14 +54,12 @@ export class ElectionComponent implements OnInit {
          if(eleDate == day && eleMonth == month && eleYear == this.year)
          {
            this.currElection = this.eleresult[this.i].date + " - " + this.eleresult[this.i].electionName;        
-             
          }
         }
       }
-      if(this.currElection != ' '){
+      if(this.currElection != ''){
         alert('There is an election today!!!');
-      }
-
+    }
     })
 
   }
@@ -84,16 +82,16 @@ export class ElectionComponent implements OnInit {
     var month=new Date().getMonth()+1;
     this.year=new Date().getFullYear();
     this.finaltodaydt=day+"/"+month+"/"+this.year;
-    let startdate = new Date(this.eleDate);
-    let eleDate = startdate.getDate();
-    let eleMonth = startdate.getMonth()+1;
-    let eleYear = startdate.getFullYear();
+    let startdate = this.eleDate;
+    let eleDate = startdate.substring(0,2);
+       let eleMonth = startdate.substring(3,5);
+       let eleYear = startdate.substring(6,10);
     
-    let enddate = new Date(this.endDate);
-    let endDate = enddate.getDate();
-    let endMonth = enddate.getMonth()+1;
-    let endYear = enddate.getFullYear();
-
+       let enddate = this.endDate;
+       let endDate = enddate.substring(0,2);
+          let endMonth = enddate.substring(3,5);
+          let endYear = enddate.substring(6,10);
+       
       this.eleresult = res;
       for(this.i = 0;this.i<this.eleresult.length;this.i++){
 
