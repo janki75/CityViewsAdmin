@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./maintenance.component.css']
 })
 export class MaintenanceComponent implements OnInit {
-  displayedColumns: string[] = ['flat_id','amount','date','month','payment_mode','action'];
+  displayedColumns: string[] = ['flat_id','date','month','action'];
   dataSource = new MatTableDataSource();
   msg:string="";
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
