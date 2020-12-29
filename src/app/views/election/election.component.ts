@@ -159,6 +159,7 @@ export class ElectionComponent implements OnInit {
             this.ele.addElectionDetail(data1)
             .subscribe((res) => {
         
+    this.ngOnInit();
             })
             this.err = "Election is arranged successfully!!";
             }
