@@ -83,7 +83,7 @@ export class OwnerComponent implements OnInit {
     };
     this.route.onSameUrlNavigation = "reload";
     this.route.navigate(["/dashboard/owner"]);
-    location.reload();
+    
      
    }
 
@@ -101,6 +101,5 @@ export class OwnerComponent implements OnInit {
     };
     this.route.onSameUrlNavigation = "reload";
     this.route.navigate(["/dashboard/owner"]);
-    location.reload();
   }
 }
