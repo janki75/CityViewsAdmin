@@ -112,8 +112,8 @@ export class DashoardComponent implements OnInit {
            console.log(data);
            for(this.i=0;this.i<data.length;this.i++) 
           {
-            if(data[this.i].status===0||data[this.i].status===1){
-              this.comparr[this.i]=data[this.i];
+            if(data[this.i].status===0 || data[this.i].status===1){
+              this.comparr.push(data[this.i]);
             }
           }
            console.log(this.comparr);

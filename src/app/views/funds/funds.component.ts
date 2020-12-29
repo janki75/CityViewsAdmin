@@ -16,7 +16,6 @@ export class FundsComponent implements OnInit {
     "ownerName",
     "amount",
     "date",
-    "paymentMode",
     "reason",
     "action",
   ];

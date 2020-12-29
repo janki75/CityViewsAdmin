@@ -86,9 +86,10 @@ dataSource = new MatTableDataSource();
 
  updateExpDetails(data){
   let date = new Date(this.expDate);
-  let day = date.getDate();
-  let month = date.getMonth()+1;
-  let year = date.getFullYear();
+  console.log(this.expDate);
+  let day = this.expDate.substring(0,2);
+  let month = this.expDate.substring(3,5);
+  let year = this.expDate.substring(6,10);
   if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9){
     this.fullDate = "0" + day + "/" + month + "/" +year;
     
@@ -98,6 +99,7 @@ dataSource = new MatTableDataSource();
     this.fullDate = day + "/" + month + "/" +year;
     
   }
+  console.log(this.fullDate);
   const data1 = {
     amount : data.amt,
     date : this.fullDate,
@@ -106,16 +108,13 @@ dataSource = new MatTableDataSource();
   console.log(data1);
    this.exp.editExpense(data1,this.expenseId)
    .subscribe((res:any) => {
-    this.Amt = res.amount;
-    this.expDate = res.date;
-    this.expReason = res.reason;
    })
-   this.router.routeReuseStrategy.shouldReuseRoute = function () {
-    return false;
-  };
-  this.router.onSameUrlNavigation = "reload";
-  this.router.navigate(["/dashboard/manageEmployees"]);
-  location.reload();
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+     return false;
+   };
+   this.router.onSameUrlNavigation = "reload";
+   this.router.navigate(["/dashboard/manageEmployees"]);
+   location.reload();
    this.err="Expense details are updated successfully!!"
  }
 }
