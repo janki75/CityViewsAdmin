@@ -68,6 +68,12 @@ export class IncomeComponent implements OnInit {
         this.ngOnInit();
         }
       );
+      this._route.routeReuseStrategy.shouldReuseRoute = function () {
+        return false;
+      };
+      this._route.onSameUrlNavigation = "reload";
+      this._route.navigate(["/dashboard/income"]);
+      location.reload();
   }
 
   updateIncome(element:income)

@@ -9,10 +9,11 @@ import { MeetingService } from "../../services/meeting.service";
 import { ComplaintService } from "../../services/complaint.service";
 import { complaint_Class } from '../../services/classes/complaint';
 
+
 @Component({
   selector: 'app-dashoard',
   templateUrl: './dashoard.component.html',
-  styleUrls: ['./dashoard.component.css']
+  styleUrls: ['./dashoard.component.css'],
 })
 export class DashoardComponent implements OnInit {
   i:number;
@@ -24,6 +25,8 @@ export class DashoardComponent implements OnInit {
   comparr:complaint_Class[]=[];
   msg:string;
   compmsg:string;
+  strstatus:string;
+
     constructor(private compser:ComplaintService, private flatser:FlatsService,private ownerser:OwnerService,private expenseser:ExpenseService,private incomeser:IncomeService,private meetingser:MeetingService) { }
   
     ngOnInit() {
@@ -113,8 +116,9 @@ export class DashoardComponent implements OnInit {
            for(this.i=0;this.i<data.length;this.i++) 
           {
             if(data[this.i].status===0||data[this.i].status===1){
-              this.comparr[this.i]=data[this.i];
+              this.comparr.push(data[this.i]);
             }
+            
           }
            console.log(this.comparr);
           }
