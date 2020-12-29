@@ -80,10 +80,10 @@ sta:boolean=false;
 
       updateSalDetails(data){
         if(this.Emp != undefined){
-          let date = new Date(this.salDate);
-    let day = date.getDate();
-    let month = date.getMonth()+1;
-    let year = date.getFullYear();
+          let day = this.salDate.substring(0,2);
+          let month = this.salDate.substring(3,5);
+          let year = this.salDate.substring(6,10);
+          
     if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9){
       this.fulldate = "0" + day + "/" + month + "/" +year;
       
@@ -108,10 +108,10 @@ sta:boolean=false;
         }  
         
         if(this.Emp == undefined){
-          let date = new Date(this.salDate);
-    let day = date.getDate();
-    let month = date.getMonth()+1;
-    let year = date.getFullYear();
+          
+          let day = this.salDate.substring(0,2);
+          let month = this.salDate.substring(3,5);
+          let year = this.salDate.substring(6,10);
     if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9){
       this.fulldate = "0" + day + "/" + month + "/" +year;
       

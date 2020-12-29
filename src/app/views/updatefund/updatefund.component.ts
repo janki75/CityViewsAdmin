@@ -32,6 +32,7 @@ fulldate:any;
       if (this.fundId) {
         this.fund.getFundDetailById(this.fundId)
         .subscribe((res:any) => {
+          console.log(res);
           this.fundId=res.id;
            this.Amt = res.amount;
            this.fundDate =  res.date;
@@ -58,10 +59,9 @@ fulldate:any;
         
         if(this.Owner == null){
           this.fundOwnerId = this.ownerId;
-          let date = new Date(this.fundDate);
-    let day = date.getDate();
-    let month = date.getMonth()+1;
-    let year = date.getFullYear();
+          let day = this.fundDate.substring(0,2);
+          let month = this.fundDate.substring(3,5);
+          let year = this.fundDate.substring(6,10);
     if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9){
       this.fulldate = "0" + day + "/" + month + "/" +year;
       
@@ -91,10 +91,10 @@ fulldate:any;
         this.fund.getIdByOwnerName(this.Owner)
         .subscribe((res:any) => {
           this.fundOwnerId = res.id;
-          let date = new Date(this.fundDate);
-    let day = date.getDate();
-    let month = date.getMonth()+1;
-    let year = date.getFullYear();
+         
+          let day = this.fundDate.substring(0,2);
+          let month = this.fundDate.substring(3,5);
+          let year = this.fundDate.substring(6,10);
     if(day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9){
       this.fulldate = "0" + day + "/" + month + "/" +year;
       

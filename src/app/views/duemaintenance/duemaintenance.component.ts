@@ -34,7 +34,7 @@ msg:string="";
       }
     );
     let d=new Date();
-    let m=d.getMonth();
+    let m=d.getMonth()+1;
     if(m==1)
     {
       this.currmonth="January";
